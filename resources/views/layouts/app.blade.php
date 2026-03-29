@@ -18,6 +18,8 @@
         <!-- Bootstrap Icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
         <!-- Custom Style -->
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 

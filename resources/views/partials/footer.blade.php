@@ -52,39 +52,52 @@
         <div class="bg-light text-dark p-4 rounded-4 shadow">
           <h4 class="mb-4">Contact us</h4>
           
-
-          <label> Name</label>
-          <input type="text" class="form-control rounded-pill mb-3"
-                 placeholder="Your full name">
-          
-
-          <label> Mobile</label>
-          <input type="email" class="form-control rounded-pill mb-3"
-                 placeholder="Your Mobile Number">
+          <form id="footerContactForm">
+            @csrf
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Name</label>
+              <input type="text" name="name" class="form-control rounded-pill" placeholder="Your full name" required>
+              <span class="text-danger error-text name_error small"></span>
+            </div>
             
-
-             <label> Email</label>
-          <input type="text" class="form-control rounded-pill mb-3"
-                 placeholder="your@email.com">
-
-          <div class="row bbttmmm">
-            <div class="col">
-               <label> Class</label>
-               <input type="text" class="form-control rounded-pill"
-                      placeholder="Your class">
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Mobile</label>
+              <input type="text" name="mobile" class="form-control rounded-pill" placeholder="Your Mobile Number" required>
+              <span class="text-danger error-text mobile_error small"></span>
             </div>
-            <div class="col">
-               <label> Stream</label>
-               <input type="text" class="form-control rounded-pill"
-                      placeholder="Your Stream">
+            
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Email</label>
+              <input type="email" name="email" class="form-control rounded-pill" placeholder="your@email.com" required>
+              <span class="text-danger error-text email_error small"></span>
             </div>
+
+            <div class="row mb-3">
+              <div class="col">
+                 <label class="form-label small fw-bold">Class</label>
+                 <input type="text" name="class" class="form-control rounded-pill" placeholder="Your class" required>
+                 <span class="text-danger error-text class_error small"></span>
+              </div>
+              <div class="col">
+                 <label class="form-label small fw-bold">Stream</label>
+                 <input type="text" name="stream" class="form-control rounded-pill" placeholder="Your Stream" required>
+                 <span class="text-danger error-text stream_error small"></span>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label small fw-bold">Message (Optional)</label>
+              <textarea name="message" class="form-control rounded-4" rows="3" placeholder="Tell us more..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 rounded-pill py-2" id="submitBtn">
+              <i class="bi bi-send me-2"></i> SUBMIT HERE
+            </button>
+          </form>
+          
+          <div id="formSuccessMessage" class="alert alert-success mt-3 d-none rounded-4">
+             <i class="bi bi-check-circle-fill me-2"></i> Your request has been submitted successfully. We will contact you soon.
           </div>
-
-        
-
-          <button class="btn btn-primary w-100 rounded-pill py-2">
-            <i class="bi bi-send me-2"></i> SUBMIT HERE
-          </button>
         </div>
       </div>
 
@@ -290,9 +303,54 @@ counters.forEach(counter => {
 
 
 
+@push('scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-function closePopup() {
-  const popup = document.querySelector(".popup");
-  if(popup) popup.style.display = "none";
-}
+$(document).ready(function() {
+    $('#footerContactForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        let formData = $(this).serialize();
+        let $btn = $('#submitBtn');
+        let $form = $(this);
+        let $successMsg = $('#formSuccessMessage');
+        
+        // Reset errors
+        $('.error-text').text('');
+        $btn.prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-2"></span> Sending...');
+        
+        $.ajax({
+            url: "{{ route('contact.store') }}",
+            type: "POST",
+            data: formData,
+            success: function(response) {
+                if(response.success) {
+                    $form.trigger("reset");
+                    $form.addClass('d-none');
+                    $successMsg.removeClass('d-none');
+                    
+                    // Optional: Reset form after 5 seconds to allow another submission
+                    setTimeout(function() {
+                        $successMsg.addClass('d-none');
+                        $form.removeClass('d-none');
+                    }, 8000);
+                }
+            },
+            error: function(xhr) {
+                if(xhr.status === 422) {
+                    let errors = xhr.responseJSON.errors;
+                    $.each(errors, function(key, value) {
+                        $('.' + key + '_error').text(value[0]);
+                    });
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            },
+            complete: function() {
+                $btn.prop('disabled', false).html('<i class="bi bi-send me-2"></i> SUBMIT HERE');
+            }
+        });
+    });
+});
 </script>
+@endpush

@@ -44,25 +44,23 @@
     </div>
     @endrole
 
-    @can('manage pages')
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card stat-card">
             <div class="card-body d-flex align-items-center">
                 <div class="stat-icon mr-3" style="background:rgba(245,158,11,0.12);">
-                    <i class="fas fa-file-alt" style="color:#f59e0b;"></i>
+                    <i class="fas fa-blog" style="color:#f59e0b;"></i>
                 </div>
                 <div>
-                    <div class="stat-value">{{ \App\Models\Page::count() }}</div>
-                    <div class="stat-label">Dynamic Pages</div>
+                    <div class="stat-value">{{ \App\Models\Blog::count() }}</div>
+                    <div class="stat-label">Blog Posts</div>
                 </div>
             </div>
-            <a href="{{ route('admin.pages.index') }}" class="stat-footer d-flex justify-content-between align-items-center" style="color:#f59e0b;border-top:1px solid #f3f4f6;">
-                <span>Manage Pages</span>
+            <a href="{{ route('admin.blogs.index') }}" class="stat-footer d-flex justify-content-between align-items-center" style="color:#f59e0b;border-top:1px solid #f3f4f6;">
+                <span>Manage Blogs</span>
                 <i class="fas fa-arrow-right" style="font-size:0.7rem;"></i>
             </a>
         </div>
     </div>
-    @endcan
 
     @can('manage media')
     <div class="col-xl-3 col-md-6 mb-4">
@@ -105,12 +103,6 @@
                     Use the sidebar to navigate between sections.
                 </p>
                 <div class="d-flex gap-2 flex-wrap">
-                    <a href="{{ route('admin.content.home') }}" class="btn btn-sm" style="background:rgba(255,255,255,0.12);color:#fff;border-radius:10px;padding:8px 18px;border:1px solid rgba(255,255,255,0.15);">
-                        <i class="fas fa-home mr-1"></i> Edit Home Page
-                    </a>
-                    <a href="{{ route('admin.content.about') }}" class="btn btn-sm" style="background:rgba(255,255,255,0.12);color:#fff;border-radius:10px;padding:8px 18px;border:1px solid rgba(255,255,255,0.15);">
-                        <i class="fas fa-info-circle mr-1"></i> Edit About Us
-                    </a>
                     <a href="{{ url('/') }}" target="_blank" class="btn btn-sm" style="background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:10px;padding:8px 18px;border:none;">
                         <i class="fas fa-external-link-alt mr-1"></i> View Live Site
                     </a>
@@ -126,13 +118,13 @@
                 <h5 class="mb-0"><i class="fas fa-bolt mr-2" style="color:#f59e0b;"></i>Quick Actions</h5>
             </div>
             <div class="card-body p-3">
-                <a href="{{ route('admin.pages.create') }}" class="d-flex align-items-center p-3 mb-2 text-decoration-none" style="background:#f8f9fc;border-radius:12px;transition:all 0.2s;">
+                <a href="{{ route('admin.blogs.create') }}" class="d-flex align-items-center p-3 mb-2 text-decoration-none" style="background:#f8f9fc;border-radius:12px;transition:all 0.2s;">
                     <div style="width:38px;height:38px;border-radius:10px;background:rgba(102,126,234,0.1);display:flex;align-items:center;justify-content:center;margin-right:12px;flex-shrink:0;">
-                        <i class="fas fa-plus" style="color:#667eea;font-size:0.9rem;"></i>
+                        <i class="fas fa-pen" style="color:#667eea;font-size:0.9rem;"></i>
                     </div>
                     <div>
-                        <div style="font-weight:600;font-size:0.85rem;color:#1e2a4a;">New Page</div>
-                        <div style="font-size:0.75rem;color:#9ca3af;">Create a CMS page</div>
+                        <div style="font-weight:600;font-size:0.85rem;color:#1e2a4a;">New Blog Post</div>
+                        <div style="font-size:0.75rem;color:#9ca3af;">Write a new article</div>
                     </div>
                 </a>
                 <a href="{{ route('admin.media.index') }}" class="d-flex align-items-center p-3 mb-2 text-decoration-none" style="background:#f8f9fc;border-radius:12px;transition:all 0.2s;">

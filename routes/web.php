@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // ─── Frontend Pages ────────────────────────────────────────────────────────
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/reviews', [App\Http\Controllers\Admin\ReviewController::class, 'storeFrontend'])->name('reviews.storeFrontend');
 
 Route::get('/about-us', function () {
     return view('pages.about-us');
@@ -18,13 +19,11 @@ Route::get('/study-materials', function () {
     return view('pages.study-materials');
 })->name('study-materials');
 
-Route::get('/blog', function () {
-    return view('pages.blog');
-})->name('blog');
+Route::get('/blog', [\App\Http\Controllers\BlogFrontendController::class, 'index'])->name('blog');
+Route::get('/blog/{slug}', [\App\Http\Controllers\BlogFrontendController::class, 'show'])->name('blog.show');
 
-Route::get('/contact', function () {
-    return view('pages.home'); // Temporarily point to home if specific contact page is missing or just footer section
-})->name('contact');
+Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'index'])->name('contact');
+Route::post('/contact/store', [\App\Http\Controllers\HomeController::class, 'storeContact'])->name('contact.store');
 
 // ─── Auth Dashboard Redirect ────────────────────────────────────────────────
 Route::get('/dashboard', function () {

@@ -1,373 +1,248 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="container-fluid mob-fluid px-0">
-  @php
-    $slides = content('home', 'home_hero_slides', []);
-    
-    // Fallback if no slides but old single banner exists (Optional, but safer)
-    $laptopBanner = content('home', 'home_hero_banner_laptop');
-    $mobileBanner = content('home', 'home_hero_banner_mobile');
-    if(count($slides) == 0 && ($laptopBanner || $mobileBanner)) {
-        $slides = [[
-            'laptop' => $laptopBanner,
-            'mobile' => $mobileBanner,
-            'seo_title' => content('home', 'home_hero_banner_seo_title'),
-            'alt_tag' => content('home', 'home_hero_banner_alt')
-        ]];
-    }
-  @endphp
-
-  @if(count($slides) > 0)
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-      <div class="carousel-inner">
-        @foreach($slides as $index => $slide)
-          <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-            <div class="hero-banner-wrapper">
-              <picture>
-                @if(isset($slide['mobile']) && $slide['mobile'])
-                  <source media="(max-width: 767px)" srcset="{{ asset('storage/' . $slide['mobile']) }}">
-                @endif
-                
-                @if(isset($slide['laptop']) && $slide['laptop'])
-                  <img src="{{ asset('storage/' . $slide['laptop']) }}" 
-                       alt="{{ $slide['alt_tag'] ?? 'Newton Academy' }}" 
-                       title="{{ $slide['seo_title'] ?? 'Newton Academy Banner' }}" 
-                       class="d-block w-100 banner-img"
-                       style="width:100%">
-                @elseif(isset($slide['mobile']) && $slide['mobile'])
-                   {{-- Fallback to mobile if laptop is missing --}}
-                   <img src="{{ asset('storage/' . $slide['mobile']) }}" 
-                       alt="{{ $slide['alt_tag'] ?? 'Newton Academy' }}" 
-                       title="{{ $slide['seo_title'] ?? 'Newton Academy Banner' }}" 
-                       class="d-block w-100 banner-img"
-                       style="width:100%">
-                @else
-                   <img src="{{ asset('assets/images/1.jpg') }}" class="d-block w-100 banner-img" style="width:100%">
-                @endif
-              </picture>
-            </div>
-          </div>
-        @endforeach
-      </div>
-      @if(count($slides) > 1)
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      @endif
-    </div>
-  @else
-    {{-- Default static fallback banner --}}
-    <div class="hero-banner-wrapper">
-      <img src="{{ asset('assets/images/1.jpg') }}" alt="Newton Academy" class="d-block w-100 banner-img" style="width:100%">
-    </div>
-  @endif
+@if(session('success'))
+<div class="alert alert-success alert-dismissible fade show text-center rounded-0 mb-0" role="alert" style="z-index: 9999;">
+  <strong><i class="fas fa-check-circle me-2"></i> Success!</strong> {{ session('success') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+@endif
 
+  <div class="container-fluid mob-fluid">
 
-<section class="stats-section">
+    <!-- Carousel -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
+      @if(isset($banners) && $banners->count() > 1)
+      <!-- Indicators/dots -->
+      <div class="carousel-indicators">
+        @foreach($banners as $index => $banner)
+          <button type="button" data-bs-target="#demo" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></button>
+        @endforeach
+      </div>
+      @endif
 
-  <div class="container-fluid">
-    <div class="stats-mob">
-      <img src="{{ asset('assets/images/counting.png') }}">
-    </div>
-    
-  <div class="stats-box">
-    @php $stats = content('home', 'home_stats', [
-        ['num' => '5000', 'text' => 'STUDENTS'],
-        ['num' => '100', 'text' => 'FACULTY'],
-        ['num' => '250', 'text' => 'SELECTIONS'],
-        ['num' => '1000', 'text' => 'TESTS']
-    ]); @endphp
-    @foreach($stats as $stat)
-    <div class="stat-item">
-      <h2 class="counter" data-target="{{ $stat['num'] ?? '0' }}">0</h2>
-      <p>{{ $stat['text'] ?? '' }}</p>
-    </div>
-    @endforeach
-  </div>
-  </div>
-
-
-
-
-</section>
-
-
-
-
-
-
-
-<section class="phase-slider-section my-4">
-  <div class="container-fluid">
-    <div id="phaseSlider" class="carousel slide" data-bs-ride="carousel">
+      <!-- The slideshow/carousel -->
       <div class="carousel-inner">
-        @php $phases = content('home', 'home_phases', [
-            [
-                'badge' => '🏆 Phase 3 starts 1st Feb',
-                'title' => 'Final revision with Top Rankers’ Strategy.',
-                'link_text' => 'Top Rankers’ Strategy',
-                'desc' => 'Get personalized feedback on all your tests, all your tests.',
-                'link' => '#'
-            ]
-        ]); @endphp
-        @foreach($phases as $index => $phase)
+        @if(isset($banners))
+        @forelse($banners as $index => $banner)
         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-          <div class="phase-card">
-            <div class="phase-left">
-              @if($phase['badge'] ?? '')
-              <span class="phase-badge">
-                {{ $phase['badge'] }}
-              </span>
-              @endif
+          @if($banner->link)
+            <a href="{{ $banner->link }}" target="_blank">
+          @endif
+          
+          <picture>
+            @if($banner->mobile_image)
+              <source media="(max-width: 768px)" srcset="{{ Storage::url($banner->mobile_image) }}">
+            @endif
+            <img src="{{ Storage::url($banner->desktop_image) }}" alt="{{ $banner->title ?? 'Banner' }}" class="d-block w-100">
+          </picture>
 
-              <h5>
-                {{ $phase['title'] ?? '' }}
-                @if($phase['link_text'] ?? '')
-                <a href="{{ $phase['link'] ?? '#' }}">{{ $phase['link_text'] }}</a>
-                @endif
-              </h5>
+          @if($banner->link)
+            </a>
+          @endif
+        </div>
+        @empty
+        <div class="carousel-item active">
+          <img src="{{ asset('assets/images/1.jpg') }}" alt="Default Banner" class="d-block w-100">
+        </div>
+        @endforelse
+        @else
+        <div class="carousel-item active">
+          <img src="{{ asset('assets/images/1.jpg') }}" alt="Default Banner" class="d-block w-100">
+        </div>
+        @endif
+      </div>
 
-              <p>
-                {{ $phase['desc'] ?? '' }}
-              </p>
+    </div>
 
-              <a href="{{ $phase['link'] ?? '#' }}" class="btn btn-sm mtttbtn">Join Now</a>
-            </div>
+  </div>
 
-            <div class="phase-right">
-              {{-- For now, mentors are static or we could add another nested repeater. 
-                   The user said 'dont disturb frontend', so I'll keep the two mentor slots but pull from phase data if we add those fields later.
-                   For now, keeping them simple. --}}
-              <div class="mentor">
-                <img src="{{ asset('assets/images/neetu.png') }}">
-                <div>
-                  <strong>Neetu Yadav</strong>
-                  <small>NEET-UG 2025</small>
-                </div>
+
+  <section class="stats-section">
+
+
+    <div class="container-fluid">
+      <div class="stats-mob">
+        <img src="{{ asset('assets/images/counting.png') }}">
+      </div>
+
+      <div class="stats-box">
+
+
+        <div class="stat-item">
+          <h2 class="counter" data-target="5000">0</h2>
+          <p>STUDENTS</p>
+        </div>
+
+        <div class="stat-item">
+          <h2 class="counter" data-target="100">0</h2>
+          <p>FACULTY</p>
+        </div>
+
+        <div class="stat-item">
+          <h2 class="counter" data-target="250">0</h2>
+          <p>SELECTIONS</p>
+        </div>
+
+        <div class="stat-item">
+          <h2 class="counter" data-target="1000">0</h2>
+          <p>TESTS</p>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+  </section>
+
+
+
+
+
+
+
+  <section class="phase-slider-section my-4">
+    <div class="container-fluid">
+      <div id="phaseSlider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="phase-card">
+              <div class="phase-left">
+                <span class="phase-badge">
+                  🏆 Phase 3 starts 1st Feb
+                </span>
+
+                <h5>
+                  Final revision with Top Rankers’ Strategy.
+                  <a href="#">Top Rankers’ Strategy</a>
+                </h5>
+
+                <p>
+                  Get personalized feedback on all your tests, all your tests.
+                </p>
+
+                <a href="#" class="btn btn-sm mtttbtn">Join Now</a>
               </div>
 
-              <div class="mentor">
-                <img src="{{ asset('assets/images/mahima.png') }}">
-                <div>
-                  <strong>Mahima Singh</strong>
-                  <small>NEET-UG 2025</small>
+              <div class="phase-right">
+                <div class="mentor">
+                  <img src="{{ asset('assets/images/neetu.png') }}">
+                  <div>
+                    <strong>Neetu Yadav</strong>
+                    <small>NEET-UG 2025</small>
+                  </div>
+                </div>
+
+                <div class="mentor">
+                  <img src="{{ asset('assets/images/mahima.png') }}">
+                  <div>
+                    <strong>Mahima Singh</strong>
+                    <small>NEET-UG 2025</small>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        @endforeach
-      </div>
 
-      <!-- Controls -->
-<!--       <button class="carousel-control-prev" type="button" data-bs-target="#phaseSlider" data-bs-slide="prev">
+          <div class="carousel-item ">
+            <div class="phase-card">
+              <div class="phase-left">
+                <span class="phase-badge">
+                  🏆 Phase 3 starts 1st Feb
+                </span>
+
+                <h5>
+                  Final revision with Top Rankers’ Strategy.
+                  <a href="#">Top Rankers’ Strategy</a>
+                </h5>
+
+                <p>
+                  Get personalized feedback on all your tests, all your tests.
+                </p>
+
+                <a href="#" class="btn btn-sm mtttbtn">Join Now</a>
+              </div>
+
+              <div class="phase-right">
+                <div class="mentor">
+                  <img src="{{ asset('assets/images/neetu.png') }}">
+                  <div>
+                    <strong>Neetu Yadav</strong>
+                    <small>NEET-UG 2025</small>
+                  </div>
+                </div>
+
+                <div class="mentor">
+                  <img src="{{ asset('assets/images/mahima.png') }}">
+                  <div>
+                    <strong>Mahima Singh</strong>
+                    <small>NEET-UG 2025</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="carousel-item ">
+            <div class="phase-card">
+              <div class="phase-left">
+                <span class="phase-badge">
+                  🏆 Phase 3 starts 1st Feb
+                </span>
+
+                <h5>
+                  Final revision with Top Rankers’ Strategy.
+                  <a href="#">Top Rankers’ Strategy</a>
+                </h5>
+
+                <p>
+                  Get personalized feedback on all your tests, all your tests.
+                </p>
+
+                <a href="#" class="btn btn-sm mtttbtn">Join Now</a>
+              </div>
+
+              <div class="phase-right">
+                <div class="mentor">
+                  <img src="{{ asset('assets/images/neetu.png') }}">
+                  <div>
+                    <strong>Neetu Yadav</strong>
+                    <small>NEET-UG 2025</small>
+                  </div>
+                </div>
+
+                <div class="mentor">
+                  <img src="{{ asset('assets/images/mahima.png') }}">
+                  <div>
+                    <strong>Mahima Singh</strong>
+                    <small>NEET-UG 2025</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <!-- Controls -->
+        <!--       <button class="carousel-control-prev" type="button" data-bs-target="#phaseSlider" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
       </button>
 
       <button class="carousel-control-next" type="button" data-bs-target="#phaseSlider" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
       </button> -->
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-<section>
-  <div class="container-fluid ">
-  <div class="courses-section">
-  <div class="courses-wrapper">
-
-    <h3 class="section-title">Courses </h3>
-
-    <div class="courses-grid">
-      @foreach($courses as $course)
-      <a href="{{ route('courses.show', $course->slug) }}" class="text-decoration-none">
-        <div class="course-card border-0 shadow-sm">
-          <div class="icon {{ $course->home_color }}">
-            @if($course->home_icon)
-              <img src="{{ asset('storage/' . $course->home_icon) }}" alt="{{ $course->title }}" style="width: 24px; height: 24px; object-fit: contain;">
-            @else
-              <i class="bi bi-mortarboard-fill"></i>
-            @endif
-          </div>
-          <h4 class="mt-3 mb-1 text-dark">{{ $course->title }}</h4>
-          <span class="text-muted small">{{ $course->home_subtitle }}</span>
-        </div>
-      </a>
-      @endforeach
-    </div>     </a>
-
-    </div>
-  </div>
-  </div>
-</div>
-</section>
-
-
-<section>
-  <div class="container-fluid ">
-  <div class="courses-section">
-  <div class="courses-wrapper">
-
-    <h3 class="section-title">Study Materials </h3>
-
-    <div class="courses-grid">
-      @php $studies = content('home', 'home_study', [
-          ['title' => 'Class X', 'subtitle' => '8 Subjects', 'link' => '#'],
-          ['title' => 'Class XII', 'subtitle' => '8 Subjects', 'link' => '#'],
-          ['title' => 'JEE Mains', 'subtitle' => '3 Subjects', 'link' => '#'],
-          ['title' => 'NEET', 'subtitle' => '3 Subjects', 'link' => '#']
-      ]); @endphp
-      @foreach($studies as $study)
-      <a href="{{ $study['link'] ?? '#' }}">
-      <div class="course-card">
-        <div class="icon-box">
-          <img src="{{ asset('assets/images/class.png') }}">
-        </div>
-        <h4>{{ $study['title'] ?? '' }}</h4>
-        <span>{{ $study['subtitle'] ?? '' }}</span>
-      </div>
-      </a>
-      @endforeach
-    </div>
-  </div>
-  </div>
-</div>
-</section>
-
-
-
-
-
-
-
-<section class="testimonial-section">
-  <div class="container">
-     <div class="row">
-    <div class="col-md-6 col-12 col-sm-12">
-    <!-- Left Text -->
-    <div class="testimonial-text">
-      <h3 id="st-name" class="student-name"></h3>
-      <p id="st-rank" class="student-rank"></p>
-      <p id="st-msg" class="testimonial-message"></p>
-    </div>
-    </div>
-    <div class="col-md-6 col-12 col-sm-12">
-    <!-- Right Image -->
-    <div class="testimonial-image">
-      <img id="st-img" src="{{ asset('assets/images/frme.png') }}" alt="Student">
-      <div class="slider-buttons">
-        <button onclick="prev()">Prev</button>
-        <button onclick="next()">Next</button>
       </div>
     </div>
-  </div>
-  </div>
-  </div>
-</section>
-
-@php 
-  $testimonials = content('home', 'home_testimonials', [
-      ['name' => 'Priya Sharma', 'rank' => 'AIR 245', 'message' => 'Excellent coaching!', 'image' => 'assets/images/frme.png'],
-      ['name' => 'Rahul Desai', 'rank' => 'NEET 680/720', 'message' => 'Highly recommended!', 'image' => 'assets/images/frme.png']
-  ]);
-  // Prepare for JS
-  $tJson = json_encode($testimonials);
-@endphp
-
-<script>
-  const testimonials = {!! $tJson !!};
-  let currentT = 0;
-  
-  function updateT() {
-    if(!testimonials.length) return;
-    const t = testimonials[currentT];
-    document.getElementById('st-name').innerText = t.name || '';
-    document.getElementById('st-rank').innerText = t.rank || '';
-    document.getElementById('st-msg').innerText = t.message || '';
-    if(t.image) {
-      let src = t.image.includes('/') ? "{{ asset('storage') }}/" + t.image : "{{ asset('') }}" + t.image;
-      document.getElementById('st-img').src = src;
-    }
-  }
-  
-  function next() {
-    currentT = (currentT + 1) % testimonials.length;
-    updateT();
-  }
-  function prev() {
-    currentT = (currentT - 1 + testimonials.length) % testimonials.length;
-    updateT();
-  }
-  
-  document.addEventListener('DOMContentLoaded', updateT);
-</script>
-
-
-
-
-<section class="why-choose-us">
-  <div class="container">
-    <h2 class="section-titless">{{ content('home', 'home_why_heading', 'Why Choose Us') }}</h2>
-
-    <div class="row justify-content-center">
-      <!-- Item 1 -->
-      <div class="col-md-4">
-        <a href="{{ url('about-us') }}">
-        <div class="why-card center">
-          <div class="icon">
-             <img src="{{ asset('assets/images/cap.png') }}">
-          </div>
-          <h5>{{ content('home', 'home_why_1_title', 'Expert Faculty') }}</h5>
-          <p>{{ content('home', 'home_why_1_desc', 'Learn from IIT/AIIMS graduates') }}</p>
-        </div>
-        </a>
-      </div>
-
-      <!-- Item 2 -->
-      <div class="col-md-4">
-        <a href="{{ url('about-us') }}">
-        <div class="why-card center">
-          <div class="icon">
-            <img src="{{ asset('assets/images/book.png') }}">
-          </div>
-          <h5>{{ content('home', 'home_why_2_title', 'Structured Material') }}</h5>
-          <p>{{ content('home', 'home_why_2_desc', 'Comprehensive study material') }}</p>
-        </div>
-        </a>
-      </div>
-
-      <!-- Item 3 -->
-      <div class="col-md-4">
-        <a href="{{ url('about-us') }}">
-        <div class="why-card center">
-          <div class="icon">
-            <img src="{{ asset('assets/images/whychoos.png') }}">
-          </div>
-          <h5>{{ content('home', 'home_why_3_title', '24/7 Doubt Support') }}</h5>
-          <p>{{ content('home', 'home_why_3_desc', 'Get doubts resolved anytime') }}</p>
-        </div>
-      </a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 
 
@@ -378,149 +253,421 @@
 
 
 
+  <section>
+    <div class="container-fluid ">
+      <div class="courses-section">
+        <div class="courses-wrapper">
 
+          <h3 class="section-title">Courses </h3>
 
-<section class="success-bg">
-  <div class="container-fluid">
-
-    <!-- REVIEW SLIDER -->
-    <div class="swiper reviewSwiper">
-      <div class="swiper-wrapper">
-        @php $successStories = content('home', 'home_success', [
-            ['name' => 'Priya Sharma', 'meta' => 'JEE Advanced 2024', 'stars' => 5, 'text' => 'The structured approach helped me secure AIR 245!', 'avatar' => 'P'],
-            ['name' => 'Rahul Desai', 'meta' => 'NEET 2024', 'stars' => 5, 'text' => 'Expert faculty and great environment.', 'avatar' => 'R']
-        ]); @endphp
-        @foreach($successStories as $story)
-        <div class="swiper-slide">
-          <div class="review-card">
-            <div class="review-head">
-              <div class="avatar">{{ $story['avatar'] ?? 'N' }}</div>
-              <div>
-                <h6>{{ $story['name'] ?? '' }}</h6>
-                <span>{{ $story['meta'] ?? '' }}</span>
+          <div class="courses-grid">
+            <a href="class-X.html">
+              <div class="course-card">
+                <div class="icon-box blue">
+                  <img src="{{ asset('assets/images/PYQLibrary.png') }}">
+                </div>
+                <h4>Class X</h4>
+                <span>8 Subjects</span>
               </div>
-            </div>
-            <div class="stars">
-              @for($i=0; $i<($story['stars'] ?? 5); $i++) ★ @endfor
-            </div>
-            <p>{{ $story['text'] ?? '' }}</p>
+            </a>
+
+            <a href="class-XII.html">
+              <div class="course-card">
+                <div class="icon-box purple">
+
+                  <img src="{{ asset('assets/images/class.png') }}">
+                </div>
+                <h4>Class XII</h4>
+                <span>8 Subjects</span>
+              </div>
+            </a>
+
+            <a href="jee-mains+advanced.html">
+              <div class="course-card">
+                <div class="icon-box yellow">
+                  <img src="{{ asset('assets/images/jee.png') }}">
+                </div>
+                <h4>JEE Mains</h4>
+                <span>3 Subjects</span>
+              </div>
+            </a>
+
+            <a href="neet.html">
+              <div class="course-card">
+                <div class="icon-box green">
+                  <img src="{{ asset('assets/images/neet.png') }}">
+                </div>
+                <h4>NEET</h4>
+                <span>3 Subjects</span>
+              </div>
+            </a>
+
+            <a href="school-section.html">
+              <div class="course-card">
+                <div class="icon-box blue">
+                  <img src="{{ asset('assets/images/School.png') }}">
+                </div>
+                <h4>School Section</h4>
+                <span>3 Subjects</span>
+              </div>
+            </a>
+
+            <a href="sci-comm.html">
+              <div class="course-card">
+                <div class="icon-box blue">
+                  <img src="{{ asset('assets/images/comm.png') }}">
+                </div>
+                <h4>Sci & Comm</h4>
+                <span>8 Subjects</span>
+              </div>
+            </a>
+
+            <a href="mht-cet.html">
+              <div class="course-card">
+                <div class="icon-box orange">
+                  <img src="{{ asset('assets/images/mht.png') }}">
+                </div>
+                <h4>MHT-CET</h4>
+                <span>(XI & XII)</span>
+              </div>
+            </a>
+
+
+            <a href="Integrated-classes.html">
+              <div class="course-card">
+                <div class="icon-box green">
+                  <img src="{{ asset('assets/images/class.png') }}">
+                </div>
+                <h4>Integrated Classes</h4>
+                <span>8 Subjects</span>
+              </div>
+            </a>
+
           </div>
         </div>
-        @endforeach
-      </div>
-
-      <!-- 
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div> -->
-    </div>
-
-    <!-- NICHE WALA SUCCESS STORY BOX -->
-    <div class="success-mini-wrap">
-       <button class="btn btn-primary rounded-circle shadow"
-          style="width:55px;height:55px;"
-          data-bs-toggle="modal"
-          data-bs-target="#reviewModal">
-      <span class="plus-btn">+</span>
-    </button>
-
-
-      <div class="success-mini">
-        <p>Success Stories</p>
-        <div class="stars disabled">★★★★★</div>
       </div>
     </div>
-
-  </div>
-</section>
+  </section>
 
 
+  <section>
+    <div class="container-fluid ">
+      <div class="courses-section">
+        <div class="courses-wrapper">
 
-<!-- Review Modal -->
-<div class="modal fade" id="reviewModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content rounded-4 border-0 shadow">
+          <h3 class="section-title">Study Materials </h3>
 
-      <!-- Header -->
-      <div class="modal-header border-0">
-        <h5 class="modal-title fw-bold">Add Your Review</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <div class="courses-grid">
+
+            <a href="pyq-class-x-1st-page.html">
+              <div class="course-card">
+                <div class="icon-box blue">
+                  <img src="{{ asset('assets/images/PYQLibrary.png') }}">
+                </div>
+                <h4>Class X</h4>
+                <span>8 Subjects</span>
+              </div>
+            </a>
+
+            <a href="pyq-class-xII-1st-page.html">
+              <div class="course-card">
+                <div class="icon-box purple">
+
+                  <img src="{{ asset('assets/images/class.png') }}">
+                </div>
+                <h4>Class XII</h4>
+                <span>8 Subjects</span>
+              </div>
+            </a>
+
+            <a href="jee-1st-page.html">
+              <div class="course-card">
+                <div class="icon-box yellow">
+                  <img src="{{ asset('assets/images/jee.png') }}">
+                </div>
+                <h4>JEE Mains</h4>
+                <span>3 Subjects</span>
+              </div>
+            </a>
+
+            <a href="neet-1st-page.html">
+              <div class="course-card">
+                <div class="icon-box green">
+                  <img src="{{ asset('assets/images/neet.png') }}">
+                </div>
+                <h4>NEET</h4>
+                <span>3 Subjects</span>
+              </div>
+            </a>
+
+
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Body -->
-      <div class="modal-body">
-        <form>
 
-          <div class="mb-3">
-            <label class="form-label">Your Name</label>
-            <input type="text" class="form-control" placeholder="Enter your name">
+
+
+
+
+
+  <section class="testimonial-section">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6 col-12 col-sm-12">
+
+          <!-- Left Text -->
+          <div class="testimonial-text">
+            <h3 id="name" class="student-name"></h3>
+            <p id="rank" class="student-rank"></p>
+            <p id="msg" class="testimonial-message"></p>
           </div>
 
-          <div class="mb-3">
-            <label class="form-label">Course / Exam</label>
-            <input type="text" class="form-control" placeholder="JEE / NEET / CET">
-          </div>
+        </div>
 
-          <div class="mb-3">
-            <label class="form-label">Rating</label>
-            <div class="text-warning fs-4">
-              ★ ★ ★ ★ ★
+        <div class="col-md-6 col-12 col-sm-12">
+
+          <!-- Right Image -->
+          <div class="testimonial-image">
+            <img id="img" src="{{ asset('assets/images/frme.png') }}" alt="Student">
+
+            <div class="slider-buttons">
+              <button onclick="prev()">Prev</button>
+              <button onclick="next()">Next</button>
             </div>
           </div>
 
-          <div class="mb-3">
-            <label class="form-label">Your Review</label>
-            <textarea class="form-control" rows="4"
-              placeholder="Write your experience..."></textarea>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <section class="why-choose-us">
+    <div class="container">
+      <h2 class="section-titless">Why Choose Us</h2>
+
+      <div class="row justify-content-center">
+        <!-- Item 1 -->
+        <div class="col-md-4">
+          <a href="about-us.html">
+            <div class="why-card center">
+              <div class="icon">
+                <img src="{{ asset('assets/images/cap.png') }}">
+              </div>
+              <h5>Expert Faculty</h5>
+              <p>Learn from IIT/AIIMS graduates</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="col-md-4">
+          <a href="about-us.html">
+            <div class="why-card center">
+              <div class="icon">
+                <img src="{{ asset('assets/images/book.png') }}">
+              </div>
+              <h5>Structured Material</h5>
+              <p>Comprehensive study material</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="col-md-4">
+          <a href="about-us.html">
+            <div class="why-card center">
+              <div class="icon">
+                <img src="{{ asset('assets/images/whychoos.png') }}">
+              </div>
+              <h5>24/7 Doubt Support</h5>
+              <p>Get doubts resolved anytime</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="success-bg">
+    <div class="container-fluid">
+
+      <!-- REVIEW SLIDER -->
+      <div class="swiper reviewSwiper mb-5">
+        <div class="swiper-wrapper">
+
+          @forelse($reviews as $review)
+          <div class="swiper-slide">
+            <div class="review-card">
+              <div class="review-head">
+                @if($review->user_image)
+                  <img src="{{ Storage::url($review->user_image) }}" alt="Avatar" class="avatar" style="object-fit:cover;">
+                @else
+                  <div class="avatar" style="background-color: {{ collect(['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#f0932b'])->random() }}; color: white;">
+                    {{ strtoupper(substr($review->user_name, 0, 1)) }}
+                  </div>
+                @endif
+                <div>
+                  <h6>{{ $review->user_name }}</h6>
+                  @if($review->subtitle)<span>{{ $review->subtitle }}</span>@endif
+                </div>
+              </div>
+              <div class="stars">
+                @for($i = 1; $i <= 5; $i++)
+                  {!! $i <= $review->rating ? '★' : '<span style="color:#ddd">★</span>' !!}
+                @endfor
+              </div>
+              <p>{{ $review->content }}</p>
+            </div>
+          </div>
+          @empty
+          <!-- Fallback if no active reviews yet -->
+          <div class="swiper-slide">
+            <div class="review-card text-center py-5 text-muted shadow-sm border">
+              <h6 class="fw-bold">No Reviews Yet</h6>
+              <p class="mb-0">Be the first to share your success story!</p>
+            </div>
+          </div>
+          @endforelse
+
+        </div>
+
+      </div>
+
+    
+
+    
+
+    </div>
+  </section>
+
+
+
+  <!-- Review Modal -->
+  <div class="modal fade" id="reviewModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-4 border-0 shadow">
+
+        <form action="{{ route('reviews.storeFrontend') }}" method="POST">
+          @csrf
+          <!-- Header -->
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold">Add Your Success Story</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
 
+          <!-- Body -->
+          <div class="modal-body">
+            
+            <div class="mb-3">
+              <label class="form-label">Your Name <span class="text-danger">*</span></label>
+              <input type="text" name="user_name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Course / Exam (Optional)</label>
+              <input type="text" name="subtitle" class="form-control" placeholder="e.g. JEE Advanced 2024">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Rating <span class="text-danger">*</span></label>
+              <select name="rating" class="form-select" required>
+                <option value="5" selected>⭐⭐⭐⭐⭐ (5 Stars)</option>
+                <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
+                <option value="3">⭐⭐⭐ (3 Stars)</option>
+                <option value="2">⭐⭐ (2 Stars)</option>
+                <option value="1">⭐ (1 Star)</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Your Review <span class="text-danger">*</span></label>
+              <textarea name="content" class="form-control" rows="4" placeholder="Write about your experience..." required></textarea>
+            </div>
+
+          </div>
+
+          <!-- Footer -->
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary px-4">Submit Review</button>
+          </div>
         </form>
-      </div>
 
-      <!-- Footer -->
-      <div class="modal-footer border-0">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button class="btn btn-primary">Submit Review</button>
       </div>
-
     </div>
   </div>
-</div>
 
 
 
 
 
-<section class="latest-updates">
-  <div class="container">
-  <div class="latest-header">
-    <h2>Latest Updates</h2>
-    <a href="#" class="read-blog">Read Blog</a>
-  </div>
-
-  
+  <section class="latest-updates">
+    <div class="container">
+      <div class="latest-header">
+        <h2>Latest Updates</h2>
+        <a href="#" class="read-blog">Read Blog</a>
+      </div>
 
 
-  
-    <div class="row">
-      @php $updates = content('home', 'home_updates', [
-            ['category' => 'EXAM TIPS', 'title' => 'How to revise Physics in 30 Days?', 'meta' => '12 Dec 2024 · 5 min read'],
-            ['category' => 'UPDATES', 'title' => 'New Batch starting for JEE 2026', 'meta' => '15 Dec 2024 · 2 min read']
-      ]); @endphp
-      @foreach($updates as $update)
-      <div class="col-md-6 col-sm-12 col-12">
-        <!-- Blog Card -->
-        <div class="blog-card card-blog">
-          <div class="blog-thumb"></div>
-          <div class="blog-content">
-            <span class="blog-category">{{ $update['category'] ?? 'UPDATE' }}</span>
-            <h3>{{ $update['title'] ?? '' }}</h3>
-            <p class="blog-meta">{{ $update['meta'] ?? '' }}</p>
+
+
+
+      <div class="row">
+        @forelse($latestUpdates as $update)
+        <div class="col-md-6 col-sm-12 col-12">
+          <!-- Dynamic Card -->
+          <div class="blog-card card-blog">
+            <div class="blog-thumb">
+              @if($update->image)
+                <img src="{{ Storage::url($update->image) }}" alt="{{ $update->title }}">
+              @else
+                <img src="{{ asset('assets/images/blog1.png') }}" alt="img">
+              @endif
+            </div>
+            <div class="blog-content">
+              @if($update->category)<span class="blog-category">{{ $update->category }}</span>@endif
+              <h3>
+                @if($update->link)
+                  <a href="{{ $update->link }}" target="_blank" style="text-decoration:none; color:inherit;">{{ $update->title }}</a>
+                @else
+                  {{ $update->title }}
+                @endif
+              </h3>
+              <p class="blog-meta">
+                {{ $update->published_date }} @if($update->read_time) · {{ $update->read_time }} @endif
+              </p>
+            </div>
           </div>
         </div>
+        @empty
+        <div class="col-12 text-center py-4">
+          <p class="text-muted">No recent updates available.</p>
+        </div>
+        @endforelse
       </div>
-      @endforeach
     </div>
-</div>
-</section>
+  </section>
+
+
+
 
 @endsection

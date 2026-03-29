@@ -342,39 +342,58 @@
 
                     <li class="nav-header">Content Management</li>
 
-                    @can('manage pages')
-                    <li class="nav-item">
-                        <a href="{{ route('admin.pages.index') }}" class="nav-link {{ request()->routeIs('admin.pages.*') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-file-alt"></i>
-                            <p>Pages</p>
-                        </a>
-                    </li>
-                    @endcan
+
 
                     <li class="nav-item">
-                        <a href="{{ route('admin.courses.index') }}" class="nav-link {{ request()->routeIs('admin.courses.*') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-book"></i>
-                            <p>Courses</p>
+                        <a href="{{ route('admin.home.sections.banner.index') }}" class="nav-link {{ request()->routeIs('admin.home.sections.banner.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-image text-success"></i>
+                            <p>Banner Slider</p>
                         </a>
                     </li>
 
-                    <li class="nav-item {{ request()->routeIs('admin.content.*') ? 'menu-open' : '' }}">
-                        <a href="#" class="nav-link {{ request()->routeIs('admin.content.*') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-layer-group"></i>
-                            <p>Frontend Sections <i class="right fas fa-angle-left"></i></p>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.latest-updates.index') }}" class="nav-link {{ request()->routeIs('admin.latest-updates.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-bullhorn"></i>
+                            <p>Latest Updates</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.reviews.index') }}" class="nav-link {{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-star text-warning"></i>
+                            <p>Reviews & Ratings</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->routeIs('admin.blog*') ? 'menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ request()->routeIs('admin.blog*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-blog text-info"></i>
+                            <p>
+                                Blog Management
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('admin.content.home') }}" class="nav-link {{ request()->routeIs('admin.content.home') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i><p>Home Page</p>
+                                <a href="{{ route('admin.blogs.index') }}" class="nav-link {{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Posts</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.content.about') }}" class="nav-link {{ request()->routeIs('admin.content.about') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i><p>About Us</p>
+                                <a href="{{ route('admin.blog-categories.index') }}" class="nav-link {{ request()->routeIs('admin.blog-categories.*') ? 'active' : '' }}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Categories</p>
                                 </a>
                             </li>
                         </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.study-classes.index') }}" class="nav-link {{ request()->routeIs('admin.study-*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-book-reader"></i>
+                            <p>Study Materials</p>
+                        </a>
                     </li>
 
                     @can('manage media')
@@ -408,6 +427,21 @@
                         </ul>
                     </li>
                     @endcan
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.contacts.index') }}" class="nav-link {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-envelope-open-text text-primary"></i>
+                            <p>
+                                Contact Inquiries
+                                @php
+                                    $unreadCount = \App\Models\Contact::where('is_read', false)->count();
+                                @endphp
+                                @if($unreadCount > 0)
+                                    <span class="badge badge-danger right">{{ $unreadCount }}</span>
+                                @endif
+                            </p>
+                        </a>
+                    </li>
 
                     @can('manage settings')
                     <li class="nav-item">

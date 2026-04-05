@@ -9,14 +9,14 @@ class StudyLanguage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['study_class_id', 'name', 'icon', 'status'];
+    protected $fillable = ['study_class_id', 'name', 'slug', 'icon', 'status'];
 
     public function studyClass()
     {
         return $this->belongsTo(StudyClass::class);
     }
 
-    public function years()
+    public function studyYears()
     {
         return $this->hasMany(StudyYear::class);
     }

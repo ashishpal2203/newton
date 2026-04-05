@@ -65,8 +65,8 @@ class StudyClassController extends Controller
         // Delete all nested files manually before table cascade deletes row.
         foreach($studyClass->languages as $lang) {
             if ($lang->icon) Storage::disk('public')->delete($lang->icon);
-            foreach($lang->years as $year) {
-                foreach($year->papers as $paper) {
+            foreach($lang->studyYears as $year) {
+                foreach($year->studyPapers as $paper) {
                     if ($paper->file_path) Storage::disk('public')->delete($paper->file_path);
                 }
             }

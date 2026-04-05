@@ -358,49 +358,17 @@
           <h3 class="section-title">Study Materials </h3>
 
           <div class="courses-grid">
-
-            <a href="pyq-class-x-1st-page.html">
+            @foreach($studyClasses as $class)
+            <a href="{{ route('study-material.languages', $class->slug) }}">
               <div class="course-card">
-                <div class="icon-box blue">
-                  <img src="{{ asset('assets/images/PYQLibrary.png') }}">
+                <div class="icon-box {{ ['blue', 'purple', 'yellow', 'green'][$loop->index % 4] }}">
+                  <img src="{{ asset('assets/images/' . basename($class->icon)) }}">
                 </div>
-                <h4>Class X</h4>
-                <span>8 Subjects</span>
+                <h4>{{ $class->name }}</h4>
+                <span>{{ $class->languages->count() }} Categories</span>
               </div>
             </a>
-
-            <a href="pyq-class-xII-1st-page.html">
-              <div class="course-card">
-                <div class="icon-box purple">
-
-                  <img src="{{ asset('assets/images/class.png') }}">
-                </div>
-                <h4>Class XII</h4>
-                <span>8 Subjects</span>
-              </div>
-            </a>
-
-            <a href="jee-1st-page.html">
-              <div class="course-card">
-                <div class="icon-box yellow">
-                  <img src="{{ asset('assets/images/jee.png') }}">
-                </div>
-                <h4>JEE Mains</h4>
-                <span>3 Subjects</span>
-              </div>
-            </a>
-
-            <a href="neet-1st-page.html">
-              <div class="course-card">
-                <div class="icon-box green">
-                  <img src="{{ asset('assets/images/neet.png') }}">
-                </div>
-                <h4>NEET</h4>
-                <span>3 Subjects</span>
-              </div>
-            </a>
-
-
+            @endforeach
           </div>
         </div>
       </div>

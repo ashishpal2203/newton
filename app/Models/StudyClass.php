@@ -9,7 +9,7 @@ class StudyClass extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'icon', 'status'];
+    protected $fillable = ['name', 'slug', 'icon', 'status'];
 
     public function languages()
     {

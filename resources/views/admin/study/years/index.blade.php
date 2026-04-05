@@ -31,7 +31,7 @@
                     <tr>
                         <td><strong>{{ $year->year }}</strong></td>
                         <td>
-                            <span class="badge badge-info">{{ $year->papers_count ?? 0 }} Papers</span>
+                            <span class="badge badge-info">{{ $year->study_papers_count ?? 0 }} Papers</span>
                         </td>
                         <td class="text-right">
                             <a href="{{ route('admin.study-papers.index', ['year_id' => $year->id]) }}" class="btn btn-sm btn-primary border border-primary mr-2" title="Manage Question Papers">

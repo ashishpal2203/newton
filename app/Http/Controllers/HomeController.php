@@ -15,7 +15,9 @@ class HomeController extends Controller
         $latestUpdates = \App\Models\LatestUpdate::where('status', true)->orderBy('sort_order', 'asc')->take(2)->get();
         $courses = Course::where('is_featured', true)->get();
         $reviews = Review::where('status', true)->orderBy('sort_order', 'asc')->get();
-        return view('pages.home', compact('courses', 'banners', 'reviews', 'latestUpdates'));
+        $studyClasses = \App\Models\StudyClass::where('status', true)->orderBy('id', 'asc')->get();
+        
+        return view('pages.home', compact('courses', 'banners', 'reviews', 'latestUpdates', 'studyClasses'));
     }
 
     public function storeContact(Request $request)

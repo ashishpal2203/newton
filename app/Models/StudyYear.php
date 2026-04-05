@@ -16,7 +16,7 @@ class StudyYear extends Model
         return $this->belongsTo(StudyLanguage::class, 'study_language_id');
     }
 
-    public function papers()
+    public function studyPapers()
     {
         return $this->hasMany(StudyPaper::class);
     }

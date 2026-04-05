@@ -17,8 +17,10 @@ class StudyClassFactory extends Factory
      */
     public function definition(): array
     {
+        $name = $this->faker->unique()->randomElement(['Class 10', 'Class 11', 'Class 12', 'MHT-CET', 'JEE Main']);
         return [
-            'name' => $this->faker->unique()->randomElement(['Class 10', 'Class 11', 'Class 12', 'MHT-CET', 'JEE Main']),
+            'name' => $name,
+            'slug' => \Illuminate\Support\Str::slug($name),
             'icon' => 'classes/science.png',
             'status' => true,
         ];

@@ -18,7 +18,7 @@ class StudyLanguageController extends Controller
         }
 
         $studyClass = StudyClass::findOrFail($class_id);
-        $languages = StudyLanguage::where('study_class_id', $class_id)->withCount('years')->get();
+        $languages = StudyLanguage::where('study_class_id', $class_id)->withCount('studyYears')->get();
 
         return view('admin.study.languages.index', compact('languages', 'studyClass'));
     }
@@ -82,8 +82,8 @@ class StudyLanguageController extends Controller
         $class_id = $studyLanguage->study_class_id;
 
         // Cascade delete files manually
-        foreach($studyLanguage->years as $year) {
-            foreach($year->papers as $paper) {
+        foreach($studyLanguage->studyYears as $year) {
+            foreach($year->studyPapers as $paper) {
                 if ($paper->file_path) Storage::disk('public')->delete($paper->file_path);
             }
         }

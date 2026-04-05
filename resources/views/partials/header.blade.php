@@ -23,7 +23,7 @@
         <ul class="navbar-nav mx-auto gap-3">
           <li class="nav-item"><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}">home</a></li>
           <li class="nav-item"><a class="nav-link {{ request()->is('courses') ? 'active' : '' }}" href="{{ route('courses') }}">courses</a></li>
-          <li class="nav-item"><a class="nav-link {{ request()->is('study-materials') ? 'active' : '' }}" href="{{ route('study-materials') }}">Study Materials </a></li>
+          <li class="nav-item"><a class="nav-link {{ request()->routeIs('study-material.*') ? 'active' : '' }}" href="{{ route('study-material.index') }}">Study Materials </a></li>
           <li class="nav-item"><a class="nav-link {{ request()->is('about-us') ? 'active' : '' }}" href="{{ route('about-us') }}">about us</a></li>
           <li class="nav-item"><a class="nav-link {{ request()->is('blog') ? 'active' : '' }}" href="{{ route('blog') }}">blog</a></li>
           <li class="nav-item"><a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="{{ route('contact') }}">contact us</a></li>
@@ -63,7 +63,7 @@
     <ul class="navbar-nav gap-3">
       <li><a class="nav-link" href="{{ route('home') }}">Home</a></li>
       <li><a class="nav-link" href="{{ route('courses') }}">Courses</a></li>
-      <li><a class="nav-link" href="{{ route('study-materials') }}">Study Materials</a></li>
+      <li><a class="nav-link" href="{{ route('study-material.index') }}">Study Materials</a></li>
       <li><a class="nav-link" href="{{ route('about-us') }}">About Us</a></li>
       <li><a class="nav-link" href="{{ route('blog') }}">Blog</a></li>
       <li><a class="nav-link" href="{{ route('contact') }}">Contact Us</a></li>

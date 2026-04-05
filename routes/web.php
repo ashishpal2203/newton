@@ -15,9 +15,13 @@ Route::get('/courses', [\App\Http\Controllers\HomeController::class, 'courses'])
 
 Route::get('/courses/{slug}', [\App\Http\Controllers\CourseController::class, 'show'])->name('courses.show');
 
-Route::get('/study-materials', function () {
-    return view('pages.study-materials');
-})->name('study-materials');
+// Study Materials
+Route::prefix('study-material')->name('study-material.')->group(function () {
+    Route::get('/', [App\Http\Controllers\StudyMaterialController::class, 'index'])->name('index');
+    Route::get('/{class:slug}', [App\Http\Controllers\StudyMaterialController::class, 'showLanguages'])->name('languages');
+    Route::get('/{class:slug}/{language:slug}', [App\Http\Controllers\StudyMaterialController::class, 'showYears'])->name('years');
+    Route::get('/{class:slug}/{language:slug}/{studyYear:year}', [App\Http\Controllers\StudyMaterialController::class, 'showPapers'])->name('papers');
+});
 
 Route::get('/blog', [\App\Http\Controllers\BlogFrontendController::class, 'index'])->name('blog');
 Route::get('/blog/{slug}', [\App\Http\Controllers\BlogFrontendController::class, 'show'])->name('blog.show');

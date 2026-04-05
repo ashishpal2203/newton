@@ -39,7 +39,7 @@
                             @endif
                         </td>
                         <td>
-                            <span class="badge badge-info">{{ $language->years_count ?? 0 }} Years</span>
+                            <span class="badge badge-info">{{ $language->study_years_count ?? 0 }} Years</span>
                         </td>
                         <td class="text-right">
                             <a href="{{ route('admin.study-years.index', ['language_id' => $language->id]) }}" class="btn btn-sm btn-primary border border-primary mr-2" title="Manage Years">

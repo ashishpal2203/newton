@@ -9,11 +9,11 @@ class StudyYear extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['study_language_id', 'year', 'status'];
+    protected $fillable = ['study_class_id', 'year', 'status'];
 
-    public function language()
+    public function studyClass()
     {
-        return $this->belongsTo(StudyLanguage::class, 'study_language_id');
+        return $this->belongsTo(StudyClass::class, 'study_class_id');
     }
 
     public function studyPapers()

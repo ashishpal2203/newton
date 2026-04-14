@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="container py-5">
+<div class="container-v1">
 <div class="blog-container">
 
     <span class="blog-badge">{{ $blog->category->name ?? 'Update' }}</span>

@@ -14,7 +14,7 @@ class StudyPaperController extends Controller
     {
         $year_id = $request->query('year_id');
         if (!$year_id) {
-            return redirect()->route('admin.study-classes.index')->with('error', 'Please navigate through a class, language, and year first.');
+            return redirect()->route('admin.study-classes.index')->with('error', 'Please navigate through a class and year first.');
         }
 
         $studyYear = StudyYear::findOrFail($year_id);

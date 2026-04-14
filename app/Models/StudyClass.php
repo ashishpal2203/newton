@@ -11,8 +11,9 @@ class StudyClass extends Model
 
     protected $fillable = ['name', 'slug', 'icon', 'status'];
 
-    public function languages()
+
+    public function studyYears()
     {
-        return $this->hasMany(StudyLanguage::class);
+        return $this->hasMany(StudyYear::class);
     }
 }

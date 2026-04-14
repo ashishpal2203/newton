@@ -9,6 +9,17 @@
   color: #0d6efd;
 }
 
+@media (max-width: 991px) {
+  .na-header .navbar-brand img {
+    height: 32px;
+  }
+
+  .profile-dot {
+    width: 32px;
+    height: 32px;
+  }
+}
+
 .na-header .btn-light {
   background: #eaf2ff;
 }
@@ -19,6 +30,24 @@
   background: #0d6efd;
   border-radius: 50%;
   display: inline-block;
+}
+
+.container-v1 {
+  max-width: 1080px;
+  margin: auto;
+  padding: 30px 0;
+}
+
+
+
+@media (max-width: 600px) {
+  .container-v1 {
+    padding: 1.5rem 1rem;
+  }
+
+  .box {
+    padding: 20px;
+  }
 }
 
 
@@ -333,7 +362,7 @@ body {
 .section-title {
   /*  text-align: center;*/
   font-weight: 600;
-  margin-bottom: 50px;
+  margin-bottom: 24px;
 }
 
 .why-card {
@@ -726,7 +755,14 @@ div#demo {
 /* Mobile */
 @media (max-width: 768px) {
   .courses-grid {
-    /* grid-template-columns: ; */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1105,7 +1141,7 @@ h4.text-primary {
 .section-title {
   color: #003281;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 26px;
 }
 
 .champion-card {
@@ -1770,6 +1806,7 @@ section.why-choose-us a {
   .phase-card {
     flex-direction: column;
     text-align: left;
+    align-items: initial;
   }
 
   .phase-left {
@@ -1963,4 +2000,19 @@ a.mtttbtn {
   overflow: hidden;
   background: #fff;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+@media (max-width: 600px) {
+  .box {
+    padding: 20px;
+  }
+
+  .about-content {
+    padding: 20px;
+  }
+
+  .why-choose-wrap {
+    padding: 0;
+  }
 }

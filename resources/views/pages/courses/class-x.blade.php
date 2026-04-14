@@ -1,17 +1,19 @@
 @extends('layouts.app')
-@section('content')
 
+@section('title', 'Class X – Program | Newton\'s Academy')
+
+@section('content')
 <section class="class12">
   <div class="container-v1">
      <!-- Banner -->
     <div class="class12-banner">
-      <img src="{{ asset('assets/images/program.png') }}" alt="">
+      <img src="{{ Storage::url('assets/images/program.png') }}" alt="Class X Program">
     </div>
 
   </div>
 
 
-  <div class="container-fluid">
+  <div class="container-v1">
 
    
     <h2 class="class12-title">CLASS X</h2>
@@ -24,7 +26,8 @@
         <div class="box about-box">
           <h5>About the Program</h5>
           <p>
-The JEE (Joint Entrance Examination) is India's premier engineering entrance exam, divided into two stages: JEE Main and JEE Advanced. This comprehensive program is designed to prepare students for both levels, covering the complete syllabus with in-depth conceptual understanding and rigorous problem-solving practice.          </p>
+            The Class X program at Newton's Academy is meticulously designed to provide students with a strong academic foundation. We focus on conceptual clarity across all core subjects, preparing students not just for their board examinations but for future competitive challenges. Our integrated approach combines rigorous curriculum coverage with personality development and critical thinking skills.
+          </p>
         </div>
       </div>
 
@@ -34,12 +37,12 @@ The JEE (Joint Entrance Examination) is India's premier engineering entrance exa
 
           <div class="box small-box">
             <span>Duration</span>
-            <strong>2 Years (XI & XII)</strong>
+            <strong>1 Year (Academic Session)</strong>
           </div>
 
           <div class="box small-box">
             <span>Eligibility</span>
-            <strong>Students in Class X or XI with PCM stream</strong>
+            <strong>Students currently in or entering Class X</strong>
           </div>
 
         </div>
@@ -52,18 +55,18 @@ The JEE (Joint Entrance Examination) is India's premier engineering entrance exa
 
       <div class="col-md-6">
         <div class="box program-box">
-          <h6>JEE Main</h6>
+          <h6>Board Preparation</h6>
           <p>
-            JEE Main serves as the gateway to National Institutes of Technology (NITs), Indian Institutes of Information Technology (IIITs), and other centrally funded technical institutions. It's also the qualifying examination for JEE Advanced. The exam tests students in Physics, Chemistry, and Mathematics with a focus on application-based problem-solving.
+            Our specialized board preparation modules focus on the latest patterns and marking schemes. We provide structured revision plans, regular weekly tests, and comprehensive analysis of previous year papers to ensure students achieve their maximum potential in the final exams.
           </p>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="box program-box">
-          <h6>JEE Advanced</h6>
+          <h6>Foundation for JEE/NEET</h6>
           <p>
-            JEE Advanced is the entrance examination for the prestigious Indian Institutes of Technology (IITs). Only the top 2.5 lakh candidates from JEE Main are eligible to appear for this exam. It demands a deeper understanding of concepts and exceptional analytical skills, featuring challenging multi-concept problems that test creativity and logical reasoning.
+            For students aiming for future excellence, we introduce higher-level concepts in Mathematics and Science. This early exposure helps in building the analytical mindset required for prestigious entrance exams like JEE and NEET, giving our students a significant competitive advantage.
           </p>
         </div>
       </div>
@@ -87,28 +90,4 @@ The JEE (Joint Entrance Examination) is India's premier engineering entrance exa
 
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-
 @endsection

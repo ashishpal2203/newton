@@ -37,6 +37,10 @@
             @include('partials.footer')
         </div>
 
+        @if($activePopup)
+            @include('partials.popup')
+        @endif
+
         <!-- Bootstrap 5.3.0 JS Bundle -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

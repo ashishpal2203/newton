@@ -1,9 +1,9 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Add Year to ' . $studyLanguage->name)
+@section('title', 'Add Year to ' . $studyClass->name)
 
 @section('header-actions')
-    <a href="{{ route('admin.study-years.index', ['language_id' => $studyLanguage->id]) }}" class="btn btn-light border">
+    <a href="{{ route('admin.study-years.index', ['class_id' => $studyClass->id]) }}" class="btn btn-light border">
         <i class="fas fa-arrow-left mr-1"></i> Back to Years
     </a>
 @endsection
@@ -14,7 +14,7 @@
         <div class="card">
             <form action="{{ route('admin.study-years.store') }}" method="POST">
                 @csrf
-                <input type="hidden" name="study_language_id" value="{{ $studyLanguage->id }}">
+                <input type="hidden" name="study_class_id" value="{{ $studyClass->id }}">
                 
                 <div class="card-body">
                     <div class="form-group mb-0">

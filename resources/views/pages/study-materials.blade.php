@@ -8,7 +8,7 @@
 
 
 <section>
-  <div class="container-fluid ">
+  <div class="container-v1 ">
   <div class="courses-section">
   <div class="courses-wrapper">
 

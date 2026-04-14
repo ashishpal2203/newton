@@ -8,7 +8,8 @@
 </div>
 @endif
 
-  <div class="container-fluid mob-fluid">
+<section id="hero_banner" class="container-v1">
+    <div class="">
 
     <!-- Carousel -->
     <div id="demo" class="carousel slide" data-bs-ride="carousel">
@@ -35,7 +36,7 @@
             @if($banner->mobile_image)
               <source media="(max-width: 768px)" srcset="{{ Storage::url($banner->mobile_image) }}">
             @endif
-            <img src="{{ Storage::url($banner->desktop_image) }}" alt="{{ $banner->title ?? 'Banner' }}" class="d-block w-100">
+            <img src="{{ Storage::url($banner->desktop_image) }}" alt="{{ $banner->title ?? 'Banner' }}" class="d-block w-100 img-fluid">
           </picture>
 
           @if($banner->link)
@@ -44,12 +45,12 @@
         </div>
         @empty
         <div class="carousel-item active">
-          <img src="{{ asset('assets/images/1.jpg') }}" alt="Default Banner" class="d-block w-100">
+          <img src="{{ Storage::url('assets/images/1.jpg') }}" alt="Default Banner" class="d-block w-100 img-fluid">
         </div>
         @endforelse
         @else
         <div class="carousel-item active">
-          <img src="{{ asset('assets/images/1.jpg') }}" alt="Default Banner" class="d-block w-100">
+          <img src="{{ Storage::url('assets/images/1.jpg') }}" alt="Default Banner" class="d-block w-100 img-fluid">
         </div>
         @endif
       </div>
@@ -57,14 +58,15 @@
     </div>
 
   </div>
+</section>
 
 
-  <section class="stats-section">
+  <section class="stats-section container-v1">
 
 
-    <div class="container-fluid">
+    <div class="">
       <div class="stats-mob">
-        <img src="{{ asset('assets/images/counting.png') }}">
+        <img src="{{ Storage::url('assets/images/counting.png') }}" class="img-fluid">
       </div>
 
       <div class="stats-box">
@@ -104,8 +106,8 @@
 
 
 
-  <section class="phase-slider-section my-4">
-    <div class="container-fluid">
+  <section class="phase-slider-section my-4 ">
+    <div class="container-v1">
       <div id="phaseSlider" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
 
@@ -131,7 +133,7 @@
 
               <div class="phase-right">
                 <div class="mentor">
-                  <img src="{{ asset('assets/images/neetu.png') }}">
+                  <img src="{{ Storage::url('assets/images/neetu.png') }}" class="img-fluid">
                   <div>
                     <strong>Neetu Yadav</strong>
                     <small>NEET-UG 2025</small>
@@ -139,7 +141,7 @@
                 </div>
 
                 <div class="mentor">
-                  <img src="{{ asset('assets/images/mahima.png') }}">
+                  <img src="{{ Storage::url('assets/images/mahima.png') }}" class="img-fluid">
                   <div>
                     <strong>Mahima Singh</strong>
                     <small>NEET-UG 2025</small>
@@ -170,7 +172,7 @@
 
               <div class="phase-right">
                 <div class="mentor">
-                  <img src="{{ asset('assets/images/neetu.png') }}">
+                  <img src="{{ Storage::url('assets/images/neetu.png') }}" class="img-fluid">
                   <div>
                     <strong>Neetu Yadav</strong>
                     <small>NEET-UG 2025</small>
@@ -178,7 +180,7 @@
                 </div>
 
                 <div class="mentor">
-                  <img src="{{ asset('assets/images/mahima.png') }}">
+                  <img src="{{ Storage::url('assets/images/mahima.png') }}" class="img-fluid">
                   <div>
                     <strong>Mahima Singh</strong>
                     <small>NEET-UG 2025</small>
@@ -210,7 +212,7 @@
 
               <div class="phase-right">
                 <div class="mentor">
-                  <img src="{{ asset('assets/images/neetu.png') }}">
+                  <img src="{{ Storage::url('assets/images/neetu.png') }}" class="img-fluid">
                   <div>
                     <strong>Neetu Yadav</strong>
                     <small>NEET-UG 2025</small>
@@ -218,7 +220,7 @@
                 </div>
 
                 <div class="mentor">
-                  <img src="{{ asset('assets/images/mahima.png') }}">
+                  <img src="{{ Storage::url('assets/images/mahima.png') }}" class="img-fluid">
                   <div>
                     <strong>Mahima Singh</strong>
                     <small>NEET-UG 2025</small>
@@ -253,79 +255,79 @@
 
 
 
-  <section>
-    <div class="container-fluid ">
-      <div class="courses-section">
+  <section class="">
+    <div class="">
+      <div class="container-v1">
         <div class="courses-wrapper">
 
           <h3 class="section-title">Courses </h3>
 
           <div class="courses-grid">
-            <a href="class-X.html">
+            <a href="{{ route('courses.class-x') }}">
               <div class="course-card">
                 <div class="icon-box blue">
-                  <img src="{{ asset('assets/images/PYQLibrary.png') }}">
+                  <img src="{{ Storage::url('assets/images/PYQLibrary.png') }}" class="img-fluid">
                 </div>
                 <h4>Class X</h4>
                 <span>8 Subjects</span>
               </div>
             </a>
 
-            <a href="class-XII.html">
+            <a href="{{ route('courses.class-xii') }}">
               <div class="course-card">
                 <div class="icon-box purple">
 
-                  <img src="{{ asset('assets/images/class.png') }}">
+                  <img src="{{ Storage::url('assets/images/class.png') }}" class="img-fluid">
                 </div>
                 <h4>Class XII</h4>
                 <span>8 Subjects</span>
               </div>
             </a>
 
-            <a href="jee-mains+advanced.html">
+            <a href="{{ route('courses.jee-mains-advanced') }}">
               <div class="course-card">
                 <div class="icon-box yellow">
-                  <img src="{{ asset('assets/images/jee.png') }}">
+                  <img src="{{ Storage::url('assets/images/jee.png') }}" class="img-fluid">
                 </div>
                 <h4>JEE Mains</h4>
                 <span>3 Subjects</span>
               </div>
             </a>
 
-            <a href="neet.html">
+            <a href="{{ route('courses.neet') }}">
               <div class="course-card">
                 <div class="icon-box green">
-                  <img src="{{ asset('assets/images/neet.png') }}">
+                  <img src="{{ Storage::url('assets/images/neet.png') }}" class="img-fluid">
                 </div>
                 <h4>NEET</h4>
                 <span>3 Subjects</span>
               </div>
             </a>
 
-            <a href="school-section.html">
+            <a href="{{ route('courses.school-section') }}">
               <div class="course-card">
                 <div class="icon-box blue">
-                  <img src="{{ asset('assets/images/School.png') }}">
+                  <img src="{{ Storage::url('assets/images/School.png') }}" class="img-fluid">
                 </div>
                 <h4>School Section</h4>
                 <span>3 Subjects</span>
               </div>
             </a>
 
-            <a href="sci-comm.html">
+            <a href="{{ route('courses.sci-comm') }}">
               <div class="course-card">
                 <div class="icon-box blue">
-                  <img src="{{ asset('assets/images/comm.png') }}">
+                  <img src="{{ Storage::url('assets/images/comm.png') }}" class="img-fluid">
                 </div>
                 <h4>Sci & Comm</h4>
                 <span>8 Subjects</span>
               </div>
             </a>
 
-            <a href="mht-cet.html">
+            <a href="{{ route('courses.mht-cet') }}">
               <div class="course-card">
                 <div class="icon-box orange">
-                  <img src="{{ asset('assets/images/mht.png') }}">
+                  <img src="{{ Storage::url('assets/images/mht.png') }}" class="img-fluid">
                 </div>
                 <h4>MHT-CET</h4>
                 <span>(XI & XII)</span>
@@ -333,10 +335,10 @@
             </a>
 
 
-            <a href="Integrated-classes.html">
+            <a href="{{ route('courses.integrated-classes') }}">
               <div class="course-card">
                 <div class="icon-box green">
-                  <img src="{{ asset('assets/images/class.png') }}">
+                  <img src="{{ Storage::url('assets/images/class.png') }}" class="img-fluid">
                 </div>
                 <h4>Integrated Classes</h4>
                 <span>8 Subjects</span>
@@ -350,9 +352,9 @@
   </section>
 
 
-  <section>
-    <div class="container-fluid ">
-      <div class="courses-section">
+  <section class="">
+    <div class="">
+      <div class="container-v1">
         <div class="courses-wrapper">
 
           <h3 class="section-title">Study Materials </h3>
@@ -362,10 +364,10 @@
             <a href="{{ route('study-material.languages', $class->slug) }}">
               <div class="course-card">
                 <div class="icon-box {{ ['blue', 'purple', 'yellow', 'green'][$loop->index % 4] }}">
-                  <img src="{{ asset('assets/images/' . basename($class->icon)) }}">
+                  <img src="{{ Storage::url('assets/images/' . basename($class->icon)) }}" class="img-fluid">
                 </div>
                 <h4>{{ $class->name }}</h4>
-                <span>{{ $class->languages->count() }} Categories</span>
+                <span>{{ $class->studyYears->count() }} Years</span>
               </div>
             </a>
             @endforeach
@@ -381,7 +383,7 @@
 
 
 
-  <section class="testimonial-section">
+  <section class="testimonial-section ">
     <div class="container">
 
       <div class="row">
@@ -400,7 +402,7 @@
 
           <!-- Right Image -->
           <div class="testimonial-image">
-            <img id="img" src="{{ asset('assets/images/frme.png') }}" alt="Student">
+            <img id="img" src="{{ Storage::url('assets/images/frme.png') }}" alt="Student" class="img-fluid">
 
             <div class="slider-buttons">
               <button onclick="prev()">Prev</button>
@@ -418,16 +420,16 @@
 
 
   <section class="why-choose-us">
-    <div class="container">
+    <div class="container container-v1">
       <h2 class="section-titless">Why Choose Us</h2>
 
-      <div class="row justify-content-center">
+      <div class="row justify-content-center gy-4">
         <!-- Item 1 -->
         <div class="col-md-4">
           <a href="about-us.html">
             <div class="why-card center">
               <div class="icon">
-                <img src="{{ asset('assets/images/cap.png') }}">
+                <img src="{{ Storage::url('assets/images/cap.png') }}" class="img-fluid">
               </div>
               <h5>Expert Faculty</h5>
               <p>Learn from IIT/AIIMS graduates</p>
@@ -440,7 +442,7 @@
           <a href="about-us.html">
             <div class="why-card center">
               <div class="icon">
-                <img src="{{ asset('assets/images/book.png') }}">
+                <img src="{{ Storage::url('assets/images/book.png') }}" class="img-fluid">
               </div>
               <h5>Structured Material</h5>
               <p>Comprehensive study material</p>
@@ -453,7 +455,7 @@
           <a href="about-us.html">
             <div class="why-card center">
               <div class="icon">
-                <img src="{{ asset('assets/images/whychoos.png') }}">
+                <img src="{{ Storage::url('assets/images/whychoos.png') }}" class="img-fluid">
               </div>
               <h5>24/7 Doubt Support</h5>
               <p>Get doubts resolved anytime</p>
@@ -475,8 +477,8 @@
 
 
 
-  <section class="success-bg">
-    <div class="container-fluid">
+  <section class="success-bg ">
+    <div class="container-v1">
 
       <!-- REVIEW SLIDER -->
       <div class="swiper reviewSwiper mb-5">
@@ -487,7 +489,7 @@
             <div class="review-card">
               <div class="review-head">
                 @if($review->user_image)
-                  <img src="{{ Storage::url($review->user_image) }}" alt="Avatar" class="avatar" style="object-fit:cover;">
+                  <img src="{{ Storage::url($review->user_image) }}" alt="Avatar" class="avatar img-fluid" style="object-fit:cover;">
                 @else
                   <div class="avatar" style="background-color: {{ collect(['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#f0932b'])->random() }}; color: white;">
                     {{ strtoupper(substr($review->user_name, 0, 1)) }}
@@ -588,7 +590,7 @@
 
 
 
-  <section class="latest-updates">
+  <section class="latest-updates container-v1 ">
     <div class="container">
       <div class="latest-header">
         <h2>Latest Updates</h2>
@@ -606,9 +608,9 @@
           <div class="blog-card card-blog">
             <div class="blog-thumb">
               @if($update->image)
-                <img src="{{ Storage::url($update->image) }}" alt="{{ $update->title }}">
+                <img src="{{ Storage::url($update->image) }}" alt="{{ $update->title }}" class="img-fluid">
               @else
-                <img src="{{ asset('assets/images/blog1.png') }}" alt="img">
+                <img src="{{ Storage::url('assets/images/blog1.png') }}" alt="img" class="img-fluid">
               @endif
             </div>
             <div class="blog-content">

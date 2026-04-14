@@ -11,7 +11,7 @@ class StudyClassController extends Controller
 {
     public function index()
     {
-        $classes = StudyClass::withCount('languages')->get();
+        $classes = StudyClass::withCount('studyYears')->get();
         return view('admin.study.classes.index', compact('classes'));
     }
 
@@ -63,12 +63,9 @@ class StudyClassController extends Controller
     public function destroy(StudyClass $studyClass)
     {
         // Delete all nested files manually before table cascade deletes row.
-        foreach($studyClass->languages as $lang) {
-            if ($lang->icon) Storage::disk('public')->delete($lang->icon);
-            foreach($lang->studyYears as $year) {
-                foreach($year->studyPapers as $paper) {
-                    if ($paper->file_path) Storage::disk('public')->delete($paper->file_path);
-                }
+        foreach($studyClass->studyYears as $year) {
+            foreach($year->studyPapers as $paper) {
+                if ($paper->file_path) Storage::disk('public')->delete($paper->file_path);
             }
         }
         

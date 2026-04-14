@@ -3,7 +3,7 @@
 @section('title', 'Edit Year')
 
 @section('header-actions')
-    <a href="{{ route('admin.study-years.index', ['language_id' => $studyYear->study_language_id]) }}" class="btn btn-light border">
+    <a href="{{ route('admin.study-years.index', ['class_id' => $studyYear->study_class_id]) }}" class="btn btn-light border">
         <i class="fas fa-arrow-left mr-1"></i> Back to Years
     </a>
 @endsection

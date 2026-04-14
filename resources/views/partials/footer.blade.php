@@ -1,7 +1,7 @@
 <section class="p-bottom p-top text-white"
     style="background: linear-gradient(135deg,#0a1a5e,#1e4fd8);" id="contact">
 
-  <div class="container">
+  <div class="container-v1">
     <div class="row align-items-end flex-column-reverse flex-md-row">
    
 
@@ -9,7 +9,7 @@
       <div class="col-md-6 col-12 col-sm-12 borbtm">
         <div class="d-flex">
         <div class="logofoot">
-          <img src="{{ asset('assets/images/logo-footer.png') }}">
+          <img src="{{ Storage::url('assets/images/logo-footer.png') }}">
         </div>
 
       
@@ -106,6 +106,7 @@
     <!-- FOOTER LINKS -->
     <div class="text-left tttoop small">
       <a href="{{ url('about-us') }}" class="text-white text-decoration-none me-3">about us </a>
+      <a href="{{ route('gallery.index') }}" class="text-white text-decoration-none me-3">Gallery</a>
       <a href="{{ url('contact') }}" class="text-white text-decoration-none me-3">Contact Us </a>
       <a href="{{ url('help') }}" class="text-white text-decoration-none me-3">Help</a>
       <a href="{{ url('privacy-policy') }}" class="text-white text-decoration-none me-3">Privacy Policy</a>
@@ -223,13 +224,13 @@ new Swiper(".reviewSwiper", {
     name: "Our Mission",
     rank: "Empowering families through education, one life at a time.",
     msg: " At Newton's Academy, we believe that education is not just about academic success but also about changing lives. We are passionate about creating a positive impact in the lives of families by providing quality education that opens up opportunities and transforms futures. Seeing our students succeed and achieve their goals fills us with a deep sense of fulfilment and pride. We are committed to making a difference and changing lives through education, one family at a time.",
-    img: "{{ asset('assets/images/frme.png') }}"
+    img: "{{ Storage::url('assets/images/frme.png') }}"
   },
   {
     name: "Our Mission",
     rank: "Empowering families through education, one life at a time.",
     msg: " At Newton's Academy, we believe that education is not just about academic success but also about changing lives. We are passionate about creating a positive impact in the lives of families by providing quality education that opens up opportunities and transforms futures. Seeing our students succeed and achieve their goals fills us with a deep sense of fulfilment and pride. We are committed to making a difference and changing lives through education, one family at a time.",
-    img: "{{ asset('assets/images/frme.png') }}"
+    img: "{{ Storage::url('assets/images/frme.png') }}"
   }
 ];
 

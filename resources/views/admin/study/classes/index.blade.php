@@ -36,16 +36,16 @@
                             @endif
                         </td>
                         <td>
-                            <span class="badge badge-info">{{ $class->languages_count ?? 0 }} Languages</span>
+                            <span class="badge badge-info">{{ $class->study_years_count ?? 0 }} Years</span>
                         </td>
                         <td class="text-right">
-                            <a href="{{ route('admin.study-languages.index', ['class_id' => $class->id]) }}" class="btn btn-sm btn-primary border border-primary mr-2" title="Manage Languages">
-                                Manage Languages <i class="fas fa-arrow-right ml-1"></i>
+                            <a href="{{ route('admin.study-years.index', ['class_id' => $class->id]) }}" class="btn btn-sm btn-primary border border-primary mr-2" title="Manage Years">
+                                Manage Years <i class="fas fa-arrow-right ml-1"></i>
                             </a>
                             <a href="{{ route('admin.study-classes.edit', $class->id) }}" class="btn btn-sm btn-light border" title="Edit">
                                 <i class="fas fa-edit text-muted"></i>
                             </a>
-                            <form action="{{ route('admin.study-classes.destroy', $class->id) }}" method="POST" class="d-inline-block" onsubmit="return confirm('Are you sure? This will delete the class AND all its languages, years, and question papers permanently!');">
+                            <form action="{{ route('admin.study-classes.destroy', $class->id) }}" method="POST" class="d-inline-block" onsubmit="return confirm('Are you sure? This will delete the class AND all its years and question papers permanently!');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger border-0" title="Delete">

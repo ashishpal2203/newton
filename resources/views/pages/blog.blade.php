@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<section class="blogs-section py-5">
-<section class="blogs-section py-5">
-  <div class="container">
+<section class="blogs-section">
+  <div class="container-v1">
 
     <!-- Heading -->
     <h2 class="text-center fw-bold mb-4">Blogs</h2>

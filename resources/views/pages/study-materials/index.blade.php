@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid py-5">
-    <div class="courses-section">
+<div class="container-v1">
+    <div class="">
         <div class="courses-wrapper">
             <h3 class="section-title">Study Materials</h3>
             <div class="courses-grid">
@@ -10,10 +10,10 @@
                 <a href="{{ route('study-material.languages', $class->slug) }}">
                     <div class="course-card">
                         <div class="icon-box {{ ['blue', 'purple', 'yellow', 'green', 'orange'][$loop->index % 5] }}">
-                            <img src="{{ asset($class->icon ?? 'img/PYQLibrary.png') }}" alt="{{ $class->name }}">
+                            <img src="{{ Storage::url($class->icon ?? 'assets/images/PYQLibrary.png') }}" alt="{{ $class->name }}" class="img-fluid">
                         </div>
                         <h4>{{ $class->name }}</h4>
-                        <span>{{ $class->languages->count() }} Categories</span>
+                        <span>{{ $class->studyYears->count() }} Years</span>
                     </div>
                 </a>
                 @endforeach

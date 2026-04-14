@@ -64,18 +64,13 @@ class DemoDataSeeder extends Seeder
         // 5. Seed Study Materials hierarchy
         \App\Models\StudyClass::factory(5)
             ->has(
-                \App\Models\StudyLanguage::factory()
-                    ->count(2)
+                \App\Models\StudyYear::factory()
+                    ->count(4)
                     ->has(
-                        \App\Models\StudyYear::factory()
-                            ->count(3)
-                            ->has(
-                                \App\Models\StudyPaper::factory()->count(2),
-                                'studyPapers'
-                            ),
-                        'studyYears'
+                        \App\Models\StudyPaper::factory()->count(3),
+                        'studyPapers'
                     ),
-                'languages'
+                'studyYears'
             )
             ->create();
     }

@@ -359,6 +359,13 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{ route('admin.popups.index') }}" class="nav-link {{ request()->routeIs('admin.popups.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-window-maximize text-danger"></i>
+                            <p>Announcement Popup</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="{{ route('admin.reviews.index') }}" class="nav-link {{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-star text-warning"></i>
                             <p>Reviews & Ratings</p>
@@ -396,10 +403,17 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{ route('admin.gallery.index') }}" class="nav-link {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-images text-purple"></i>
+                            <p>Gallery</p>
+                        </a>
+                    </li>
+
                     @can('manage media')
                     <li class="nav-item">
                         <a href="{{ route('admin.media.index') }}" class="nav-link {{ request()->routeIs('admin.media.*') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-images"></i>
+                            <i class="nav-icon fas fa-photo-video"></i>
                             <p>Media Library</p>
                         </a>
                     </li>

@@ -1,12 +1,12 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Manage Years ('. $studyLanguage->name .')')
+@section('title', 'Manage Years (' . $studyClass->name . ')')
 
 @section('header-actions')
-    <a href="{{ route('admin.study-languages.index', ['class_id' => $studyLanguage->study_class_id]) }}" class="btn btn-light border mr-2">
-        <i class="fas fa-arrow-left mr-1"></i> Back to Languages
+    <a href="{{ route('admin.study-classes.index') }}" class="btn btn-light border mr-2">
+        <i class="fas fa-arrow-left mr-1"></i> Back to Classes
     </a>
-    <a href="{{ route('admin.study-years.create', ['language_id' => $studyLanguage->id]) }}" class="btn btn-primary">
+    <a href="{{ route('admin.study-years.create', ['class_id' => $studyClass->id]) }}" class="btn btn-primary">
         <i class="fas fa-plus-circle mr-1"></i> Add New Year
     </a>
 @endsection
@@ -14,7 +14,7 @@
 @section('content')
 <div class="card">
     <div class="card-header border-0 pb-0">
-        <h3 class="card-title">Years for <strong class="text-primary">{{ $studyLanguage->studyClass->name }} > {{ $studyLanguage->name }}</strong></h3>
+        <h3 class="card-title">Years for <strong class="text-primary">{{ $studyClass->name }}</strong></h3>
     </div>
     <div class="card-body p-0">
         <div class="table-responsive">

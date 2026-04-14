@@ -18,7 +18,6 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     
     // Study Materials
     Route::resource('study-classes', \App\Http\Controllers\Admin\StudyClassController::class);
-    Route::resource('study-languages', \App\Http\Controllers\Admin\StudyLanguageController::class);
     Route::resource('study-years', \App\Http\Controllers\Admin\StudyYearController::class);
     Route::resource('study-papers', \App\Http\Controllers\Admin\StudyPaperController::class);
 
@@ -37,6 +36,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     // Media
     Route::resource('media', MediaController::class)->only(['index', 'store', 'destroy']);
 
+    // Gallery
+    Route::resource('gallery', \App\Http\Controllers\Admin\GalleryController::class);
+
     // Contacts
     Route::resource('contacts', \App\Http\Controllers\Admin\ContactController::class)->only(['index', 'show', 'destroy']);
 
@@ -51,4 +53,8 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::post('latest-updates/reorder', [\App\Http\Controllers\Admin\LatestUpdateController::class, 'reorder'])->name('latest-updates.reorder');
     Route::post('latest-updates/{latest_update}/toggle-status', [\App\Http\Controllers\Admin\LatestUpdateController::class, 'toggleStatus'])->name('latest-updates.toggle_status');
     Route::resource('latest-updates', \App\Http\Controllers\Admin\LatestUpdateController::class);
+
+    // Announcement Popups
+    Route::post('popups/{popup}/toggle-status', [\App\Http\Controllers\Admin\AnnouncementPopupController::class, 'toggleStatus'])->name('popups.toggle_status');
+    Route::resource('popups', \App\Http\Controllers\Admin\AnnouncementPopupController::class);
 });

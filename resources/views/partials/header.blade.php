@@ -5,12 +5,12 @@
 
       <!-- MOBILE LEFT HAMBURGER -->
       <button class="btn d-lg-none me-2" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-        <img src="{{ asset('assets/images/Icon.png') }}">
+        <img src="{{ Storage::url('assets/images/Icon.png') }}">
       </button>
 
       <!-- LOGO (CENTER ON MOBILE) -->
       <a class="navbar-brand mx-lg-0 mx-auto" href="{{ url('/') }}">
-        <img src="{{ asset('assets/images/logo.png') }}" height="38" alt="Newton Academy">
+        <img src="{{ Storage::url('assets/images/logo.png') }}" height="38" alt="Newton Academy">
       </a>
 
       <!-- MOBILE RIGHT BLUE DOT -->
@@ -25,15 +25,16 @@
           <li class="nav-item"><a class="nav-link {{ request()->is('courses') ? 'active' : '' }}" href="{{ route('courses') }}">courses</a></li>
           <li class="nav-item"><a class="nav-link {{ request()->routeIs('study-material.*') ? 'active' : '' }}" href="{{ route('study-material.index') }}">Study Materials </a></li>
           <li class="nav-item"><a class="nav-link {{ request()->is('about-us') ? 'active' : '' }}" href="{{ route('about-us') }}">about us</a></li>
+          <li class="nav-item"><a class="nav-link {{ request()->routeIs('gallery.index') ? 'active' : '' }}" href="{{ route('gallery.index') }}">Gallery</a></li>
           <li class="nav-item"><a class="nav-link {{ request()->is('blog') ? 'active' : '' }}" href="{{ route('blog') }}">blog</a></li>
-          <li class="nav-item"><a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="{{ route('contact') }}">contact us</a></li>
+          <li class="nav-item"><a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="{{ route('home') }}#contact">contact us</a></li>
         </ul>
 
         <!-- DESKTOP BUTTONS -->
         <div class="d-flex gap-23">
           
          
-          <a href="#"><img src="{{ asset('assets/images/call.png') }}"></a>
+          <a href="#"><img src="{{ Storage::url('assets/images/call.png') }}"></a>
           @auth
             <a href="{{ route('admin.dashboard') }}" class="btn btn-light rounded-pill borderpill px-4 logincss">Dashboard</a>
           @else
@@ -53,7 +54,7 @@
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
   <div class="offcanvas-header">
-    <img src="{{ asset('assets/images/logo.png') }}" height="32">
+    <img src="{{ Storage::url('assets/images/logo.png') }}" height="32">
     <button class="btn-close" data-bs-dismiss="offcanvas">
      
     </button>
@@ -65,6 +66,7 @@
       <li><a class="nav-link" href="{{ route('courses') }}">Courses</a></li>
       <li><a class="nav-link" href="{{ route('study-material.index') }}">Study Materials</a></li>
       <li><a class="nav-link" href="{{ route('about-us') }}">About Us</a></li>
+      <li><a class="nav-link" href="{{ route('gallery.index') }}">Gallery</a></li>
       <li><a class="nav-link" href="{{ route('blog') }}">Blog</a></li>
       <li><a class="nav-link" href="{{ route('contact') }}">Contact Us</a></li>
     </ul>

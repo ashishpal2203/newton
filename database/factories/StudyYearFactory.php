@@ -18,7 +18,7 @@ class StudyYearFactory extends Factory
     public function definition(): array
     {
         return [
-            'study_language_id' => \App\Models\StudyLanguage::factory(),
+            'study_class_id' => \App\Models\StudyClass::factory(),
             'year' => $this->faker->randomElement(['2023-24', '2024-25', '2025-26']),
             'status' => true,
         ];

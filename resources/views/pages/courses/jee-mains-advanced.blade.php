@@ -1,20 +1,22 @@
 @extends('layouts.app')
-@section('content')
 
+@section('title', 'JEE Main + Advanced | Newton\'s Academy')
+
+@section('content')
 <section class="class12">
   <div class="container-v1">
      <!-- Banner -->
     <div class="class12-banner">
-      <img src="{{ asset('assets/images/program.png') }}" alt="">
+      <img src="{{ Storage::url('assets/images/program.png') }}" alt="JEE Main + Advanced Program">
     </div>
 
   </div>
 
 
-  <div class="container-fluid">
+  <div class="container-v1">
 
    
-    <h2 class="class12-title">CLASS X</h2>
+    <h2 class="class12-title">JEE Main + Advanced</h2>
 
     <!-- TOP ROW -->
     <div class="row g-4 align-items-stretch">
@@ -24,7 +26,8 @@
         <div class="box about-box">
           <h5>About the Program</h5>
           <p>
-The JEE (Joint Entrance Examination) is India's premier engineering entrance exam, divided into two stages: JEE Main and JEE Advanced. This comprehensive program is designed to prepare students for both levels, covering the complete syllabus with in-depth conceptual understanding and rigorous problem-solving practice.          </p>
+            The JEE (Joint Entrance Examination) is India's premier engineering entrance exam, divided into two stages: JEE Main and JEE Advanced. This comprehensive program is designed to prepare students for both levels, covering the complete syllabus with in-depth conceptual understanding and rigorous problem-solving practice.
+          </p>
         </div>
       </div>
 
@@ -87,28 +90,4 @@ The JEE (Joint Entrance Examination) is India's premier engineering entrance exa
 
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-
 @endsection

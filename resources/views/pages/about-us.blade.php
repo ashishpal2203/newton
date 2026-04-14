@@ -2,7 +2,7 @@
 @section('content')
 
 <section>
-  <div class="container-fluid">
+  <div class="container-v1">
     <div class="about-hero-section">
   <div class="about-hero-bg">
     <div class="about-hero-overlay"></div>
@@ -29,7 +29,7 @@
 
 
 
-<section class="container-fluid">
+<section class="container-v1">
   <div class="row g-4">
 
     <!-- Our Vision -->
@@ -75,7 +75,7 @@
 
 
 <section class="hhh">
-  <div class="container-fluid ">
+  <div class="container-v1 ">
 
     <div class="why-choose-wrap">
 
@@ -159,7 +159,7 @@
 
 
 
-   <div class="container-fluid">
+   <div class="container-v1">
     <div class="cta-strip d-flex justify-content-between align-items-center flex-wrap gap-3">
       <div>
         <h6 class="mb-1 fw-bold text-white">{{ content('about', 'about_cta_heading', 'Talk to our expert for Free Counselling') }}</h6>
@@ -187,7 +187,7 @@
 
 
 <section class="champions-section">
-    <div class="container-fluid">
+    <div class="container-v1">
         
         <h2 class="section-titles jj">Our Champions</h2>
 

@@ -24,7 +24,13 @@ class AppServiceProvider extends ServiceProvider
             $settings = \Illuminate\Support\Facades\Cache::remember('global_settings', 60*60, function () {
                 return clone \App\Models\Setting::pluck('value', 'key');
             });
-            $view->with('global_settings', $settings);
+            
+            $activePopup = \App\Models\AnnouncementPopup::where('is_active', true)->first();
+            
+            $view->with([
+                'global_settings' => $settings,
+                'activePopup' => $activePopup
+            ]);
         });
     }
 }

@@ -7,7 +7,7 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('study_years', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('study_language_id')->constrained('study_languages')->cascadeOnDelete();
+            $table->foreignId('study_class_id')->constrained('study_classes')->cascadeOnDelete();
             $table->string('year');
             $table->boolean('status')->default(true);
             $table->timestamps();

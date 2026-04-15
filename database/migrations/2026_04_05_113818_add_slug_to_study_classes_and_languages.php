@@ -13,15 +13,9 @@ return new class extends Migration
         Schema::table('study_classes', function (Blueprint $table) {
             $table->string('slug')->nullable()->after('name')->unique();
         });
-        Schema::table('study_languages', function (Blueprint $table) {
-            $table->string('slug')->nullable()->after('name')->unique();
-        });
     }
     public function down(): void {
         Schema::table('study_classes', function (Blueprint $table) {
-            $table->dropColumn('slug');
-        });
-        Schema::table('study_languages', function (Blueprint $table) {
             $table->dropColumn('slug');
         });
     }

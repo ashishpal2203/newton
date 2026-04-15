@@ -22,7 +22,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="subject-card">
                 <div class="icon-box icon-blue">
-                   <img src="{{ asset('assets/images/education.png') }}">
+                   <img src="{{ Storage::url('assets/images/education.png') }}">
                 </div>
                 <h6>Physics</h6>
                 <p>6 Papers</p>
@@ -32,7 +32,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="subject-card">
                 <div class="icon-box icon-purple">
-                   <img src="{{ asset('assets/images/hindi.png') }}">
+                   <img src="{{ Storage::url('assets/images/hindi.png') }}">
                 </div>
                 <h6>Chemistry</h6>
                 <p>6 Papers</p>
@@ -42,7 +42,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="subject-card">
                 <div class="icon-box icon-yellow">
-                   <img src="{{ asset('assets/images/marathi.png') }}">
+                   <img src="{{ Storage::url('assets/images/marathi.png') }}">
                 </div>
                 <h6>Maths</h6>
                 <p>6 Papers</p>
@@ -52,7 +52,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="subject-card">
                 <div class="icon-box icon-green">
-                    <img src="{{ asset('assets/images/Sanskrit.png') }}">
+                    <img src="{{ Storage::url('assets/images/Sanskrit.png') }}">
                 </div>
                 <h6>Biology</h6>
                 <p>6 Papers</p>
@@ -62,7 +62,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="subject-card">
                 <div class="icon-box icon-blue">
-                   <img src="{{ asset('assets/images/education.png') }}">
+                   <img src="{{ Storage::url('assets/images/education.png') }}">
                 </div>
                 <h6>English</h6>
                 <p>6 Papers</p>
@@ -72,7 +72,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="subject-card">
                 <div class="icon-box icon-purple">
-                 <img src="{{ asset('assets/images/hindi.png') }}">
+                 <img src="{{ Storage::url('assets/images/hindi.png') }}">
                </div>
                 <h6>Hindi</h6>
                 <p>6 Papers</p>
@@ -82,7 +82,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="subject-card">
                 <div class="icon-box icon-yellow">
-                <img src="{{ asset('assets/images/marathi.png') }}">
+                <img src="{{ Storage::url('assets/images/marathi.png') }}">
                 </div>
                 <h6>Marathi</h6>
                 <p>6 Papers</p>
@@ -92,7 +92,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="subject-card">
                 <div class="icon-box icon-green">
-                  <img src="{{ asset('assets/images/Sanskrit.png') }}">
+                  <img src="{{ Storage::url('assets/images/Sanskrit.png') }}">
                 </div>
                 <h6>Geography</h6>
                 <p>6 Papers</p>

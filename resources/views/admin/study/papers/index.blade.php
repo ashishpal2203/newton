@@ -3,7 +3,7 @@
 @section('title', 'Manage Papers ('. $studyYear->year .')')
 
 @section('header-actions')
-    <a href="{{ route('admin.study-years.index', ['language_id' => $studyYear->study_language_id]) }}" class="btn btn-light border mr-2">
+    <a href="{{ route('admin.study-years.index', ['class_id' => $studyYear->study_class_id]) }}" class="btn btn-light border mr-2">
         <i class="fas fa-arrow-left mr-1"></i> Back to Years
     </a>
     <a href="{{ route('admin.study-papers.create', ['year_id' => $studyYear->id]) }}" class="btn btn-primary">
@@ -14,7 +14,7 @@
 @section('content')
 <div class="card">
     <div class="card-header border-0 pb-0">
-        <h3 class="card-title">Papers for <strong class="text-primary">{{ $studyYear->language->studyClass->name }} > {{ $studyYear->language->name }} > {{ $studyYear->year }}</strong></h3>
+        <h3 class="card-title">Papers for <strong class="text-primary">{{ $studyYear->studyClass->name }} > {{ $studyYear->year }}</strong></h3>
     </div>
     <div class="card-body p-0">
         <div class="table-responsive">

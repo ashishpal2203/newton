@@ -5,7 +5,7 @@
   <div class="container-fluid">
      <!-- Banner -->
     <div class="class12-banner">
-      <img src="{{ asset('assets/images/program.png') }}" alt="">
+      <img src="{{ Storage::url('assets/images/program.png') }}" alt="">
     </div>
 
   </div>

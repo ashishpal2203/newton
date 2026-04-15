@@ -22,7 +22,6 @@ class DemoDataSeeder extends Seeder
         \App\Models\Contact::truncate();
         \App\Models\LatestUpdate::truncate();
         \App\Models\StudyClass::truncate();
-        \App\Models\StudyLanguage::truncate();
         \App\Models\StudyYear::truncate();
         \App\Models\StudyPaper::truncate();
 

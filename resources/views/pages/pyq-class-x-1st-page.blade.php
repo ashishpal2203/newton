@@ -52,7 +52,7 @@
            <a href="{{ url('pyq-class-x-2nd-page') }}">
             <div class="subject-card">
                 <div class="icon-box icon-blue">
-                   <img src="{{ asset('assets/images/education.png') }}">
+                   <img src="{{ Storage::url('assets/images/education.png') }}">
                 </div>
                 <h6>English</h6>
                 <p>6 Papers</p>
@@ -64,7 +64,7 @@
             <a href="{{ url('pyq-class-x-2nd-page') }}">
             <div class="subject-card">
                 <div class="icon-box icon-purple">
-                   <img src="{{ asset('assets/images/hindi.png') }}">
+                   <img src="{{ Storage::url('assets/images/hindi.png') }}">
                 </div>
                 <h6>Hindi</h6>
                 <p>6 Papers</p>
@@ -76,7 +76,7 @@
             <a href="{{ url('pyq-class-x-2nd-page') }}">
             <div class="subject-card">
                 <div class="icon-box icon-yellow">
-                   <img src="{{ asset('assets/images/marathi.png') }}">
+                   <img src="{{ Storage::url('assets/images/marathi.png') }}">
                 </div>
                 <h6>Marathi</h6>
                 <p>6 Papers</p>
@@ -88,7 +88,7 @@
             <a href="{{ url('pyq-class-x-2nd-page') }}">
             <div class="subject-card">
                 <div class="icon-box icon-green">
-                    <img src="{{ asset('assets/images/Sanskrit.png') }}">
+                    <img src="{{ Storage::url('assets/images/Sanskrit.png') }}">
                 </div>
                 <h6>Sanskrit</h6>
                 <p>6 Papers</p>
@@ -100,7 +100,7 @@
             <a href="{{ url('pyq-class-x-2nd-page') }}">
             <div class="subject-card">
                 <div class="icon-box icon-blue">
-                   <img src="{{ asset('assets/images/education.png') }}">
+                   <img src="{{ Storage::url('assets/images/education.png') }}">
                 </div>
                 <h6>Maths</h6>
                 <p>6 Papers</p>
@@ -112,7 +112,7 @@
             <a href="{{ url('pyq-class-x-2nd-page') }}">
             <div class="subject-card">
                 <div class="icon-box icon-purple">
-                 <img src="{{ asset('assets/images/hindi.png') }}">
+                 <img src="{{ Storage::url('assets/images/hindi.png') }}">
                </div>
                 <h6>Science</h6>
                 <p>6 Papers</p>
@@ -124,7 +124,7 @@
             <a href="{{ url('pyq-class-x-2nd-page') }}">
             <div class="subject-card">
                 <div class="icon-box icon-yellow">
-                <img src="{{ asset('assets/images/marathi.png') }}">
+                <img src="{{ Storage::url('assets/images/marathi.png') }}">
                 </div>
                 <h6>Geography</h6>
                 <p>6 Papers</p>
@@ -136,7 +136,7 @@
             <a href="{{ url('pyq-class-x-2nd-page') }}">
             <div class="subject-card">
                 <div class="icon-box icon-green">
-                  <img src="{{ asset('assets/images/Sanskrit.png') }}">
+                  <img src="{{ Storage::url('assets/images/Sanskrit.png') }}">
                 </div>
                 <h6>History</h6>
                 <p>6 Papers</p>

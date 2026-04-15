@@ -12,6 +12,7 @@ class StudyClassController extends Controller
     public function index()
     {
         $classes = StudyClass::withCount('studyYears')->get();
+
         return view('admin.study.classes.index', compact('classes'));
     }
 
@@ -51,7 +52,9 @@ class StudyClassController extends Controller
 
         $data = $request->only('name');
         if ($request->hasFile('icon')) {
-            if ($studyClass->icon) Storage::disk('public')->delete($studyClass->icon);
+            if ($studyClass->icon) {
+                Storage::disk('public')->delete($studyClass->icon);
+            }
             $data['icon'] = $request->file('icon')->store('study/icons', 'public');
         }
 
@@ -63,13 +66,17 @@ class StudyClassController extends Controller
     public function destroy(StudyClass $studyClass)
     {
         // Delete all nested files manually before table cascade deletes row.
-        foreach($studyClass->studyYears as $year) {
-            foreach($year->studyPapers as $paper) {
-                if ($paper->file_path) Storage::disk('public')->delete($paper->file_path);
+        foreach ($studyClass->studyYears as $year) {
+            foreach ($year->studyPapers as $paper) {
+                if ($paper->file_path) {
+                    Storage::disk('public')->delete($paper->file_path);
+                }
             }
         }
-        
-        if ($studyClass->icon) Storage::disk('public')->delete($studyClass->icon);
+
+        if ($studyClass->icon) {
+            Storage::disk('public')->delete($studyClass->icon);
+        }
         $studyClass->delete();
 
         return redirect()->route('admin.study-classes.index')->with('success', 'Class and all nested study materials deleted.');

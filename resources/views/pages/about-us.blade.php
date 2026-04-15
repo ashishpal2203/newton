@@ -6,7 +6,7 @@
     <div class="about-hero-section">
   <div class="about-hero-bg">
     <div class="about-hero-overlay"></div>
-    <img src="{{ asset('assets/images/Container.png') }}" alt="Students">
+    <img src="{{ Storage::url('assets/images/Container.png') }}" alt="Students">
   </div>
 
   <div class="about-content">
@@ -38,7 +38,7 @@
         <div class="d-flex align-items-center gap-3 mb-3">
           <div class="vm-icon">
             
-            <img src="{{ asset('assets/images/my1.png') }}">
+            <img src="{{ Storage::url('assets/images/my1.png') }}">
           </div>
           <h4 class="mb-0 fw-bold text-primary">Our Vision</h4>
         </div>
@@ -53,7 +53,7 @@
       <div class="card h-100 border-0 shadow-lg rounded-4 p-4">
         <div class="d-flex align-items-center gap-3 mb-3">
           <div class="vm-icon">
-             <img src="{{ asset('assets/images/my2.png') }}">
+             <img src="{{ Storage::url('assets/images/my2.png') }}">
           </div>
           <h4 class="mb-0 fw-bold text-primary">Our Mission</h4>
         </div>
@@ -86,7 +86,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="why-card">
             <span class="why-icon">
-               <img src="{{ asset('assets/images/111.png') }}">
+               <img src="{{ Storage::url('assets/images/111.png') }}">
              </span>
             <h6>Top-Tier Faculty</h6>
             <p>Our faculty is comprised of IITians and Doctors dedicated to enhancing student success.</p>
@@ -96,7 +96,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="why-card">
             <span class="why-icon">
-             <img src="{{ asset('assets/images/222.png') }}">
+             <img src="{{ Storage::url('assets/images/222.png') }}">
            </span>
             <h6>Tailored Study Material</h6>
             <p>Faculty-designed materials tailored to boost confidence for competitive exams.</p>
@@ -106,7 +106,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="why-card">
             <span class="why-icon">
-             <img src="{{ asset('assets/images/333.png') }}">
+             <img src="{{ Storage::url('assets/images/333.png') }}">
            </span>
             <h6>Individualized Focus</h6>
             <p>Small class size (30 students) for individualized attention and better comprehension.</p>
@@ -116,7 +116,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="why-card">
             <span class="why-icon"> 
-              <img src="{{ asset('assets/images/444.png') }}">
+              <img src="{{ Storage::url('assets/images/444.png') }}">
             </span>
             <h6>Regular Tests</h6>
             <p>Regular assessment by experienced professors following current exam patterns.</p>
@@ -126,7 +126,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="why-card">
             <span class="why-icon">
-             <img src="{{ asset('assets/images/555.png') }}">
+             <img src="{{ Storage::url('assets/images/555.png') }}">
            </span>
             <h6>Library Facility</h6>
             <p>Wide range of books for competitive exams; hassle-free borrowing system.</p>
@@ -136,7 +136,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="why-card">
             <span class="why-icon">
-             <img src="{{ asset('assets/images/666.png') }}">
+             <img src="{{ Storage::url('assets/images/666.png') }}">
 
            </span>
             <h6>Parental Updates</h6>
@@ -197,7 +197,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="champion-card">
                     <div class="champion-header">
-                        <img src="{{ asset('assets/images/test1.png') }}" alt="Neetu Yadav">
+                        <img src="{{ Storage::url('assets/images/test1.png') }}" alt="Neetu Yadav">
                         <div>
                             <h5>Neetu Yadav</h5>
                             <span>NEET</span>
@@ -214,7 +214,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="champion-card">
                     <div class="champion-header">
-                        <img src="{{ asset('assets/images/test2.png') }}" alt="">
+                        <img src="{{ Storage::url('assets/images/test2.png') }}" alt="">
                         <div>
                             <h5>Sejal Vishwakarma</h5>
                             <span>10th</span>
@@ -231,7 +231,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="champion-card">
                     <div class="champion-header">
-                      <img src="{{ asset('assets/images/test3.png') }}" alt="Neetu Yadav">
+                      <img src="{{ Storage::url('assets/images/test3.png') }}" alt="Neetu Yadav">
                         <div>
                             <h5>Mahima Singh</h5>
                             <span>12th</span>

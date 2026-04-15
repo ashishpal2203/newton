@@ -364,7 +364,7 @@
             <a href="{{ route('study-material.languages', $class->slug) }}">
               <div class="course-card">
                 <div class="icon-box {{ ['blue', 'purple', 'yellow', 'green'][$loop->index % 4] }}">
-                  <img src="{{ Storage::url('assets/images/' . basename($class->icon)) }}" class="img-fluid">
+                  <img src="{{ Storage::url($class->icon) }}" class="img-fluid">
                 </div>
                 <h4>{{ $class->name }}</h4>
                 <span>{{ $class->studyYears->count() }} Years</span>

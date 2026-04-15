@@ -11,7 +11,7 @@
 
         <div class="row g-4" id="gallery-grid">
             @forelse($photos as $photo)
-                <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="col-sm-6 col-md-4 col-lg-3 col-6">
                     <a href="{{ Storage::url($photo->image_path) }}" 
                        data-fancybox="gallery" 
                        data-caption="{{ $photo->title ?? '' }}"

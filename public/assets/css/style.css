@@ -224,6 +224,7 @@ body {
   text-align: center;
   border: 1px solid #eef0f4;
   transition: all 0.3s ease;
+  height: 100%;
 }
 
 .course-card:hover {
@@ -756,13 +757,13 @@ div#demo {
 @media (max-width: 768px) {
   .courses-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 10px;
   }
 }
 
 @media (max-width: 480px) {
   .courses-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -2006,6 +2007,10 @@ a.mtttbtn {
 @media (max-width: 600px) {
   .box {
     padding: 20px;
+  }
+
+  .gallery-item {
+    height: 130px;
   }
 
   .about-content {

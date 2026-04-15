@@ -27,7 +27,7 @@ Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
 // Study Materials
 Route::prefix('study-material')->name('study-material.')->group(function () {
     Route::get('/', [App\Http\Controllers\StudyMaterialController::class, 'index'])->name('index');
-    Route::get('/{class:slug}', [App\Http\Controllers\StudyMaterialController::class, 'showYears'])->name('languages');
+    Route::get('/{class:slug}', [App\Http\Controllers\StudyMaterialController::class, 'showYears'])->name('years');
     Route::get('/{class:slug}/{studyYear:year}', [App\Http\Controllers\StudyMaterialController::class, 'showPapers'])->name('papers');
 });
 

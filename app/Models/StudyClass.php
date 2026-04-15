@@ -10,6 +10,15 @@ class StudyClass extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'slug', 'icon', 'status'];
+    
+    protected static function booted()
+    {
+        static::saving(function ($model) {
+            if (empty($model->slug)) {
+                $model->slug = \Illuminate\Support\Str::slug($model->name);
+            }
+        });
+    }
 
 
     public function studyYears()

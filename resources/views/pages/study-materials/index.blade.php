@@ -7,7 +7,7 @@
             <h3 class="section-title">Study Materials</h3>
             <div class="courses-grid">
                 @foreach($classes as $class)
-                <a href="{{ route('study-material.languages', $class->slug) }}">
+                <a href="{{ route('study-material.years', $class) }}">
                     <div class="course-card">
                         <div class="icon-box {{ ['blue', 'purple', 'yellow', 'green', 'orange'][$loop->index % 5] }}">
                             <img src="{{ Storage::url($class->icon ?? 'assets/images/PYQLibrary.png') }}" alt="{{ $class->name }}" class="img-fluid">

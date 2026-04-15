@@ -36,7 +36,7 @@ Route::get('/blog/{slug}', [\App\Http\Controllers\BlogFrontendController::class,
 
 // Contact Inquiries
 Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'index'])->name('contact');
-Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact', [\App\Http\Controllers\HomeController::class, 'storeContact'])->name('contact.store');
 
 // Gallery
 Route::get('/gallery', [\App\Http\Controllers\GalleryController::class, 'index'])->name('gallery.index');

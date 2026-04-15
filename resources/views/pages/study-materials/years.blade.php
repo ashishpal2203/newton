@@ -18,7 +18,7 @@
     <div class="row g-4 aallsec">
         @foreach($years as $year)
         <div class="col-lg-3 col-md-4 col-6">
-            <a href="{{ route('study-material.papers', [$class, $year]) }}">
+            <a href="{{ route('study-material.papers', ['class' => $class->slug, 'studyYear' => $year->year]) }}">
                 <div class="subject-card">
                     <div class="icon-box icon-blue">
                        <img src="{{ Storage::url('assets/images/education.png') }}" alt="{{ $year->year }}" class="img-fluid">

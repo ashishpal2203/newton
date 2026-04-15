@@ -361,7 +361,7 @@
 
           <div class="courses-grid">
             @foreach($studyClasses as $class)
-            <a href="{{ route('study-material.years', $class) }}">
+            <a href="{{ route('study-material.years', ['class' => $class->slug]) }}">
               <div class="course-card">
                 <div class="icon-box {{ ['blue', 'purple', 'yellow', 'green'][$loop->index % 4] }}">
                   <img src="{{ Storage::url($class->icon) }}" class="img-fluid">

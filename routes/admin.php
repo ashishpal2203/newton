@@ -42,11 +42,17 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     // Contacts
     Route::resource('contacts', \App\Http\Controllers\Admin\ContactController::class)->only(['index', 'show', 'destroy']);
 
-    // Banner Slider
+    // Home Sections (Banner, Phase Slider)
     Route::prefix('home-sections')->name('home.sections.')->group(function () {
+        // Banners
         Route::post('banner/reorder', [\App\Http\Controllers\Admin\BannerController::class, 'reorder'])->name('banner.reorder');
         Route::post('banner/{banner}/toggle-status', [\App\Http\Controllers\Admin\BannerController::class, 'toggleStatus'])->name('banner.toggle_status');
         Route::resource('banner', \App\Http\Controllers\Admin\BannerController::class);
+
+        // Phase Slider
+        Route::post('phase-slider/reorder', [\App\Http\Controllers\Admin\PhaseSliderController::class, 'reorder'])->name('phase-slider.reorder');
+        Route::post('phase-slider/{phase_slider}/toggle-status', [\App\Http\Controllers\Admin\PhaseSliderController::class, 'toggleStatus'])->name('phase-slider.toggle_status');
+        Route::resource('phase-slider', \App\Http\Controllers\Admin\PhaseSliderController::class);
     });
 
     // Latest Updates

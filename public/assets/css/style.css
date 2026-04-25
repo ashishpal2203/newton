@@ -977,12 +977,12 @@ p.right::before {
 .about-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg,
+  /* background: linear-gradient(90deg,
       #0b3c8a 0%,
       rgba(11, 60, 138, 0.95) 40%,
       rgba(11, 60, 138, 0.6) 60%,
       rgba(11, 60, 138, 0.2) 75%,
-      rgba(11, 60, 138, 0) 100%);
+      rgba(11, 60, 138, 0) 100%); */
   z-index: 1;
 }
 
@@ -1785,6 +1785,7 @@ section.why-choose-us a {
   align-items: center;
   gap: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 175px;
 }
 
 .mentor img {
@@ -1805,9 +1806,13 @@ section.why-choose-us a {
 /* Mobile */
 @media (max-width: 768px) {
   .phase-card {
-    flex-direction: column;
+    flex-direction: column-reverse;
     text-align: left;
     align-items: initial;
+  }
+
+  .mentor {
+    max-width: 100%;
   }
 
   .phase-left {

@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/reviews', [App\Http\Controllers\Admin\ReviewController::class, 'storeFrontend'])->name('reviews.storeFrontend');
 
-Route::get('/about-us', function () {
-    return view('pages.about-us');
-})->name('about-us');
+Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'about'])->name('about-us');
 
 Route::get('/courses', function() { return view('pages.courses'); })->name('courses');
 

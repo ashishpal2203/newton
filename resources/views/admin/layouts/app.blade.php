@@ -352,6 +352,13 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{ route('admin.home.sections.phase-slider.index') }}" class="nav-link {{ request()->routeIs('admin.home.sections.phase-slider.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-layer-group text-primary"></i>
+                            <p>Phase Slider</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="{{ route('admin.latest-updates.index') }}" class="nav-link {{ request()->routeIs('admin.latest-updates.*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-bullhorn"></i>
                             <p>Latest Updates</p>

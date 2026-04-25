@@ -110,128 +110,60 @@
     <div class="container-v1">
       <div id="phaseSlider" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
+          @forelse($phaseSlides as $index => $slide)
+          <!-- Slide {{ $index + 1 }} -->
+          <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+            <div class="phase-card">
+              <div class="phase-left">
+                @if($slide->badge)
+                <span class="phase-badge">
+                  {{ $slide->badge }}
+                </span>
+                @endif
 
-          <!-- Slide 1 -->
+                <h5>
+                  {{ $slide->title }}
+                  @if($slide->link_text)
+                    <a href="{{ $slide->link_url ?? '#' }}">{{ $slide->link_text }}</a>
+                  @endif
+                </h5>
+
+                @if($slide->description)
+                <p>
+                  {{ $slide->description }}
+                </p>
+                @endif
+
+                @if($slide->button_url)
+                <a href="{{ $slide->button_url }}" class="btn btn-sm mtttbtn">{{ $slide->button_text ?? 'Join Now' }}</a>
+                @endif
+              </div>
+
+              <div class="phase-right">
+                @foreach($slide->mentors as $mentor)
+                <div class="mentor">
+                  <img src="{{ Storage::url($mentor->image) }}" class="img-fluid">
+                  <div>
+                    <strong>{{ $mentor->name }}</strong>
+                    <small>{{ $mentor->title }}</small>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+          @empty
+          <!-- Default Slide if empty -->
           <div class="carousel-item active">
             <div class="phase-card">
               <div class="phase-left">
-                <span class="phase-badge">
-                  🏆 Phase 3 starts 1st Feb
-                </span>
-
-                <h5>
-                  Final revision with Top Rankers’ Strategy.
-                  <a href="#">Top Rankers’ Strategy</a>
-                </h5>
-
-                <p>
-                  Get personalized feedback on all your tests, all your tests.
-                </p>
-
-                <a href="#" class="btn btn-sm mtttbtn">Join Now</a>
-              </div>
-
-              <div class="phase-right">
-                <div class="mentor">
-                  <img src="{{ Storage::url('assets/images/neetu.png') }}" class="img-fluid">
-                  <div>
-                    <strong>Neetu Yadav</strong>
-                    <small>NEET-UG 2025</small>
-                  </div>
-                </div>
-
-                <div class="mentor">
-                  <img src="{{ Storage::url('assets/images/mahima.png') }}" class="img-fluid">
-                  <div>
-                    <strong>Mahima Singh</strong>
-                    <small>NEET-UG 2025</small>
-                  </div>
-                </div>
+                <span class="phase-badge">🏆 Featured Phase</span>
+                <h5>Dynamic Phase Content Coming Soon</h5>
+                <p>Manage this content from the admin dashboard.</p>
               </div>
             </div>
           </div>
-
-          <div class="carousel-item ">
-            <div class="phase-card">
-              <div class="phase-left">
-                <span class="phase-badge">
-                  🏆 Phase 3 starts 1st Feb
-                </span>
-
-                <h5>
-                  Final revision with Top Rankers’ Strategy.
-                  <a href="#">Top Rankers’ Strategy</a>
-                </h5>
-
-                <p>
-                  Get personalized feedback on all your tests, all your tests.
-                </p>
-
-                <a href="#" class="btn btn-sm mtttbtn">Join Now</a>
-              </div>
-
-              <div class="phase-right">
-                <div class="mentor">
-                  <img src="{{ Storage::url('assets/images/neetu.png') }}" class="img-fluid">
-                  <div>
-                    <strong>Neetu Yadav</strong>
-                    <small>NEET-UG 2025</small>
-                  </div>
-                </div>
-
-                <div class="mentor">
-                  <img src="{{ Storage::url('assets/images/mahima.png') }}" class="img-fluid">
-                  <div>
-                    <strong>Mahima Singh</strong>
-                    <small>NEET-UG 2025</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="carousel-item ">
-            <div class="phase-card">
-              <div class="phase-left">
-                <span class="phase-badge">
-                  🏆 Phase 3 starts 1st Feb
-                </span>
-
-                <h5>
-                  Final revision with Top Rankers’ Strategy.
-                  <a href="#">Top Rankers’ Strategy</a>
-                </h5>
-
-                <p>
-                  Get personalized feedback on all your tests, all your tests.
-                </p>
-
-                <a href="#" class="btn btn-sm mtttbtn">Join Now</a>
-              </div>
-
-              <div class="phase-right">
-                <div class="mentor">
-                  <img src="{{ Storage::url('assets/images/neetu.png') }}" class="img-fluid">
-                  <div>
-                    <strong>Neetu Yadav</strong>
-                    <small>NEET-UG 2025</small>
-                  </div>
-                </div>
-
-                <div class="mentor">
-                  <img src="{{ Storage::url('assets/images/mahima.png') }}" class="img-fluid">
-                  <div>
-                    <strong>Mahima Singh</strong>
-                    <small>NEET-UG 2025</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
+          @endforelse
         </div>
 
         <!-- Controls -->

@@ -6,7 +6,7 @@
     <div class="about-hero-section">
   <div class="about-hero-bg">
     <div class="about-hero-overlay"></div>
-    <img src="{{ Storage::url('assets/images/Container.png') }}" alt="Students">
+    <img src="{{ Storage::url('assets/images/about-us-header.jpeg') }}" alt="Students">
   </div>
 
   <div class="about-content">
@@ -192,59 +192,32 @@
         <h2 class="section-titles jj">Our Champions</h2>
 
         <div class="row g-4">
-
-            <!-- Card 1 -->
+            @forelse($reviews as $review)
             <div class="col-lg-4 col-md-6">
                 <div class="champion-card">
                     <div class="champion-header">
-                        <img src="{{ Storage::url('assets/images/test1.png') }}" alt="Neetu Yadav">
+                        @if($review->user_image)
+                            <img src="{{ Storage::url($review->user_image) }}" alt="{{ $review->user_name }}">
+                        @else
+                            <div class="champion-avatar-placeholder" style="background-color: #2f6bff; color: white; width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20px; flex-shrink: 0;">
+                                {{ strtoupper(substr($review->user_name, 0, 1)) }}
+                            </div>
+                        @endif
                         <div>
-                            <h5>Neetu Yadav</h5>
-                            <span>NEET</span>
+                            <h5>{{ $review->user_name }}</h5>
+                            <span>{{ $review->subtitle }}</span>
                         </div>
                     </div>
                     <p>
-                        Thanks to all the teachers at Newton's Academy, I was able to improve even my weakest subject.
-                        Without their incredible support and attention it would not be possible for me to be able to crack NEET!
+                        {{ $review->content }}
                     </p>
                 </div>
             </div>
-
-            <!-- Card 2 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="champion-card">
-                    <div class="champion-header">
-                        <img src="{{ Storage::url('assets/images/test2.png') }}" alt="">
-                        <div>
-                            <h5>Sejal Vishwakarma</h5>
-                            <span>10th</span>
-                        </div>
-                    </div>
-                    <p>
-                        It has been 3 years since I passed out but I am still connected with Newton's Academy.
-                        I have never seen such compassionate teachers, especially Ganga Sir, who has guided me all along and I am pursuing Engineering now!
-                    </p>
-                </div>
+            @empty
+            <div class="col-12 text-center py-5">
+                <p class="text-muted">Stay tuned to see our champions!</p>
             </div>
-
-            <!-- Card 3 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="champion-card">
-                    <div class="champion-header">
-                      <img src="{{ Storage::url('assets/images/test3.png') }}" alt="Neetu Yadav">
-                        <div>
-                            <h5>Mahima Singh</h5>
-                            <span>12th</span>
-                        </div>
-                    </div>
-                    <p>
-                        I am studying in this class from last 3 years.
-                        I experienced that every teachers provide their 100% effort.
-                        I can assure you 100% that you will not gone regret after joining in this classes.
-                    </p>
-                </div>
-            </div>
-
+            @endforelse
         </div>
     </div>
 </section>

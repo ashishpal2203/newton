@@ -16,8 +16,15 @@ class HomeController extends Controller
         $courses = Course::where('is_featured', true)->get();
         $reviews = Review::where('status', true)->orderBy('sort_order', 'asc')->get();
         $studyClasses = \App\Models\StudyClass::where('status', true)->orderBy('id', 'asc')->get();
+        $phaseSlides = \App\Models\PhaseSlider::with('mentors')->where('status', true)->orderBy('sort_order', 'asc')->get();
         
-        return view('pages.home', compact('courses', 'banners', 'reviews', 'latestUpdates', 'studyClasses'));
+        return view('pages.home', compact('courses', 'banners', 'reviews', 'latestUpdates', 'studyClasses', 'phaseSlides'));
+    }
+
+    public function about()
+    {
+        $reviews = Review::where('status', true)->orderBy('sort_order', 'asc')->get();
+        return view('pages.about-us', compact('reviews'));
     }
 
     public function storeContact(Request $request)

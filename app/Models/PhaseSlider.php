@@ -14,6 +14,7 @@ class PhaseSlider extends Model
         'title',
         'link_text',
         'link_url',
+        'image',
         'description',
         'button_text',
         'button_url',

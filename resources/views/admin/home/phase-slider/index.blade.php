@@ -20,8 +20,8 @@
                 <thead>
                     <tr>
                         <th style="width: 40px;">#</th>
-                        <th>Details</th>
-                        <th>Mentors</th>
+                        <th>Image</th>
+                        <th>Title</th>
                         <th>Order</th>
                         <th>Status</th>
                         <th class="text-right">Actions</th>
@@ -32,20 +32,17 @@
                     <tr data-id="{{ $slide->id }}">
                         <td class="text-muted"><i class="fas fa-grip-vertical handle" style="cursor: grab;"></i></td>
                         <td>
-                            <strong>{{ $slide->title }}</strong>
-                            @if($slide->badge)
-                                <div class="text-xs mt-1 text-primary"><span class="badge badge-info">{{ $slide->badge }}</span></div>
+                            @if($slide->image)
+                                <img src="{{ Storage::url($slide->image) }}" class="rounded border" style="height: 50px; object-fit: cover;">
+                            @else
+                                <span class="text-muted text-xs">No Image</span>
                             @endif
-                            <div class="text-xs text-muted mt-1">{{ Str::limit($slide->description, 50) }}</div>
                         </td>
                         <td>
-                            <div class="d-flex align-items-center">
-                                @foreach($slide->mentors as $mentor)
-                                    <div class="mr-2 text-center" title="{{ $mentor->name }}">
-                                        <img src="{{ Storage::url($mentor->image) }}" class="rounded-circle border" style="width: 32px; height: 32px; object-fit: cover;">
-                                    </div>
-                                @endforeach
-                            </div>
+                            <strong>{{ $slide->title }}</strong>
+                            @if($slide->link_url)
+                                <div class="text-xs mt-1"><a href="{{ $slide->link_url }}" target="_blank" class="text-muted"><i class="fas fa-link mr-1"></i>{{ Str::limit($slide->link_url, 30) }}</a></div>
+                            @endif
                         </td>
                         <td><span class="badge badge-secondary sort-indicator">{{ $slide->sort_order }}</span></td>
                         <td>

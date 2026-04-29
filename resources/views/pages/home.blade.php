@@ -113,67 +113,42 @@
           @forelse($phaseSlides as $index => $slide)
           <!-- Slide {{ $index + 1 }} -->
           <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-            <div class="phase-card">
-              <div class="phase-left">
-                @if($slide->badge)
-                <span class="phase-badge">
-                  {{ $slide->badge }}
-                </span>
-                @endif
-
-                <h5>
-                  {{ $slide->title }}
-                  @if($slide->link_text)
-                    <a href="{{ $slide->link_url ?? '#' }}">{{ $slide->link_text }}</a>
-                  @endif
-                </h5>
-
-                @if($slide->description)
-                <p>
-                  {{ $slide->description }}
-                </p>
-                @endif
-
-                @if($slide->button_url)
-                <a href="{{ $slide->button_url }}" class="btn btn-sm mtttbtn">{{ $slide->button_text ?? 'Join Now' }}</a>
-                @endif
+            @if($slide->link_url)
+              <a href="{{ $slide->link_url }}" target="_blank" class="d-block">
+            @endif
+            
+            @if($slide->image)
+              <img src="{{ Storage::url($slide->image) }}" class="d-block w-100 img-fluid rounded" alt="{{ $slide->title }}">
+            @else
+              <div class="p-5 text-center bg-light rounded border">
+                <h5>{{ $slide->title }}</h5>
               </div>
-
-              <div class="phase-right">
-                @foreach($slide->mentors as $mentor)
-                <div class="mentor">
-                  <img src="{{ Storage::url($mentor->image) }}" class="img-fluid">
-                  <div>
-                    <strong>{{ $mentor->name }}</strong>
-                    <small>{{ $mentor->title }}</small>
-                  </div>
-                </div>
-                @endforeach
-              </div>
-            </div>
+            @endif
+            
+            @if($slide->link_url)
+              </a>
+            @endif
           </div>
           @empty
           <!-- Default Slide if empty -->
           <div class="carousel-item active">
-            <div class="phase-card">
-              <div class="phase-left">
-                <span class="phase-badge">🏆 Featured Phase</span>
-                <h5>Dynamic Phase Content Coming Soon</h5>
-                <p>Manage this content from the admin dashboard.</p>
-              </div>
+            <div class="p-5 text-center bg-light rounded border">
+              <h5>Dynamic Phase Banner Coming Soon</h5>
+              <p>Manage this content from the admin dashboard.</p>
             </div>
           </div>
           @endforelse
         </div>
 
         <!-- Controls -->
-        <!--       <button class="carousel-control-prev" type="button" data-bs-target="#phaseSlider" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-
-      <button class="carousel-control-next" type="button" data-bs-target="#phaseSlider" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button> -->
+        @if($phaseSlides->count() > 1)
+          <button class="carousel-control-prev" type="button" data-bs-target="#phaseSlider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#phaseSlider" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        @endif
       </div>
     </div>
   </section>

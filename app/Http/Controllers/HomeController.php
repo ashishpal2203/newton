@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
 use App\Models\Banner;
+use App\Models\Contact;
+use App\Models\Course;
+use App\Models\LatestUpdate;
+use App\Models\PhaseSlider;
 use App\Models\Review;
+use App\Models\StudyClass;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,18 +16,19 @@ class HomeController extends Controller
     public function index()
     {
         $banners = Banner::where('status', true)->orderBy('sort_order', 'asc')->get();
-        $latestUpdates = \App\Models\LatestUpdate::where('status', true)->orderBy('sort_order', 'asc')->take(2)->get();
+        $latestUpdates = LatestUpdate::where('status', true)->orderBy('sort_order', 'asc')->take(2)->get();
         $courses = Course::where('is_featured', true)->get();
         $reviews = Review::where('status', true)->orderBy('sort_order', 'asc')->get();
-        $studyClasses = \App\Models\StudyClass::where('status', true)->orderBy('id', 'asc')->get();
-        $phaseSlides = \App\Models\PhaseSlider::with('mentors')->where('status', true)->orderBy('sort_order', 'asc')->get();
-        
+        $studyClasses = StudyClass::where('status', true)->orderBy('id', 'asc')->get();
+        $phaseSlides = PhaseSlider::with('mentors')->where('status', true)->orderBy('sort_order', 'asc')->get();
+
         return view('pages.home', compact('courses', 'banners', 'reviews', 'latestUpdates', 'studyClasses', 'phaseSlides'));
     }
 
     public function about()
     {
         $reviews = Review::where('status', true)->orderBy('sort_order', 'asc')->get();
+
         return view('pages.about-us', compact('reviews'));
     }
 
@@ -38,12 +43,12 @@ class HomeController extends Controller
             'message' => 'nullable|string',
         ]);
 
-        \App\Models\Contact::create($validated);
+        Contact::create($validated);
 
         if ($request->ajax()) {
             return response()->json([
                 'success' => true,
-                'message' => 'Your request has been submitted successfully. We will contact you soon.'
+                'message' => 'Your request has been submitted successfully. We will contact you soon.',
             ]);
         }
 
@@ -53,6 +58,7 @@ class HomeController extends Controller
     public function courses()
     {
         $courses = Course::all();
+
         return view('pages.courses', compact('courses'));
     }
 }

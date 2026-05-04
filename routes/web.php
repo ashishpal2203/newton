@@ -12,14 +12,12 @@ Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'about'])-
 Route::get('/courses', function() { return view('pages.courses'); })->name('courses');
 
 Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
-    Route::get('/class-x', function() { return view('pages.courses.class-x'); })->name('class-x');
-    Route::get('/class-xii', function() { return view('pages.courses.class-xii'); })->name('class-xii');
     Route::get('/jee-mains-advanced', function() { return view('pages.courses.jee-mains-advanced'); })->name('jee-mains-advanced');
     Route::get('/neet', function() { return view('pages.courses.neet'); })->name('neet');
-    Route::get('/school-section', function() { return view('pages.courses.school-section'); })->name('school-section');
-    Route::get('/sci-comm', function() { return view('pages.courses.sci-comm'); })->name('sci-comm');
     Route::get('/mht-cet', function() { return view('pages.courses.mht-cet'); })->name('mht-cet');
-    Route::get('/integrated-classes', function() { return view('pages.courses.integrated-classes'); })->name('integrated-classes');
+    Route::get('/science', function() { return view('pages.courses.science'); })->name('science');
+    Route::get('/foundation', function() { return view('pages.courses.foundation'); })->name('foundation');
+    Route::get('/school-section', function() { return view('pages.courses.school-section'); })->name('school-section');
 });
 
 // Study Materials

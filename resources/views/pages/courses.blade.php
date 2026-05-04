@@ -22,7 +22,7 @@
             </div>
           </a>
 
-          <a href="{{ route('courses.neet') }}" class="text-decoration-none">
+          {{-- <a href="{{ route('courses.neet') }}" class="text-decoration-none">
             <div class="course-card">
               <div class="icon-box green">
                 <img src="{{ Storage::url('assets/images/neet.png') }}" class="img-fluid" alt="NEET">
@@ -30,7 +30,7 @@
               <h4>NEET</h4>
               <span>(Class XI & XII)</span>
             </div>
-          </a>
+          </a> --}}
 
           <a href="{{ route('courses.mht-cet') }}" class="text-decoration-none">
             <div class="course-card">

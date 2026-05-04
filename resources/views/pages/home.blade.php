@@ -224,7 +224,7 @@
             <a href="{{ route('courses.school-section') }}" class="text-decoration-none">
               <div class="course-card">
                 <div class="icon-box blue">
-                  <img src="{{ Storage::url('assets/images/School.png') }}" class="img-fluid" alt="School Section">
+                  <img src="{{ Storage::url('assets/images/class.png') }}" class="img-fluid" alt="School Section">
                 </div>
                 <h4>School Section</h4>
                 <span>(CBSE | ICSE | SSC)</span>

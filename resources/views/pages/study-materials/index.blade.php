@@ -12,8 +12,8 @@
                         <div class="icon-box {{ ['blue', 'purple', 'yellow', 'green', 'orange'][$loop->index % 5] }}">
                             <img src="{{ Storage::url($class->icon ?? 'assets/images/PYQLibrary.png') }}" alt="{{ $class->name }}" class="img-fluid">
                         </div>
-                        <h4>{{ $class->name }}</h4>
-                        <span>{{ $class->studyYears->count() }} Years</span>
+                        <h4 class="study-class-name">{{ $class->name }}</h4>
+                        {{-- <span>{{ $class->studyYears->count() }} Years</span> --}}
                     </div>
                 </a>
                 @endforeach

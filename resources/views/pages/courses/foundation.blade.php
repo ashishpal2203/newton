@@ -47,7 +47,7 @@
 
           <div class="box small-box">
             <span>Board</span>
-            <strong>SSC — Maharashtra State Board</strong>
+            <strong>ICSE | CBSE | SSC</strong>
           </div>
 
         </div>

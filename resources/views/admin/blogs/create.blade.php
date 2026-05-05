@@ -26,6 +26,13 @@
                             </div>
 
                             <div class="form-group mb-4">
+                                <label for="slug" class="fw-bold">URL Slug (Optional)</label>
+                                <input type="text" name="slug" id="slug" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug') }}" placeholder="e.g. my-compelling-blog-title">
+                                <small class="text-muted d-block mt-1">Leave blank to auto-generate from the title.</small>
+                                @error('slug') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
+                            </div>
+
+                            <div class="form-group mb-4">
                                 <label for="content" class="fw-bold">Blog Content <span class="text-danger">*</span></label>
                                 <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
                                 @error('content') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror

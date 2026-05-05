@@ -16,13 +16,13 @@ class HomeController extends Controller
     public function index()
     {
         $banners = Banner::where('status', true)->orderBy('sort_order', 'asc')->get();
-        $latestUpdates = LatestUpdate::where('status', true)->orderBy('sort_order', 'asc')->take(2)->get();
+        $blogs = \App\Models\Blog::with('category')->where('status', true)->latest('published_at')->take(4)->get();
         $courses = Course::where('is_featured', true)->get();
         $reviews = Review::where('status', true)->orderBy('sort_order', 'asc')->get();
         $studyClasses = StudyClass::where('status', true)->orderBy('id', 'asc')->get();
         $phaseSlides = PhaseSlider::with('mentors')->where('status', true)->orderBy('sort_order', 'asc')->get();
 
-        return view('pages.home', compact('courses', 'banners', 'reviews', 'latestUpdates', 'studyClasses', 'phaseSlides'));
+        return view('pages.home', compact('courses', 'banners', 'reviews', 'blogs', 'studyClasses', 'phaseSlides'));
     }
 
     public function about()

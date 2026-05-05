@@ -23,8 +23,14 @@
                             <div class="form-group mb-4">
                                 <label for="title" class="fw-bold">Blog Title <span class="text-danger">*</span></label>
                                 <input type="text" name="title" id="title" class="form-control form-control-lg @error('title') is-invalid @enderror" value="{{ old('title', $blog->title) }}" required>
-                                <small class="text-muted d-block mt-1">Slug: <span class="text-info">{{ $blog->slug }}</span></small>
                                 @error('title') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label for="slug" class="fw-bold">URL Slug (Optional)</label>
+                                <input type="text" name="slug" id="slug" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug', $blog->slug) }}">
+                                <small class="text-muted d-block mt-1">Leave blank to auto-generate from the title. Current Slug: <span class="text-info">{{ $blog->slug }}</span></small>
+                                @error('slug') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
                             </div>
 
                             <div class="form-group mb-4">

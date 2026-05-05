@@ -168,7 +168,7 @@
         <div class="courses-wrapper text-center">
 
           <h3 class="section-title mb-2">Coaching Courses in Mulund, Mumbai</h3>
-          <p class="text-muted mb-5">From JEE Mains & Advanced to MHT-CET, Science (XI–XII), Foundation (8th–10th), and School Section — Newton's Academy, has the right program for every student.</p>
+          <p class="text-muted mb-5">From JEE Mains & Advanced to MHT-CET, Science (XI–XII), Foundation (8th–10th),  and School Section <br> Newton's Academy, Mulund, has the right program for every student.</p>
 
           <div class="courses-grid text-start">
             <a href="{{ route('courses.jee-mains-advanced') }}" class="text-decoration-none">
@@ -252,7 +252,7 @@
                 <div class="icon-box {{ ['blue', 'purple', 'yellow', 'green'][$loop->index % 4] }}">
                   <img src="{{ Storage::url($class->icon) }}" class="img-fluid">
                 </div>
-                <h4>{{ $class->name }}</h4>
+                <h4 class="study-class-name">{{ $class->name }}</h4>
                 {{-- <span>{{ $class->studyYears->count() }} Years</span> --}}
               </div>
             </a>
@@ -478,45 +478,40 @@
 
   <section class="latest-updates container-v1 ">
     <div class="container">
-      <div class="latest-header">
+      <div class="latest-header mb-4">
         <h2>Latest Updates</h2>
-        <a href="#" class="read-blog">Read Blog</a>
+        <a href="{{ route('blog') }}" class="read-blog">Read Blog</a>
       </div>
 
-
-
-
-
-      <div class="row">
-        @forelse($latestUpdates as $update)
-        <div class="col-md-6 col-sm-12 col-12">
-          <!-- Dynamic Card -->
-          <div class="blog-card card-blog">
-            <div class="blog-thumb">
-              @if($update->image)
-                <img src="{{ Storage::url($update->image) }}" alt="{{ $update->title }}" class="img-fluid">
-              @else
-                <img src="{{ Storage::url('assets/images/blog1.png') }}" alt="img" class="img-fluid">
-              @endif
-            </div>
-            <div class="blog-content">
-              @if($update->category)<span class="blog-category">{{ $update->category }}</span>@endif
-              <h3>
-                @if($update->link)
-                  <a href="{{ $update->link }}" target="_blank" style="text-decoration:none; color:inherit;">{{ $update->title }}</a>
+      <div class="row g-4">
+        @forelse($blogs as $blog)
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <a href="{{ route('blog.show', $blog->slug) }}" class="text-decoration-none">
+            <div class="blog-card h-100 shadow-sm border-0 position-relative transition-hover">
+              <div class="blog-img" style="height: 200px; overflow: hidden; background-color: #f8f9fa;">
+                <span class="blog-tag z-index-1 text-uppercase fw-bold">{{ $blog->category->name ?? 'Blog' }}</span>
+                @if($blog->image)
+                  <img src="{{ Storage::url($blog->image) }}" alt="{{ $blog->title }}" class="w-100 h-100 object-fit-cover">
                 @else
-                  {{ $update->title }}
+                  <div class="w-100 h-100 d-flex align-items-center justify-content-center text-muted">
+                      <i class="fas fa-image fa-3x mb-3 text-light"></i>
+                  </div>
                 @endif
-              </h3>
-              <p class="blog-meta">
-                {{ $update->published_date }} @if($update->read_time) · {{ $update->read_time }} @endif
-              </p>
+              </div>
+              <div class="blog-content p-3 bg-white">
+                <h6 class="text-dark fw-bold mb-2">{{ Str::limit($blog->title, 50) }}</h6>
+                <p class="text-muted small mb-0">
+                    <i class="far fa-user mr-1"></i> {{ $blog->author_name ?? 'Admin' }} 
+                    &nbsp;&bull;&nbsp; 
+                    <i class="far fa-calendar-alt mr-1"></i> {{ $blog->published_at ? $blog->published_at->format('M d, Y') : $blog->created_at->format('M d, Y') }}
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
         @empty
         <div class="col-12 text-center py-4">
-          <p class="text-muted">No recent updates available.</p>
+          <p class="text-muted">No recent blogs available.</p>
         </div>
         @endforelse
       </div>

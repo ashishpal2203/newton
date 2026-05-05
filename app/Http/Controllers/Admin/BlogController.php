@@ -28,6 +28,7 @@ class BlogController extends Controller
         $request->validate([
             'blog_category_id' => 'required|exists:blog_categories,id',
             'title' => 'required|string|max:255',
+            'slug' => 'nullable|string|max:255|unique:blogs,slug',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'short_description' => 'nullable|string',
             'content' => 'required|string',
@@ -36,7 +37,8 @@ class BlogController extends Controller
             'published_at' => 'nullable|date',
         ]);
 
-        $slug = Str::slug($request->title);
+        $slugInput = $request->slug ? $request->slug : $request->title;
+        $slug = Str::slug($slugInput);
         $originalSlug = $slug;
         $count = 1;
         while(Blog::where('slug', $slug)->exists()) {
@@ -72,6 +74,7 @@ class BlogController extends Controller
         $request->validate([
             'blog_category_id' => 'required|exists:blog_categories,id',
             'title' => 'required|string|max:255',
+            'slug' => 'nullable|string|max:255|unique:blogs,slug,' . $blog->id,
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'short_description' => 'nullable|string',
             'content' => 'required|string',
@@ -80,7 +83,17 @@ class BlogController extends Controller
             'published_at' => 'nullable|date',
         ]);
 
-        $data = $request->except(['image']);
+        $data = $request->except(['image', 'slug']);
+        
+        $slugInput = $request->slug ? $request->slug : $request->title;
+        $slug = Str::slug($slugInput);
+        $originalSlug = $slug;
+        $count = 1;
+        while(Blog::where('slug', $slug)->where('id', '!=', $blog->id)->exists()) {
+            $slug = $originalSlug . '-' . $count++;
+        }
+        $data['slug'] = $slug;
+        
         $data['status'] = $request->has('status') ? true : false;
 
         if ($request->hasFile('image')) {

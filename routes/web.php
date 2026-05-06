@@ -1,41 +1,64 @@
 <?php
 
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\BlogFrontendController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudyMaterialController;
 use Illuminate\Support\Facades\Route;
 
 // ─── Frontend Pages ────────────────────────────────────────────────────────
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/reviews', [App\Http\Controllers\Admin\ReviewController::class, 'storeFrontend'])->name('reviews.storeFrontend');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/reviews', [ReviewController::class, 'storeFrontend'])->name('reviews.storeFrontend');
 
-Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'about'])->name('about-us');
+Route::get('/about-us', [HomeController::class, 'about'])->name('about-us');
 
-Route::get('/courses', function() { return view('pages.courses'); })->name('courses');
+Route::get('/courses', function () {
+    return view('pages.courses');
+})->name('courses');
 
-Route::group(['prefix' => 'courses', 'as' => 'courses.'], function () {
-    Route::get('/jee-mains-advanced', function() { return view('pages.courses.jee-mains-advanced'); })->name('jee-mains-advanced');
-    Route::get('/neet', function() { return view('pages.courses.neet'); })->name('neet');
-    Route::get('/mht-cet', function() { return view('pages.courses.mht-cet'); })->name('mht-cet');
-    Route::get('/science', function() { return view('pages.courses.science'); })->name('science');
-    Route::get('/foundation', function() { return view('pages.courses.foundation'); })->name('foundation');
-    Route::get('/school-section', function() { return view('pages.courses.school-section'); })->name('school-section');
-});
+Route::get('/jee-classes-in-mulund', function () {
+    return view('pages.courses.jee-mains-advanced');
+})->name('courses.jee-mains-advanced');
+
+Route::get('/neet-classes-in-mulund', function () {
+    return view('pages.courses.neet');
+})->name('courses.neet');
+
+Route::get('/mht-cet-classes-in-mulund', function () {
+    return view('pages.courses.mht-cet');
+})->name('courses.mht-cet');
+
+Route::get('/science-classes-in-mulund', function () {
+    return view('pages.courses.science');
+})->name('courses.science');
+
+Route::get('/foundation-classes-in-mulund', function () {
+    return view('pages.courses.foundation');
+})->name('courses.foundation');
+
+Route::get('/school-section-classes-in-mulund', function () {
+    return view('pages.courses.school-section');
+})->name('courses.school-section');
 
 // Study Materials
 Route::prefix('study-material')->name('study-material.')->group(function () {
-    Route::get('/', [App\Http\Controllers\StudyMaterialController::class, 'index'])->name('index');
-    Route::get('/{class:slug}', [App\Http\Controllers\StudyMaterialController::class, 'showYears'])->name('years');
-    Route::get('/{class:slug}/{studyYear:year}', [App\Http\Controllers\StudyMaterialController::class, 'showPapers'])->name('papers');
+    Route::get('/', [StudyMaterialController::class, 'index'])->name('index');
+    Route::get('/{class:slug}', [StudyMaterialController::class, 'showYears'])->name('years');
+    Route::get('/{class:slug}/{studyYear:year}', [StudyMaterialController::class, 'showPapers'])->name('papers');
 });
 
-Route::get('/blog', [\App\Http\Controllers\BlogFrontendController::class, 'index'])->name('blog');
-Route::get('/blog/{slug}', [\App\Http\Controllers\BlogFrontendController::class, 'show'])->name('blog.show');
+Route::get('/blog', [BlogFrontendController::class, 'index'])->name('blog');
+Route::get('/blog/{slug}', [BlogFrontendController::class, 'show'])->name('blog.show');
 
 // Contact Inquiries
-Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'index'])->name('contact');
-Route::post('/contact', [\App\Http\Controllers\HomeController::class, 'storeContact'])->name('contact.store');
+Route::get('/contact', [HomeController::class, 'index'])->name('contact');
+Route::post('/contact', [HomeController::class, 'storeContact'])->name('contact.store');
 
 // Gallery
-Route::get('/gallery', [\App\Http\Controllers\GalleryController::class, 'index'])->name('gallery.index');
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
 
 // ─── Auth Dashboard Redirect ────────────────────────────────────────────────
 Route::get('/dashboard', function () {
@@ -52,4 +75,4 @@ require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
 
 // ─── Catch-all for Dynamic CMS Pages ──────────────────────────────────────
-Route::get('/{slug}', [\App\Http\Controllers\FrontendController::class, 'show'])->name('pages.show');
+Route::get('/{slug}', [FrontendController::class, 'show'])->name('pages.show');

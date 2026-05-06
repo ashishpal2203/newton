@@ -167,7 +167,7 @@
       <div class="container-v1">
         <div class="courses-wrapper text-center">
 
-          <h3 class="section-title mb-2">Coaching Courses in Mulund, Mumbai</h3>
+          <h3 class="section-title mb-2">Courses We Offer</h3>
           <p class="text-muted mb-5">From JEE Mains & Advanced to MHT-CET, Science (XI–XII), Foundation (8th–10th),  and School Section <br> Newton's Academy, Mulund, has the right program for every student.</p>
 
           <div class="courses-grid text-start">
@@ -290,10 +290,10 @@
           <div class="testimonial-image">
             <img id="img" src="{{ Storage::url('assets/images/frme.png') }}" alt="Student" class="img-fluid">
 
-            <div class="slider-buttons">
+            {{-- <div class="slider-buttons">
               <button onclick="prev()">Prev</button>
               <button onclick="next()">Next</button>
-            </div>
+            </div> --}}
           </div>
 
         </div>

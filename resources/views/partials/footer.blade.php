@@ -111,7 +111,7 @@
       <a href="{{ url('help') }}" class="text-white text-decoration-none me-3">Help</a>
       <a href="{{ url('privacy-policy') }}" class="text-white text-decoration-none me-3">Privacy Policy</a>
       <a href="{{ url('disclaimer') }}" class="text-white text-decoration-none me-3"> Disclaimer</a>
-      <a href="http://newtonsacademy.co.in/login.html" class="text-white text-decoration-none"> Admin Login</a>
+      <a href="{{ route('login') }}" class="text-white text-decoration-none"> Admin Login</a>
     </div>
     <div class="copyright">
     <p>{{ $global_settings['footer_text'] ?? "© 2025 Newton's Academy. Designed by" }}<a href="https://gravityweb.in"> Gravity Web</a></p>

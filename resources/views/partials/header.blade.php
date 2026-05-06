@@ -35,11 +35,9 @@
           
          
           <a href="#"><img src="{{ Storage::url('assets/images/call.png') }}"></a>
-          @auth
-            <a href="{{ route('admin.dashboard') }}" class="btn btn-light rounded-pill borderpill px-4 logincss">Dashboard</a>
-          @else
-            <a href="{{ route('login') }}" class="btn btn-light rounded-pill borderpill px-4 logincss">Login</a>
-          @endauth
+         
+            <a href="http://newtonsacademy.co.in/login.html" class="btn btn-light rounded-pill borderpill px-4 logincss">Login</a>
+         
           
         </div>
       </div>
@@ -72,11 +70,8 @@
     </ul>
 
     <div class="mt-4 d-grid gap-2">
-      @auth
-        <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-primary rounded-pill">Dashboard</a>
-      @else
-        <a href="{{ route('login') }}" class="btn btn-outline-primary rounded-pill">Login</a>
-      @endauth
+     
+        <a href="http://newtonsacademy.co.in/login.html" class="btn btn-outline-primary rounded-pill">Login</a>
       <a href="tel:8591598974" class="btn btn-primary rounded-pill">Call Us</a>
     </div>
   </div>

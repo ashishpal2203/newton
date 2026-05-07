@@ -41,6 +41,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     // Contacts
     Route::resource('contacts', \App\Http\Controllers\Admin\ContactController::class)->only(['index', 'show', 'destroy']);
+    Route::resource('study-leads', \App\Http\Controllers\Admin\StudyLeadController::class)->only(['index', 'destroy']);
 
     // Home Sections (Banner, Phase Slider)
     Route::prefix('home-sections')->name('home.sections.')->group(function () {

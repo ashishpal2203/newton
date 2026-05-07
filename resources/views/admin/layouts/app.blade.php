@@ -316,7 +316,7 @@
             </div>
         </a>
 
-        <div class="sidebar">
+        <div class="sidebar" style="padding-bottom: 40px;">
             <!-- User Panel -->
             <div class="user-panel mt-3 pb-3 mb-1 d-flex">
                 <div class="image">
@@ -461,6 +461,13 @@
                                     <span class="badge badge-danger right">{{ $unreadCount }}</span>
                                 @endif
                             </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.study-leads.index') }}" class="nav-link {{ request()->routeIs('admin.study-leads.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-file-download text-success"></i>
+                            <p>Study Material Leads</p>
                         </a>
                     </li>
 

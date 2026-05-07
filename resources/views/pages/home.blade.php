@@ -289,7 +289,7 @@
 
           <!-- Right Image -->
           <div class="testimonial-image">
-            <img id="img" src="{{ Storage::url('assets/images/frme.png') }}" alt="Student" class="img-fluid">
+            <img id="img" src="{{ Storage::url('assets/images/frme.webp') }}" alt="Student" class="img-fluid">
 
             {{-- <div class="slider-buttons">
               <button onclick="prev()">Prev</button>

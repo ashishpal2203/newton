@@ -23,7 +23,7 @@
         <div class="box about-box">
           <h5>About the Program</h5>
           <p>
-            Newton's Academy is one of Mulund's most trusted coaching institutes for JEE preparation. Located in Mulund West, Mumbai, we offer a focused, structured program for JEE Mains and JEE Advanced — built for students in Class XI and XII who are serious about cracking IIT and NIT. Our JEE program goes beyond textbook teaching. We focus on deep conceptual clarity, high-difficulty problem practice, and the exam temperament needed to perform under pressure — whether you're aiming for JEE Mains or the full Advanced level.
+            Newton's Academy is one of Mulund's most trusted coaching institutes for JEE preparation. Located in Mulund West, Mumbai, we offer a focused, structured program for JEE Mains and JEE Advanced - built for students in Class XI and XII who are serious about cracking IIT and NIT. Our JEE program goes beyond textbook teaching. We focus on deep conceptual clarity, high-difficulty problem practice, and the exam temperament needed to perform under pressure - whether you're aiming for JEE Mains or the full Advanced level.
           </p>
         </div>
       </div>
@@ -59,7 +59,7 @@
         <div class="box program-box h-100">
           <h6>About JEE Mains</h6>
           <p>
-            JEE Mains is the qualifying exam for NITs, IIITs, and other top engineering colleges — and the gateway to JEE Advanced. At our Mulund coaching centre, we cover the complete PCM syllabus with concept-first teaching, application-based problem solving, and regular mock tests aligned with the latest NTA exam pattern.
+            JEE Mains is the qualifying exam for NITs, IIITs, and other top engineering colleges - and the gateway to JEE Advanced. At our Mulund coaching centre, we cover the complete PCM syllabus with concept-first teaching, application-based problem solving, and regular mock tests aligned with the latest NTA exam pattern.
           </p>
         </div>
       </div>
@@ -68,7 +68,7 @@
         <div class="box program-box h-100">
           <h6>About JEE Advanced</h6>
           <p>
-            JEE Advanced is the gateway to India's 23 IITs — and only the top 2.5 lakh JEE Mains qualifiers are eligible to appear. It demands not just knowledge, but exceptional analytical thinking and multi-concept problem solving. At Newton's Academy, Mulund, we train students for Advanced from Day 1 — with high-difficulty problem sets and dedicated doubt-clearing sessions.
+            JEE Advanced is the gateway to India's 23 IITs - and only the top 2.5 lakh JEE Mains qualifiers are eligible to appear. It demands not just knowledge, but exceptional analytical thinking and multi-concept problem solving. At Newton's Academy, Mulund, we train students for Advanced from Day 1 - with high-difficulty problem sets and dedicated doubt-clearing sessions.
           </p>
         </div>
       </div>
@@ -80,14 +80,14 @@
       <h6>What's Included</h6>
 
       <div class="row">
-        <div class="col-md-6"><p class="right">Complete syllabus coverage — Physics, Chemistry, Mathematics for JEE Mains + Advanced</p></div>
+        <div class="col-md-6"><p class="right">Complete syllabus coverage - Physics, Chemistry, Mathematics for JEE Mains + Advanced</p></div>
         <div class="col-md-6"><p class="right">Weekly and monthly mock tests on the latest JEE exam pattern</p></div>
 
         <div class="col-md-6"><p class="right">Dedicated doubt-clearing sessions before and after every lecture</p></div>
         <div class="col-md-6"><p class="right">Personal performance analysis and one-on-one feedback</p></div>
 
-        <div class="col-md-6"><p class="right">HSC Board preparation integrated — no need to choose between boards and JEE</p></div>
-        <div class="col-md-6"><p class="right">Small batches of max 30 students — individual attention at our Mulund centre</p></div>
+        <div class="col-md-6"><p class="right">HSC Board preparation integrated - no need to choose between boards and JEE</p></div>
+        <div class="col-md-6"><p class="right">Small batches of max 30 students - individual attention at our Mulund centre</p></div>
       </div>
     
     </div>

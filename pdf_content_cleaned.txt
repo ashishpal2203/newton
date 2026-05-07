@@ -2,7 +2,7 @@ Newton's
  
 Academy
  
-—
+-
  
 Course
  
@@ -83,7 +83,7 @@ School
  
 Section
  
-—
+-
  
 Newton's
  
@@ -107,7 +107,7 @@ Course
  
 Cards
  
-—
+-
  
 Names
  
@@ -199,7 +199,7 @@ cards
  
 total
  
-—
+-
  
 clean
  
@@ -214,7 +214,7 @@ COURSE
  
 1
  
-—
+-
  
 JEE
  
@@ -347,7 +347,7 @@ JEE
  
 Advanced
  
-—
+-
  
 built
  
@@ -431,7 +431,7 @@ under
  
 pressure
  
-—
+-
  
 whether
  
@@ -532,7 +532,7 @@ engineering
  
 colleges
  
-—
+-
  
 and
  
@@ -626,7 +626,7 @@ India's
  
 IITs
  
-—
+-
  
 and
  
@@ -704,7 +704,7 @@ Day
  
 1
  
-—
+-
  
 with
  
@@ -735,7 +735,7 @@ syllabus
  
 coverage
  
-—
+-
  
 Physics,
  
@@ -819,7 +819,7 @@ preparation
  
 integrated
  
-—
+-
  
 no
  
@@ -851,7 +851,7 @@ max
  
 students
  
-—
+-
  
 individual
  
@@ -875,7 +875,7 @@ COURSE
  
 2
  
-—
+-
  
 NEET
  
@@ -953,7 +953,7 @@ coaching
  
 institutes
  
-—
+-
  
 helping
  
@@ -1083,7 +1083,7 @@ hard
  
 work
  
-—
+-
  
 it
  
@@ -1131,7 +1131,7 @@ exactly
  
 that
  
-—
+-
  
 in
  
@@ -1214,7 +1214,7 @@ Mumbai
  
 Biology
  
-—
+-
  
 The
  
@@ -1238,7 +1238,7 @@ in
  
 NEET
  
-—
+-
  
 and
  
@@ -1282,7 +1282,7 @@ intensive
  
 depth
  
-—
+-
  
 human
  
@@ -1370,7 +1370,7 @@ own
  
 flavor
  
-—
+-
  
 and
  
@@ -1472,7 +1472,7 @@ Biology
  
 coverage
  
-—
+-
  
 complete
  
@@ -1542,7 +1542,7 @@ performance
  
 tracking
  
-—
+-
  
 faculty
  
@@ -1594,7 +1594,7 @@ Mulund
  
 centre
  
-—
+-
  
 every
  
@@ -1618,7 +1618,7 @@ preparation
  
 integrated
  
-—
+-
  
 students
  
@@ -1667,7 +1667,7 @@ COURSE
  
 3
  
-—
+-
  
 MHT-CET
  
@@ -1743,7 +1743,7 @@ Mulund,
  
 Mumbai
  
-—
+-
  
 designed
  
@@ -1859,7 +1859,7 @@ natural
  
 edge
  
-—
+-
  
 and
  
@@ -1960,7 +1960,7 @@ HSC
  
 teaches
  
-—
+-
  
 but
  
@@ -2028,7 +2028,7 @@ objective
  
 application
  
-—
+-
  
 so
  
@@ -2096,7 +2096,7 @@ limited
  
 time
  
-—
+-
  
 speed
  
@@ -2181,7 +2181,7 @@ HSC
  
 syllabus
  
-—
+-
  
 the
  
@@ -2241,7 +2241,7 @@ paper
  
 analysis
  
-—
+-
  
 topic-wise
  
@@ -2265,7 +2265,7 @@ West
  
 centre
  
-—
+-
  
 personal
  
@@ -2289,7 +2289,7 @@ CET
  
 preparation
  
-—
+-
  
 no
  
@@ -2314,7 +2314,7 @@ COURSE
  
 4
  
-—
+-
  
 SCIENCE
  
@@ -2334,7 +2334,7 @@ newtonsacademy.com/courses/science
  
 /sci-comm
  
-—
+-
  
 tell
  
@@ -2430,7 +2430,7 @@ big
  
 step
  
-—
+-
  
 and
  
@@ -2559,7 +2559,7 @@ HSC
  
 boards
  
-—
+-
  
 our
  
@@ -2617,7 +2617,7 @@ Board:
  
 HSC
  
-—
+-
  
 Maharashtra
  
@@ -2694,7 +2694,7 @@ keep
  
 up
  
-—
+-
  
 especially
  
@@ -2791,7 +2791,7 @@ syllabus
  
 coverage
  
-—
+-
  
 Physics,
  
@@ -2833,7 +2833,7 @@ doubt-clearing
  
 sessions
  
-—
+-
  
 before
  
@@ -2869,7 +2869,7 @@ Small
  
 batches
  
-—
+-
  
 every
  
@@ -2916,7 +2916,7 @@ COURSE
  
 5
  
-—
+-
  
 FOUNDATION
  
@@ -2986,7 +2986,7 @@ for
  
 Grade
  
-—
+-
  
 Mulund,
  
@@ -3002,7 +3002,7 @@ foundation
  
 years
  
-—
+-
  
 Class
  
@@ -3014,7 +3014,7 @@ and
  
 10th
  
-—
+-
  
 are
  
@@ -3121,7 +3121,7 @@ grade
  
 students
  
-—
+-
  
 focused
  
@@ -3191,7 +3191,7 @@ Board:
  
 SSC
  
-—
+-
  
 Maharashtra
  
@@ -3284,7 +3284,7 @@ SSC
  
 exams
  
-—
+-
  
 they
  
@@ -3437,7 +3437,7 @@ Small
  
 batches
  
-—
+-
  
 personal
  
@@ -3484,7 +3484,7 @@ COURSE
  
 6
  
-—
+-
  
 SCHOOL
  
@@ -3554,7 +3554,7 @@ to
  
 10th
  
-—
+-
  
 CBSE
  
@@ -3612,7 +3612,7 @@ major
  
 boards
  
-—
+-
  
 CBSE,
  
@@ -3628,7 +3628,7 @@ State
  
 Board)
  
-—
+-
  
 right
  
@@ -3681,7 +3681,7 @@ all
  
 three
  
-—
+-
  
 so
  
@@ -3864,7 +3864,7 @@ Social
  
 Studies
  
-—
+-
  
 with
  
@@ -3964,7 +3964,7 @@ with
  
 depth
  
-—
+-
  
 covering
  
@@ -4072,7 +4072,7 @@ and
  
 Science
  
-—
+-
  
 so
  
@@ -4131,7 +4131,7 @@ and
  
 SSC
  
-—
+-
  
 not
  
@@ -4179,7 +4179,7 @@ board
  
 exams
  
-—
+-
  
 theory
  
@@ -4221,7 +4221,7 @@ West
  
 centre
  
-—
+-
  
 every
  

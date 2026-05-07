@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\StudyYear;
 use App\Models\StudyPaper;
+use App\Models\StudyYear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,7 +13,7 @@ class StudyPaperController extends Controller
     public function index(Request $request)
     {
         $year_id = $request->query('year_id');
-        if (!$year_id) {
+        if (! $year_id) {
             return redirect()->route('admin.study-classes.index')->with('error', 'Please navigate through a class and year first.');
         }
 
@@ -26,11 +26,12 @@ class StudyPaperController extends Controller
     public function create(Request $request)
     {
         $year_id = $request->query('year_id');
-        if (!$year_id) {
+        if (! $year_id) {
             return redirect()->route('admin.study-classes.index')->with('error', 'Please navigate through a year first.');
         }
 
         $studyYear = StudyYear::findOrFail($year_id);
+
         return view('admin.study.papers.create', compact('studyYear'));
     }
 
@@ -40,18 +41,18 @@ class StudyPaperController extends Controller
             'study_year_id' => 'required|exists:study_years,id',
             'title' => 'nullable|string|max:255',
             'files' => 'required|array',
-            'files.*' => 'required|file|mimes:pdf|max:10240', // 10MB Max per file
+            'files.*' => 'required|file|mimes:pdf|max:20480', // 20MB Max per file
         ]);
 
         if ($request->hasFile('files')) {
             foreach ($request->file('files') as $index => $file) {
                 $path = $file->store('study/papers', 'public');
-                
-                // If title is skipped, use the original PDF filename. 
+
+                // If title is skipped, use the original PDF filename.
                 // If title is provided and multiple files uploaded, suffix them (Title 1, Title 2...)
                 $baseName = $file->getClientOriginalName();
-                $generatedTitle = $request->title ? ($request->title . (count($request->file('files')) > 1 ? ' ' . ($index + 1) : '')) : $baseName;
-                
+                $generatedTitle = $request->title ? ($request->title.(count($request->file('files')) > 1 ? ' '.($index + 1) : '')) : $baseName;
+
                 StudyPaper::create([
                     'study_year_id' => $request->study_year_id,
                     'title' => $generatedTitle,
@@ -74,13 +75,15 @@ class StudyPaperController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'file' => 'nullable|file|mimes:pdf|max:10240',
+            'file' => 'nullable|file|mimes:pdf|max:20480', // 20MB Max per file
         ]);
 
         $data = $request->only('title');
 
         if ($request->hasFile('file')) {
-            if ($studyPaper->file_path) Storage::disk('public')->delete($studyPaper->file_path);
+            if ($studyPaper->file_path) {
+                Storage::disk('public')->delete($studyPaper->file_path);
+            }
             $data['file_path'] = $request->file('file')->store('study/papers', 'public');
         }
 
@@ -94,8 +97,10 @@ class StudyPaperController extends Controller
     {
         $year_id = $studyPaper->study_year_id;
 
-        if ($studyPaper->file_path) Storage::disk('public')->delete($studyPaper->file_path);
-        
+        if ($studyPaper->file_path) {
+            Storage::disk('public')->delete($studyPaper->file_path);
+        }
+
         $studyPaper->delete();
 
         return redirect()->route('admin.study-papers.index', ['year_id' => $year_id])

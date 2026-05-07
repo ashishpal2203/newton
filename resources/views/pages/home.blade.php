@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', "Newton's Academy - Best Coaching Classes in Mulund Mumbai | JEE | NEET | MHT-CET")
 @section('content')
 
 @if(session('success'))

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Our Blogs')
 @section('content')
 
 <section class="blogs-section">

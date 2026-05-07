@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Gallery')
 
 @section('content')
 <div class="" style="background: #f8f9fb;">

@@ -1640,6 +1640,11 @@ section.why-choose-us a {
   font-size: 18px;
 }
 
+#footerContactForm input,
+#footerContactForm textarea {
+  border: 1px solid #316ee8 !important;
+}
+
 
 
 

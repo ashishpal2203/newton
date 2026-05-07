@@ -2,119 +2,115 @@
     style="background: linear-gradient(135deg,#0a1a5e,#1e4fd8);" id="contact">
 
   <div class="container-v1">
-    <div class="row align-items-end flex-column-reverse flex-md-row">
+    <div class="row flex-column-reverse flex-lg-row">
    
-
-      <!-- LEFT SIDE -->
-      <div class="col-md-6 col-12 col-sm-12 borbtm">
-        <div class="d-flex">
-        <div class="logofoot">
-          <img src="{{ Storage::url('assets/images/logo-footer.png') }}">
+      <!-- BRAND & CONTACT INFO -->
+      <div class="col-lg-3 col-md-12 mb-5 mb-lg-0 pb-4 pb-lg-0">
+        <div class="logofoot mb-4">
+          <img src="{{ Storage::url('assets/images/logo-footer.png') }}" alt="Newton's Academy" style="max-width: 180px;">
         </div>
-
-      
-
-         <div class="rihht">
-        <p class="mb-3 alignnn">
-          <i class="bi bi-geo-alt-fill me-2"></i>
-          {{ $global_settings['site_address'] ?? "1st floor Shrinivas Building Opposite\nKothari Farsan,\nZaver Road, Mulund West, Mumbai-400080" }}
-        </p>
-
-        <p class="">
-          <i class="bi bi-telephone-fill me-2"></i>
-          {{ $global_settings['contact_phone'] ?? '85915 98974 | 91378 48668' }}
-        </p>
-
-        <div class="d-flex gap-3 sociall">
-          <p>Social Media</p>
-          <a href="{{ $global_settings['social_facebook'] ?? 'https://www.facebook.com/NewtonsAcademy17' }}"><i class="bi bi-facebook"></i></a>
-          <a href="{{ $global_settings['social_linkedin'] ?? 'https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F90970653%2Fadmin%2F' }}"><i class="bi bi-linkedin"></i></a>
-          <a href="{{ $global_settings['social_youtube'] ?? 'https://www.youtube.com/@NewtonsAcademy/playlists' }}"> <i class="bi bi-youtube"></i></a>
-          <a href="{{ $global_settings['social_instagram'] ?? 'https://www.instagram.com/newtons_academy_/' }}"> <i class="bi bi-instagram"></i></a>
-          
-          
-         
-         
+        <div class="d-flex align-items-start mb-3">
+          <i class="bi bi-geo-alt-fill fs-5 me-2 text-warning mt-1"></i>
+          <p class="m-0" style="font-size: 14px; line-height: 1.6;">
+            {{ $global_settings['site_address'] ?? "1st floor Shrinivas Building Opposite Kothari Farsan, Zaver Road, Mulund West, Mumbai-400080" }}
+          </p>
+        </div>
+        <div class="d-flex align-items-center mb-4">
+          <i class="bi bi-telephone-fill fs-5 me-2 text-warning"></i>
+          <p class="m-0" style="font-size: 14px;">
+            {{ $global_settings['contact_phone'] ?? '85915 98974 | 91378 48668' }}
+          </p>
+        </div>
+        <div class="sociall d-flex align-items-center gap-3 mt-4 pt-3 border-top border-secondary">
+          <a href="{{ $global_settings['social_facebook'] ?? 'https://www.facebook.com/NewtonsAcademy17' }}" class="text-white fs-5 hover-opacity"><i class="bi bi-facebook"></i></a>
+          <a href="{{ $global_settings['social_linkedin'] ?? 'https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F90970653%2Fadmin%2F' }}" class="text-white fs-5 hover-opacity"><i class="bi bi-linkedin"></i></a>
+          <a href="{{ $global_settings['social_youtube'] ?? 'https://www.youtube.com/@NewtonsAcademy/playlists' }}" class="text-white fs-5 hover-opacity"><i class="bi bi-youtube"></i></a>
+          <a href="{{ $global_settings['social_instagram'] ?? 'https://www.instagram.com/newtons_academy_/' }}" class="text-white fs-5 hover-opacity"><i class="bi bi-instagram"></i></a>
         </div>
       </div>
 
-
-
+      <!-- QUICK LINKS -->
+      <div class="col-lg-2 col-md-6 col-6 mb-5 mb-lg-0">
+        <h5 class="text-warning mb-4 fw-bold fs-5">Quick Links</h5>
+        <ul class="list-unstyled d-flex flex-column gap-2 m-0" style="font-size: 14px;">
+          <li><a href="{{ url('about-us') }}" class="text-white text-decoration-none hover-opacity">About Us</a></li>
+          <li><a href="{{ route('gallery.index') }}" class="text-white text-decoration-none hover-opacity">Gallery</a></li>
+          <li><a href="{{ url('contact') }}" class="text-white text-decoration-none hover-opacity">Contact Us</a></li>
+          <li><a href="{{ url('help') }}" class="text-white text-decoration-none hover-opacity">Help</a></li>
+          <li><a href="{{ url('privacy-policy') }}" class="text-white text-decoration-none hover-opacity">Privacy Policy</a></li>
+          <li><a href="{{ url('disclaimer') }}" class="text-white text-decoration-none hover-opacity">Disclaimer</a></li>
+          <li><a href="{{ route('login') }}" class="text-white text-decoration-none hover-opacity">Admin Login</a></li>
+        </ul>
       </div>
 
-
-
-
+      <!-- COURSES WE OFFER -->
+      <div class="col-lg-3 col-md-6 col-6 mb-5 mb-lg-0">
+        <h5 class="text-warning mb-4 fw-bold fs-5">Courses We Offer</h5>
+        <ul class="list-unstyled d-flex flex-column gap-2 m-0" style="font-size: 14px;">
+          <li><a href="{{ route('courses.jee-mains-advanced') }}" class="text-white text-decoration-none hover-opacity">JEE Mains & Advanced</a></li>
+          <li><a href="{{ route('courses.neet') }}" class="text-white text-decoration-none hover-opacity">NEET</a></li>
+          <li><a href="{{ route('courses.mht-cet') }}" class="text-white text-decoration-none hover-opacity">MHT-CET</a></li>
+          <li><a href="{{ route('courses.science') }}" class="text-white text-decoration-none hover-opacity">Science (XI & XII)</a></li>
+          <li><a href="{{ route('courses.foundation') }}" class="text-white text-decoration-none hover-opacity">Foundation (VIII to X)</a></li>
+          <li><a href="{{ route('courses.school-section') }}" class="text-white text-decoration-none hover-opacity">School Section</a></li>
+        </ul>
       </div>
 
       <!-- RIGHT SIDE FORM -->
-      <div class="col-md-5 col-12 col-sm-12 offset-md-1">
-        <div class="bg-light text-dark p-4 rounded-4 shadow">
-          <h4 class="mb-4">Contact us</h4>
+      <div class="col-lg-4 col-md-12 col-12 mb-5 mb-lg-0">
+        <div class="bg-white text-dark p-3 rounded-4 shadow-lg border-0">
+          <h5 class="mb-4 fw-bold" style="color: #0a3d91;">Get in Touch</h5>
           
           <form id="footerContactForm">
             @csrf
+            
             <div class="mb-3">
-              <label class="form-label small fw-bold">Name</label>
-              <input type="text" name="name" class="form-control rounded-pill" placeholder="Your full name" required>
+              <input type="text" name="name" class="form-control bg-light border-0 px-3" placeholder="Full Name" required style="font-size: 14px; border-radius: 8px;">
               <span class="text-danger error-text name_error small"></span>
             </div>
             
-            <div class="mb-3">
-              <label class="form-label small fw-bold">Mobile</label>
-              <input type="text" name="mobile" class="form-control rounded-pill" placeholder="Your Mobile Number" required>
-              <span class="text-danger error-text mobile_error small"></span>
-            </div>
-            
-            <div class="mb-3">
-              <label class="form-label small fw-bold">Email</label>
-              <input type="email" name="email" class="form-control rounded-pill" placeholder="your@email.com" required>
-              <span class="text-danger error-text email_error small"></span>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <input type="text" name="mobile" class="form-control bg-light border-0 px-3" placeholder="Mobile No." required style="font-size: 14px; border-radius: 8px;">
+                <span class="text-danger error-text mobile_error small"></span>
+              </div>
+              <div class="col-6">
+                <input type="email" name="email" class="form-control bg-light border-0 px-3" placeholder="Email Address" required style="font-size: 14px; border-radius: 8px;">
+                <span class="text-danger error-text email_error small"></span>
+              </div>
             </div>
 
-            <div class="row mb-3">
-              <div class="col">
-                 <label class="form-label small fw-bold">Class</label>
-                 <input type="text" name="class" class="form-control rounded-pill" placeholder="Your class" required>
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                 <input type="text" name="class" class="form-control bg-light border-0 px-3" placeholder="Class" required style="font-size: 14px; border-radius: 8px;">
                  <span class="text-danger error-text class_error small"></span>
               </div>
-              <div class="col">
-                 <label class="form-label small fw-bold">Stream</label>
-                 <input type="text" name="stream" class="form-control rounded-pill" placeholder="Your Stream" required>
+              <div class="col-6">
+                 <input type="text" name="stream" class="form-control bg-light border-0 px-3" placeholder="Stream" required style="font-size: 14px; border-radius: 8px;">
                  <span class="text-danger error-text stream_error small"></span>
               </div>
             </div>
 
             <div class="mb-4">
-              <label class="form-label small fw-bold">Message (Optional)</label>
-              <textarea name="message" class="form-control rounded-4" rows="3" placeholder="Tell us more..."></textarea>
+              <textarea name="message" class="form-control bg-light border-0 px-3 py-3" rows="3" placeholder="Your Message (Optional)" style="font-size: 14px; border-radius: 8px; resize: none;"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary w-100 rounded-pill py-2" id="submitBtn">
-              <i class="bi bi-send me-2"></i> SUBMIT HERE
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold" id="submitBtn" style="border-radius: 8px; font-size: 15px;">
+              <i class="bi bi-send me-2"></i> Submit Request
             </button>
           </form>
           
-          <div id="formSuccessMessage" class="alert alert-success mt-3 d-none rounded-4">
-             <i class="bi bi-check-circle-fill me-2"></i> Your request has been submitted successfully. We will contact you soon.
+          <div id="formSuccessMessage" class="alert alert-success mt-3 d-none" style="border-radius: 8px; font-size: 14px;">
+             <i class="bi bi-check-circle-fill me-2"></i> Request submitted successfully. We will contact you soon.
           </div>
         </div>
       </div>
 
     </div>
 
-    <!-- FOOTER LINKS -->
-    <div class="text-left tttoop small">
-      <a href="{{ url('about-us') }}" class="text-white text-decoration-none me-3">about us </a>
-      <a href="{{ route('gallery.index') }}" class="text-white text-decoration-none me-3">Gallery</a>
-      <a href="{{ url('contact') }}" class="text-white text-decoration-none me-3">Contact Us </a>
-      <a href="{{ url('help') }}" class="text-white text-decoration-none me-3">Help</a>
-      <a href="{{ url('privacy-policy') }}" class="text-white text-decoration-none me-3">Privacy Policy</a>
-      <a href="{{ url('disclaimer') }}" class="text-white text-decoration-none me-3"> Disclaimer</a>
-      <a href="{{ route('login') }}" class="text-white text-decoration-none"> Admin Login</a>
-    </div>
-    <div class="copyright">
-    <p>{{ $global_settings['footer_text'] ?? "© 2025 Newton's Academy. Designed by" }}<a href="https://gravityweb.in"> Gravity Web</a></p>
+    <!-- FOOTER BOTTOM -->
+    <div class="text-center mt-4 pb-3">
+       <p class="mb-0 text-white-50" style="font-size: 14px;">{{ $global_settings['footer_text'] ?? "© 2025 Newton's Academy. Designed by" }} <a href="https://gravityweb.in" class="text-white hover-opacity text-decoration-none">Gravity Web</a></p>
     </div>
 
   </div>

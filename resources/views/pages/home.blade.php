@@ -308,12 +308,11 @@
 
   <section class="why-choose-us">
     <div class="container container-v1">
-      <h2 class="section-titless">Why Choose Us</h2>
+      <h2 class="section-titless mb-4">Why Choose Us</h2>
 
       <div class="row justify-content-center gy-4">
         <!-- Item 1 -->
         <div class="col-md-4">
-          <a href="about-us.html">
             <div class="why-card center">
               <div class="icon">
                 <img src="{{ Storage::url('assets/images/cap.png') }}" class="img-fluid">
@@ -321,12 +320,10 @@
               <h5>Expert Faculty</h5>
               <p>Learn from IIT/AIIMS graduates</p>
             </div>
-          </a>
         </div>
 
         <!-- Item 2 -->
         <div class="col-md-4">
-          <a href="about-us.html">
             <div class="why-card center">
               <div class="icon">
                 <img src="{{ Storage::url('assets/images/book.png') }}" class="img-fluid">
@@ -334,12 +331,10 @@
               <h5>Structured Material</h5>
               <p>Comprehensive study material</p>
             </div>
-          </a>
         </div>
 
         <!-- Item 3 -->
         <div class="col-md-4">
-          <a href="about-us.html">
             <div class="why-card center">
               <div class="icon">
                 <img src="{{ Storage::url('assets/images/whychoos.png') }}" class="img-fluid">
@@ -347,7 +342,6 @@
               <h5>24/7 Doubt Support</h5>
               <p>Get doubts resolved anytime</p>
             </div>
-          </a>
         </div>
       </div>
     </div>

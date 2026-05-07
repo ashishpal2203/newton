@@ -702,6 +702,10 @@ input.form-control {
   height: 50px;
 }
 
+#studyLeadModal .form-control {
+  border: 1px solid #ccc !important;
+}
+
 .bbttmmm {
   margin-bottom: 35px;
 }
@@ -1642,7 +1646,7 @@ section.why-choose-us a {
 
 #footerContactForm input,
 #footerContactForm textarea {
-  border: 1px solid #316ee8 !important;
+  border: 1px solid #ccc !important;
 }
 
 

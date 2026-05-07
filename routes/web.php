@@ -46,6 +46,7 @@ Route::get('/school-section-classes-in-mulund', function () {
 // Study Materials
 Route::prefix('study-material')->name('study-material.')->group(function () {
     Route::get('/', [StudyMaterialController::class, 'index'])->name('index');
+    Route::post('/verify-lead', [\App\Http\Controllers\Frontend\StudyLeadController::class, 'store'])->name('verify-lead');
     Route::get('/{class:slug}', [StudyMaterialController::class, 'showYears'])->name('years');
     Route::get('/{class:slug}/{studyYear:year}', [StudyMaterialController::class, 'showPapers'])->name('papers');
 });

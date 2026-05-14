@@ -18,7 +18,7 @@
         <div class="d-flex align-items-center mb-4">
           <i class="bi bi-telephone-fill fs-5 me-2 text-warning"></i>
           <p class="m-0" style="font-size: 14px;">
-            {{ $global_settings['contact_phone'] ?? '85915 98974 | 91378 48668' }}
+            {{ $global_settings['contact_phone'] ?? '73042 34055 | 91378 48668' }}
           </p>
         </div>
         <div class="sociall d-flex align-items-center gap-3 mt-4 pt-3 border-top border-secondary">

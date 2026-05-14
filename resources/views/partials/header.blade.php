@@ -15,7 +15,7 @@
 
       <!-- MOBILE RIGHT BLUE DOT -->
       <div class="d-lg-none ms-auto">
-        <span class="profile-dot"></span>
+        <a href="tel:7304234055"><img src="/storage/assets/images/call.png"></a>
       </div>
 
       <!-- DESKTOP MENU -->
@@ -34,7 +34,7 @@
         <div class="d-flex gap-23">
           
          
-          <a href="tel:8591589741"><img src="{{ Storage::url('assets/images/call.png') }}"></a>
+          <a href="tel:7304234055"><img src="{{ Storage::url('assets/images/call.png') }}"></a>
          
             <a href="http://newtonsacademy.co.in/login.html" class="btn btn-light rounded-pill borderpill px-4 logincss">Login</a>
          
@@ -72,7 +72,7 @@
     <div class="mt-4 d-grid gap-2">
      
         <a href="http://newtonsacademy.co.in/login.html" class="btn btn-outline-primary rounded-pill">Login</a>
-      <a href="tel:8591589741" class="btn btn-primary rounded-pill">Call Us</a>
+      <a href="tel:7304234055" class="btn btn-primary rounded-pill">Call Us</a>
     </div>
   </div>
 </div>

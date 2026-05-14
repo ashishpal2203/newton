@@ -52,7 +52,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                             </div>
-                                            <input type="text" name="settings[contact_phone]" class="form-control" id="contact_phone" value="{{ $settings['contact_phone'] ?? '85915 89741 | 91378 48658' }}">
+                                            <input type="text" name="settings[contact_phone]" class="form-control" id="contact_phone" value="{{ $settings['contact_phone'] ?? '7304234055 | 91378 48658' }}">
                                         </div>
                                     </div>
                                 </div>

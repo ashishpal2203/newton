@@ -116,6 +116,49 @@
   </div>
 </section>
 
+<!-- Floating Call Icon -->
+<a href="tel:+917304234055" class="call-float">
+    <i class="bi bi-telephone-fill"></i>
+</a>
+
+<style>
+.call-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #4fd81e;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.call-float:hover {
+    background-color: #0a1a5e;
+    color: #FFF;
+    transform: scale(1.1);
+}
+
+/* For mobile */
+@media (max-width: 767px) {
+    .call-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}
+</style>
 
 
 

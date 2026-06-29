@@ -1,4 +1,15 @@
 @extends('layouts.app')
+
+@section('title', "Free Study Materials & Past Papers | Newton's Academy")
+@section('meta_description', 'Download free study materials, PYQs (Previous Year Questions), and solved board/entrance question papers at Newton\'s Academy, Mulund.')
+@section('meta_keywords', 'Newton\'s Academy study materials, free PYQs download, Class 10 board papers, Class 12 solved papers')
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Study Materials' => 'study-material'
+]) !!}
+@endsection
+
 @section('content')
 
 <br>
@@ -12,7 +23,7 @@
   <div class="courses-section">
   <div class="courses-wrapper">
 
-    <h3 class="section-title">Study Materials </h3>
+    <h1 class="section-title fw-bold" style="color: #0032A2; font-size: 32px;">Free Study Materials & Past Papers</h1>
 
     <div class="courses-grid">
 

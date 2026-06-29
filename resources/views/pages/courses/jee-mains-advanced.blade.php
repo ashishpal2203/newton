@@ -1,19 +1,50 @@
 @extends('layouts.app')
 
 @section('title', "JEE Mains & Advanced Coaching in Mulund, Mumbai | Newton's Academy")
+@section('meta_description', 'Newton\'s Academy is the leading JEE Main & Advanced coaching classes in Mulund West. Highly structured 2-year course for Class XI & XII PCM students.')
+@section('meta_keywords', 'Best JEE Classes in Mulund, IIT Coaching Mulund, JEE Mains Coaching Mulund, JEE Advanced Classes Mulund, Zaver road JEE coaching')
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::courseSchema(
+    "IIT-JEE Mains & Advanced Coaching",
+    "A comprehensive, concept-first 2-year preparation coaching program for IIT-JEE Mains and JEE Advanced entrance exams, integrated with HSC board syllabus.",
+    "2 Years",
+    "jee-classes-in-mulund"
+) !!}
+
+{!! \App\Helpers\SeoHelper::faqSchema([
+    [
+        'question' => "What is the duration of the JEE coaching classes in Mulund?",
+        'answer' => "The JEE Mains & Advanced classroom coaching program at Newton's Academy is a comprehensive 2-year program for students in Class XI and XII."
+    ],
+    [
+        'question' => "Are board preparations covered along with JEE Mains & Advanced?",
+        'answer' => "Yes, we offer fully integrated coaching where the HSC Board syllabus is integrated with competitive JEE entrance coaching so students prepare for both simultaneously."
+    ],
+    [
+        'question' => "What is the student batch limit for JEE classes?",
+        'answer' => "To ensure highly personalized attention, we maintain small batch sizes of up to 30 students per class at our Mulund West coaching center."
+    ]
+]) !!}
+
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Courses' => 'courses',
+    'JEE Mains & Advanced' => 'jee-classes-in-mulund'
+]) !!}
+@endsection
 
 @section('content')
 <section class="class12">
   <div class="container-v1">
      <!-- Banner -->
     <div class="class12-banner">
-      <img src="{{ Storage::url('assets/images/program.png') }}" alt="JEE Main + Advanced Program">
+      <img src="{{ Storage::url('assets/images/program.png') }}" alt="JEE Mains and Advanced coaching classroom program at Newton's Academy, Mulund" title="JEE Coaching Program Banner">
     </div>
   </div>
 
   <div class="container-v1">
    
-    <h2 class="class12-title">JEE Mains + Advanced Coaching Classes in Mulund, Mumbai</h2>
+    <h1 class="class12-title">JEE Mains + Advanced Coaching Classes in Mulund, Mumbai</h1>
 
     <!-- TOP ROW -->
     <div class="row g-4 align-items-stretch">

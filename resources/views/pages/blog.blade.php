@@ -1,12 +1,22 @@
 @extends('layouts.app')
-@section('title', 'Our Blogs')
+
+@section('title', "Educational Blog & Exam Preparation Tips | Newton's Academy")
+@section('meta_description', 'Read the latest updates, exam preparation tips, study techniques, and news from Newton\'s Academy, Zaver Road, Mulund West.')
+@section('meta_keywords', 'Newton\'s Academy blog, exam preparation tips, revise Physics in 30 days, high weightage NEET chapters')
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Blog' => 'blog'
+]) !!}
+@endsection
+
 @section('content')
 
 <section class="blogs-section">
   <div class="container-v1">
 
     <!-- Heading -->
-    <h2 class="text-center fw-bold mb-4">Blogs</h2>
+    <h1 class="text-center fw-bold mb-4" style="color: #0032A2; font-size: 32px;">Educational Blogs & Latest Updates</h1>
 
     <!-- Search -->
    <div class="d-flex justify-content-center mb-5">

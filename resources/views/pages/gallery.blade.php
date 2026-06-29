@@ -1,11 +1,19 @@
 @extends('layouts.app')
-@section('title', 'Gallery')
+@section('title', "Photo Gallery & Campus Life | Newton's Academy Mulund")
+@section('meta_description', 'View photos of our classroom facilities, student celebrations, study sessions, and events at Newton\'s Academy in Mulund West.')
+@section('meta_keywords', 'Newton\'s Academy gallery, coaching classes photos, classes in Zaver road')
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Gallery' => 'gallery'
+]) !!}
+@endsection
 
 @section('content')
 <div class="" style="background: #f8f9fb;">
     <div class="container-v1">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold text-primary mb-3">Our Gallery</h2>
+            <h1 class="display-5 fw-bold text-primary mb-3" style="font-size: 32px;">Our Photo Gallery & Campus Life</h1>
             <div class="mx-auto" style="width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px;"></div>
             <p class="text-muted mt-3 lead">Capturing moments of excellence and joy at Newton's Academy</p>
         </div>

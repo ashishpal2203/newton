@@ -75,5 +75,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
 
+// Dynamic XML Sitemap
+Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
+
 // ─── Catch-all for Dynamic CMS Pages ──────────────────────────────────────
 Route::get('/{slug}', [FrontendController::class, 'show'])->name('pages.show');

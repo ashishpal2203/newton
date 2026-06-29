@@ -1,13 +1,44 @@
 @extends('layouts.app')
 
 @section('title', "Foundation Coaching for 8th 9th 10th in Mulund, Mumbai | Newton's Academy")
+@section('meta_description', 'Newton\'s Academy provides specialized Foundation Courses for Class 8th, 9th, and 10th. Strong conceptual groundwork for future JEE, NEET, and Olympiads prep.')
+@section('meta_keywords', 'Foundation Classes Mulund, 8th coaching Mulund, 9th classes Mulund, 10th board coaching Mulund, Olympiad preparation Zaver road')
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::courseSchema(
+    "Foundation Course for 8th, 9th & 10th",
+    "Conceptual foundation training program in Science and Mathematics for secondary school students to prepare them for JEE, NEET, and Olympiad entrance exams.",
+    "1 Year",
+    "foundation-classes-in-mulund"
+) !!}
+
+{!! \App\Helpers\SeoHelper::faqSchema([
+    [
+        'question' => "What is the key objective of the Foundation coaching classes in Mulund?",
+        'answer' => "The primary objective is to strengthen basic and advanced concepts in Mathematics and Science, prepping students early for future competitive exams like JEE, NEET, Olympiads, and NTSE."
+    ],
+    [
+        'question' => "Which classes are covered in the Foundation program?",
+        'answer' => "The foundation course is customized for students studying in Class 8, 9, and 10."
+    ],
+    [
+        'question' => "Is this course beneficial for standard school board exams?",
+        'answer' => "Yes, we cover school board syllabi (CBSE/ICSE/SSC) along with additional advanced topics, ensuring excellent school results alongside entrance prep."
+    ]
+]) !!}
+
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Courses' => 'courses',
+    'Foundation Classes' => 'foundation-classes-in-mulund'
+]) !!}
+@endsection
 
 @section('content')
 <section class="class12">
   <div class="container-v1">
      <!-- Banner -->
     <div class="class12-banner">
-      <img src="{{ Storage::url('assets/images/program.png') }}" alt="Foundation Coaching Program">
+      <img src="{{ Storage::url('assets/images/program.png') }}" alt="Secondary school science and math Foundation coaching program at Newton's Academy, Mulund" title="Foundation Coaching Program Banner">
     </div>
 
   </div>
@@ -16,7 +47,7 @@
   <div class="container-v1">
 
    
-    <h2 class="class12-title">Foundation Course for 8th, 9th & 10th Grade - Mulund, Mumbai</h2>
+    <h1 class="class12-title">Foundation Course for 8th, 9th & 10th Grade - Mulund, Mumbai</h1>
 
     <!-- TOP ROW -->
     <div class="row g-4 align-items-stretch">

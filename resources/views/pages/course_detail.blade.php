@@ -1,6 +1,20 @@
 @extends('layouts.app')
-
 @section('title', $course->title . " | Newton's Academy")
+@section('meta_description', Str::limit(strip_tags($course->about_text), 155))
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::courseSchema(
+    $course->title,
+    $course->about_text,
+    '2 Years',
+    'courses/' . $course->slug
+) !!}
+
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Courses' => 'courses',
+    $course->title => 'courses/' . $course->slug
+]) !!}
+@endsection
 
 @section('content')
 <main class="class12 pb-5">
@@ -14,7 +28,7 @@
                     @else
                         {{-- Fallback image if banner is missing --}}
                         <div class="bg-primary text-white d-flex align-items-center justify-content-center rounded-4" style="height: 300px; background: linear-gradient(135deg, #0b3c8a 0%, #155DFC 100%);">
-                            <h1 class="display-4 font-weight-bold">{{ $course->title }}</h1>
+                            <span class="display-4 font-weight-bold">{{ $course->title }}</span>
                         </div>
                     @endif
                 </div>
@@ -23,7 +37,7 @@
 
         <!-- Title Section -->
         <div class="mt-5 mb-4">
-             <h2 class="class12-title d-inline-block">{{ $course->title }}</h2>
+             <h1 class="class12-title d-inline-block" style="font-size: 32px;">{{ $course->title }}</h1>
         </div>
 
         <div class="row g-4 align-items-stretch">

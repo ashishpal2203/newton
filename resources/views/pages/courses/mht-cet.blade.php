@@ -1,13 +1,44 @@
 @extends('layouts.app')
 
 @section('title', "MHT-CET Coaching Classes in Mulund, Mumbai | Newton's Academy")
+@section('meta_description', 'Newton\'s Academy provides top MHT-CET coaching classes in Mulund West. Dedicated entrance training for Engineering & Pharmacy aspirants of Class XI & XII.')
+@section('meta_keywords', 'Best CET Classes in Mulund, MHT CET Coaching Mulund, Engineering Entrance Coaching Mulund, CET classes in Mumbai')
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::courseSchema(
+    "MHT-CET Coaching Classes",
+    "Comprehensive prep course for Maharashtra Common Entrance Test (MHT-CET) for Engineering and Pharmacy, focusing on board-aligned concepts and shortcuts.",
+    "2 Years",
+    "mht-cet-classes-in-mulund"
+) !!}
+
+{!! \App\Helpers\SeoHelper::faqSchema([
+    [
+        'question' => "What is the duration of the MHT-CET coaching in Mulund?",
+        'answer' => "The MHT-CET coaching classes at Newton's Academy is a 2-year classroom course for Class XI and XII science students."
+    ],
+    [
+        'question' => "Are board exam concepts aligned with MHT-CET coaching?",
+        'answer' => "Yes, since the MHT-CET exam is fully aligned with the Maharashtra HSC State Board syllabus, our classes integrate board preparations with CET shortcuts and speed test tactics."
+    ],
+    [
+        'question' => "Do you provide mock tests for MHT-CET preparation?",
+        'answer' => "Yes, we provide online and offline test series designed exactly on the latest MHT-CET computer-based test interface."
+    ]
+]) !!}
+
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Courses' => 'courses',
+    'MHT-CET Classes' => 'mht-cet-classes-in-mulund'
+]) !!}
+@endsection
 
 @section('content')
 <section class="class12">
   <div class="container-v1">
      <!-- Banner -->
     <div class="class12-banner">
-      <img src="{{ Storage::url('assets/images/program.png') }}" alt="MHT-CET Preparation">
+      <img src="{{ Storage::url('assets/images/program.png') }}" alt="MHT-CET engineering coaching classroom program at Newton's Academy, Mulund" title="MHT-CET Coaching Program Banner">
     </div>
 
   </div>
@@ -16,7 +47,7 @@
   <div class="container-v1">
 
    
-    <h2 class="class12-title">MHT-CET Coaching Classes in Mulund, Mumbai</h2>
+    <h1 class="class12-title">MHT-CET Coaching Classes in Mulund, Mumbai</h1>
 
     <!-- TOP ROW -->
     <div class="row g-4 align-items-stretch">

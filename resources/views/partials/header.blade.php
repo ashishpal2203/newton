@@ -4,13 +4,13 @@
     <div class="container-fluid">
 
       <!-- MOBILE LEFT HAMBURGER -->
-      <button class="btn d-lg-none me-2" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-        <img src="{{ Storage::url('assets/images/Icon.png') }}">
+      <button class="btn d-lg-none me-2" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-label="Open Navigation Menu">
+        <img src="{{ Storage::url('assets/images/Icon.png') }}" alt="Menu Icon">
       </button>
 
       <!-- LOGO (CENTER ON MOBILE) -->
-      <a class="navbar-brand mx-lg-0 mx-auto" href="{{ url('/') }}">
-        <img src="{{ Storage::url('assets/images/logo.png') }}" height="38" alt="Newton Academy">
+      <a class="navbar-brand mx-lg-0 mx-auto" href="{{ url('/') }}" aria-label="Newton's Academy Home Page">
+        <img src="{{ Storage::url('assets/images/logo.png') }}" height="38" alt="Newton's Academy Logo">
       </a>
 
       <!-- MOBILE RIGHT BLUE DOT -->
@@ -34,7 +34,7 @@
         <div class="d-flex gap-23">
           
          
-          <a href="tel:7304234055"><img src="{{ Storage::url('assets/images/call.png') }}"></a>
+          <a href="tel:7304234055" aria-label="Call Newton's Academy"><img src="{{ Storage::url('assets/images/call.png') }}" alt="Call Icon"></a>
          
             <a href="http://newtonsacademy.co.in/login.html" class="btn btn-light rounded-pill borderpill px-4 logincss">Login</a>
          

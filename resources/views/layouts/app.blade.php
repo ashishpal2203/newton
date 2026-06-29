@@ -13,6 +13,49 @@
             @endif
         </title>
 
+        <!-- Resource Hints / Performance -->
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+        <!-- SEO Metadata -->
+        <meta name="description" content="@yield('meta_description', 'Newton\'s Academy is Mulund\'s most trusted coaching institute for IIT-JEE, NEET, MHT-CET, XI-XII Boards, and Foundation coaching. Get top results with expert mentors.')">
+        <meta name="keywords" content="@yield('meta_keywords', 'Newtons Academy, Newtons Academy Mulund, Best Coaching Classes in Mulund, Best Classes in Mulund, Best JEE Classes in Mulund, Best CET Classes in Mulund, Best MHT CET Classes in Mulund, Best NEET Classes in Mulund, Top Coaching Institute in Mulund, Engineering Entrance Coaching Mulund, Science Coaching Mulund, 11th Science Classes Mulund, 12th Science Classes Mulund, IIT Coaching Mulund, Medical Entrance Coaching Mulund')">
+        <meta name="robots" content="@yield('robots', 'index, follow')">
+        <link rel="canonical" href="@yield('canonical', url()->current())">
+        <meta name="theme-color" content="#1e4fd8">
+
+        <!-- Open Graph / Social SEO -->
+        <meta property="og:type" content="@yield('og_type', 'website')">
+        <meta property="og:title" content="@yield('title', 'Best Coaching Classes in Mulund Mumbai | Newton\'s Academy')">
+        <meta property="og:description" content="@yield('meta_description', 'Newton\'s Academy is Mulund\'s most trusted coaching institute for IIT-JEE, NEET, MHT-CET, XI-XII Boards, and Foundation coaching. Get top results with expert mentors.')">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:site_name" content="Newton's Academy">
+        <meta property="og:image" content="@yield('og_image', asset('assets/images/about-us-header.jpeg'))">
+        <meta property="og:image:alt" content="Newton's Academy logo and students">
+        <meta property="og:locale" content="en_IN">
+
+        <!-- Twitter Card Metadata -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="@yield('title', 'Best Coaching Classes in Mulund Mumbai | Newton\'s Academy')">
+        <meta name="twitter:description" content="@yield('meta_description', 'Newton\'s Academy is Mulund\'s most trusted coaching institute for IIT-JEE, NEET, MHT-CET, XI-XII Boards, and Foundation coaching.')">
+        <meta name="twitter:image" content="@yield('og_image', asset('assets/images/about-us-header.jpeg'))">
+
+        <!-- Apple & Mobile Web App Meta -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="Newton's Academy">
+
+        <!-- Structured Data (JSON-LD) -->
+        {!! \App\Helpers\SeoHelper::localBusinessSchema() !!}
+        {!! \App\Helpers\SeoHelper::websiteSchema() !!}
+        @yield('json_ld_schema')
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

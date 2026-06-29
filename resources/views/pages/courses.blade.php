@@ -1,13 +1,21 @@
 @extends('layouts.app')
 
-@section('title', "Our Courses | Newton's Academy")
+@section('title', "Coaching Programs & Courses in Mulund, Mumbai | Newton's Academy")
+@section('meta_description', 'Explore our comprehensive coaching programs at Newton\'s Academy, Mulund West: IIT-JEE (Mains/Advanced), NEET, MHT-CET, 11th & 12th Science boards, and Foundation courses.')
+@section('meta_keywords', 'Newton\'s Academy courses, JEE classes Mulund, NEET coaching Zaver road, MHT-CET Mumbai, Foundation school tuitions')
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Courses' => 'courses'
+]) !!}
+@endsection
 
 @section('content')
 <section class="">
   <div class="container-v1">
     <div class="">
       <div class="courses-wrapper text-center">
-        <h3 class="section-title mb-2">Courses We Offer</h3>
+        <h1 class="section-title mb-2 fw-bold" style="color: #0032A2; font-size: 32px;">Courses We Offer</h1>
         <p class="text-muted mb-5">From JEE Mains & Advanced to MHT-CET, Science (XI–XII), Foundation (8th–10th),  and School Section <br> Newton's Academy, Mulund, has the right program for every student.</p>
 
         <div class="courses-grid text-start">

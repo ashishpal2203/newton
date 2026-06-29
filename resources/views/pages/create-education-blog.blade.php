@@ -1,4 +1,16 @@
 @extends('layouts.app')
+
+@section('title', $blog->title . " | Newton's Academy Blog")
+@section('meta_description', Str::limit(strip_tags($blog->short_description ?? $blog->content), 150))
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::blogSchema($blog) !!}
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Blog' => 'blog',
+    $blog->title => 'blog/' . $blog->slug
+]) !!}
+@endsection
+
 @section('content')
 
 <div class="container-v1">

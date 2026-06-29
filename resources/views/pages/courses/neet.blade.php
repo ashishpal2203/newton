@@ -1,13 +1,44 @@
 @extends('layouts.app')
 
 @section('title', "NEET Coaching Classes in Mulund, Mumbai | Newton's Academy")
+@section('meta_description', 'Newton\'s Academy is the premier NEET coaching classes in Mulund West. High-performance 2-year coaching for Class XI & XII PCB medical aspirants.')
+@section('meta_keywords', 'Best NEET Classes in Mulund, Medical Entrance Coaching Mulund, NEET Biology Classes Mulund, NEET classes in Mumbai')
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::courseSchema(
+    "NEET Coaching Classes",
+    "A comprehensive, exam-focused 2-year classroom program for NEET medical entrance exams, focusing on Biology, Physics, and Chemistry integrated with Board exams.",
+    "2 Years",
+    "neet-classes-in-mulund"
+) !!}
+
+{!! \App\Helpers\SeoHelper::faqSchema([
+    [
+        'question' => "What is the duration of the NEET classes at Newton's Academy?",
+        'answer' => "The NEET Medical Entrance coaching at Newton's Academy is a comprehensive 2-year classroom course for Class XI and XII science students."
+    ],
+    [
+        'question' => "How is the Biology syllabus covered for NEET?",
+        'answer' => "Since Biology carries half the total marks in NEET, we provide intensive chapter-wise NCERT learning, visualization of human anatomy, and extensive MCQ practice."
+    ],
+    [
+        'question' => "Do you provide test series for NEET prep?",
+        'answer' => "Yes, we run regular weekly and monthly mock tests modeled on the latest NEET negative marking pattern, followed by in-depth analysis."
+    ]
+]) !!}
+
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Courses' => 'courses',
+    'NEET Classes' => 'neet-classes-in-mulund'
+]) !!}
+@endsection
 
 @section('content')
 <section class="class12">
   <div class="container-v1">
      <!-- Banner -->
     <div class="class12-banner">
-      <img src="{{ Storage::url('assets/images/program.png') }}" alt="NEET Preparation">
+      <img src="{{ Storage::url('assets/images/program.png') }}" alt="NEET medical coaching classroom program at Newton's Academy, Mulund" title="NEET Coaching Program Banner">
     </div>
 
   </div>
@@ -16,7 +47,7 @@
   <div class="container-v1">
 
    
-    <h2 class="class12-title">NEET Coaching Classes in Mulund, Mumbai</h2>
+    <h1 class="class12-title">NEET Coaching Classes in Mulund, Mumbai</h1>
 
     <!-- TOP ROW -->
     <div class="row g-4 align-items-stretch">

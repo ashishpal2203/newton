@@ -1,2 +1,5 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://newtonsacademy.com/sitemap.xml
+

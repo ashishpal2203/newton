@@ -1,6 +1,38 @@
 @extends('layouts.app')
 @section('title', "Newton's Academy - Best Coaching Classes in Mulund Mumbai | JEE | NEET | MHT-CET")
+
+@section('meta_description', 'Newton\'s Academy in Mulund West, Mumbai is a leading coaching institute offering premier classroom coaching for IIT-JEE (Mains & Advanced), NEET, MHT-CET, XI & XII Science, and Foundation courses.')
+@section('meta_keywords', 'Newtons Academy, Newtons Academy Mulund, Best Coaching Classes in Mulund, Best Classes in Mulund, Best JEE Classes in Mulund, Best CET Classes in Mulund, Best NEET Classes in Mulund, Science Classes Mulund, 11th Science Classes Mulund, 12th Science Classes Mulund, IIT Coaching Mulund')
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::faqSchema([
+    [
+        'question' => "What coaching programs does Newton's Academy offer in Mulund?",
+        'answer' => "Newton's Academy offers targeted entrance coaching and board preparation courses: IIT-JEE (Mains & Advanced), NEET Medical Entrance, MHT-CET, 11th & 12th Science boards (HSC), and secondary school foundation courses (8th to 10th)."
+    ],
+    [
+        'question' => "Why is Newton's Academy the best coaching class in Mulund?",
+        'answer' => "Newton's Academy is recognized as a premier coaching classes in Mulund because of our expert faculty team, structured study notes, 24/7 dedicated support, limited batch sizes (up to 30 students), and consistently high results in board and entrance exams."
+    ],
+    [
+        'question' => "Where is Newton's Academy located?",
+        'answer' => "Our learning center is located at 1st floor Shrinivas Building, Opposite Kothari Farsan, Zaver Road, Mulund West, Mumbai, Maharashtra 400080. We welcome students from Mulund, Bhandup, Nahur, Thane, and surrounding areas."
+    ],
+    [
+        'question' => "Does the academy support integrated HSC Board preparation?",
+        'answer' => "Yes, our curriculum integrates HSC Board preparation with competitive exam coachings (JEE, NEET, MHT-CET) so students can balance board syllabus along with entrance exam strategies."
+    ],
+    [
+        'question' => "What is the average batch size at your Mulund coaching centre?",
+        'answer' => "We maintain a strict limit of 30 students per batch to ensure our senior teachers can focus on individual performance tracking and interactive conceptual learning."
+    ]
+]) !!}
+@endsection
+
 @section('content')
+
+<!-- Semantic H1 Heading for SEO & Accessibility -->
+<h1 class="visually-hidden">Newton's Academy - Best Coaching Classes in Mulund Mumbai | IIT-JEE, NEET & Science coaching</h1>
 
 @if(session('success'))
 <div class="alert alert-success alert-dismissible fade show text-center rounded-0 mb-0" role="alert" style="z-index: 9999;">
@@ -67,7 +99,7 @@
 
     <div class="">
       <div class="stats-mob">
-        <img src="{{ Storage::url('assets/images/counting.png') }}" class="img-fluid">
+        <img src="{{ Storage::url('assets/images/counting.png') }}" class="img-fluid" alt="Newton's Academy Student Performance Statistics and Countings">
       </div>
 
       <div class="stats-box">
@@ -251,7 +283,7 @@
             <a href="{{ route('study-material.years', ['class' => $class->slug]) }}">
               <div class="course-card">
                 <div class="icon-box {{ ['blue', 'purple', 'yellow', 'green'][$loop->index % 4] }}">
-                  <img src="{{ Storage::url($class->icon) }}" class="img-fluid">
+                  <img src="{{ Storage::url($class->icon) }}" class="img-fluid" alt="{{ $class->name }} Study Materials Icon" title="{{ $class->name }} Study Materials">
                 </div>
                 <h4 class="study-class-name">{{ $class->name }}</h4>
                 {{-- <span>{{ $class->studyYears->count() }} Years</span> --}}
@@ -315,7 +347,7 @@
         <div class="col-md-4">
             <div class="why-card center">
               <div class="icon">
-                <img src="{{ Storage::url('assets/images/cap.png') }}" class="img-fluid">
+                <img src="{{ Storage::url('assets/images/cap.png') }}" class="img-fluid" alt="Expert Faculty Graduation Cap Icon">
               </div>
               <h5>Expert Faculty</h5>
               <p>Learn from IIT/AIIMS graduates</p>
@@ -326,7 +358,7 @@
         <div class="col-md-4">
             <div class="why-card center">
               <div class="icon">
-                <img src="{{ Storage::url('assets/images/book.png') }}" class="img-fluid">
+                <img src="{{ Storage::url('assets/images/book.png') }}" class="img-fluid" alt="Structured Study Material Book Icon">
               </div>
               <h5>Structured Material</h5>
               <p>Comprehensive study material</p>
@@ -337,7 +369,7 @@
         <div class="col-md-4">
             <div class="why-card center">
               <div class="icon">
-                <img src="{{ Storage::url('assets/images/whychoos.png') }}" class="img-fluid">
+                <img src="{{ Storage::url('assets/images/whychoos.png') }}" class="img-fluid" alt="24/7 Support and Mentorship Icon">
               </div>
               <h5>24/7 Doubt Support</h5>
               <p>Get doubts resolved anytime</p>
@@ -467,9 +499,87 @@
     </div>
   </div>
 
+  <!-- FAQ SECTION FOR GOOGLE & AI ENGINES -->
+  <section class="faq-section py-5" style="background-color: #f8f9fa;">
+    <div class="container-v1 container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold" style="color: #0032A2; font-size: 32px;">Frequently Asked Questions (FAQs)</h2>
+        <p class="text-muted">Common questions about admissions, coaching, and classes at Newton's Academy, Mulund.</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="accordion" id="faqAccordion">
+            
+            <div class="accordion-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden" style="border-radius: 10px !important;">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font-size: 16px; background-color: #fff;">
+                  What coaching programs does Newton's Academy offer in Mulund?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body bg-white text-muted" style="font-size: 15px; line-height: 1.6;">
+                  Newton's Academy offers targeted entrance coaching and board preparation courses: IIT-JEE (Mains & Advanced), NEET Medical Entrance, MHT-CET, XI & XII Science boards (HSC), and secondary school foundation courses (8th to 10th).
+                </div>
+              </div>
+            </div>
 
+            <div class="accordion-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden" style="border-radius: 10px !important;">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="font-size: 16px; background-color: #fff;">
+                  Why is Newton's Academy the best coaching class in Mulund?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body bg-white text-muted" style="font-size: 15px; line-height: 1.6;">
+                  Newton's Academy is recognized as a premier coaching classes in Mulund because of our expert faculty team, structured study notes, 24/7 dedicated support, limited batch sizes (up to 30 students), and consistently high results in board and entrance exams.
+                </div>
+              </div>
+            </div>
 
+            <div class="accordion-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden" style="border-radius: 10px !important;">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-size: 16px; background-color: #fff;">
+                  Where is Newton's Academy located?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body bg-white text-muted" style="font-size: 15px; line-height: 1.6;">
+                  Our learning center is located at <strong>1st floor Shrinivas Building, Opposite Kothari Farsan, Zaver Road, Mulund West, Mumbai, Maharashtra 400080</strong>. We welcome students from Mulund, Bhandup, Nahur, Thane, and surrounding areas.
+                </div>
+              </div>
+            </div>
 
+            <div class="accordion-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden" style="border-radius: 10px !important;">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="font-size: 16px; background-color: #fff;">
+                  Does the academy support integrated HSC Board preparation?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                <div class="accordion-body bg-white text-muted" style="font-size: 15px; line-height: 1.6;">
+                  Yes, our curriculum integrates HSC Board preparation with competitive exam coachings (JEE, NEET, MHT-CET) so students can balance board syllabus along with entrance exam strategies.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden" style="border-radius: 10px !important;">
+              <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" style="font-size: 16px; background-color: #fff;">
+                  What is the average batch size at your Mulund coaching centre?
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                <div class="accordion-body bg-white text-muted" style="font-size: 15px; line-height: 1.6;">
+                  We maintain a strict limit of <strong>30 students per batch</strong> to ensure our senior teachers can focus on individual performance tracking and interactive conceptual learning.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="latest-updates container-v1 ">
     <div class="container">

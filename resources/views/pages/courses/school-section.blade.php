@@ -1,13 +1,44 @@
 @extends('layouts.app')
 
 @section('title', "CBSE ICSE SSC School Tuitions in Mulund, Mumbai | Newton's Academy")
+@section('meta_description', 'Newton\'s Academy is the top-rated school coaching classes in Mulund West. Quality school tuitions for Class 8th, 9th, & 10th (CBSE, ICSE, SSC).')
+@section('meta_keywords', 'School Tuitions Mulund, Best Classes in Mulund, CBSE Coaching Mulund, ICSE classes Mulund, SSC board coaching Zaver road')
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::courseSchema(
+    "School Section Tuitions (Class 8th to 10th)",
+    "Personalized, board-specific academic coaching and school tuitions for secondary school students under CBSE, ICSE, and SSC board guidelines.",
+    "1 Year",
+    "school-section-classes-in-mulund"
+) !!}
+
+{!! \App\Helpers\SeoHelper::faqSchema([
+    [
+        'question' => "Which boards are supported in the school section classes in Mulund?",
+        'answer' => "We provide targeted tuition classes for CBSE, ICSE, and Maharashtra State Board (SSC) syllabus."
+    ],
+    [
+        'question' => "Which classes are included in the School Section tuition program?",
+        'answer' => "Our school section program is designed for secondary school students in Class 8, 9, and 10."
+    ],
+    [
+        'question' => "What subjects are covered under school coaching?",
+        'answer' => "We cover the entire core syllabus: Mathematics, Science (Physics, Chemistry, Biology), Social Studies, and English."
+    ]
+]) !!}
+
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Courses' => 'courses',
+    'School Section' => 'school-section-classes-in-mulund'
+]) !!}
+@endsection
 
 @section('content')
 <section class="class12">
   <div class="container-v1">
      <!-- Banner -->
     <div class="class12-banner">
-      <img src="{{ Storage::url('assets/images/program.png') }}" alt="School Section Program">
+      <img src="{{ Storage::url('assets/images/program.png') }}" alt="School tuitions and coaching program for CBSE, ICSE, SSC boards at Newton's Academy, Mulund" title="School Section Coaching Program Banner">
     </div>
 
   </div>
@@ -16,7 +47,7 @@
   <div class="container-v1">
 
    
-    <h2 class="class12-title">School Tuitions for Class 8th to 10th - CBSE | ICSE | SSC | Mulund, Mumbai</h2>
+    <h1 class="class12-title">School Tuitions for Class 8th to 10th - CBSE | ICSE | SSC | Mulund, Mumbai</h1>
 
     <!-- TOP ROW -->
     <div class="row g-4 align-items-stretch">

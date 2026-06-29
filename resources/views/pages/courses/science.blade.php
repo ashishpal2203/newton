@@ -1,13 +1,44 @@
 @extends('layouts.app')
 
 @section('title', "Science Coaching for Class 11 & 12 in Mulund, Mumbai | Newton's Academy")
+@section('meta_description', 'Newton\'s Academy is the leading 11th & 12th Science coaching classes in Mulund West. In-depth preparation for HSC State Board with expert teachers.')
+@section('meta_keywords', '11th Science Classes Mulund, 12th Science Classes Mulund, Science Coaching Mulund, HSC classes Mulund')
+
+@section('json_ld_schema')
+{!! \App\Helpers\SeoHelper::courseSchema(
+    "XI & XII Science Coaching (HSC Board)",
+    "Comprehensive academic tutoring program for Class 11 and 12 Science under the Maharashtra State Board (HSC), covering PCMB concepts in detail.",
+    "2 Years",
+    "science-classes-in-mulund"
+) !!}
+
+{!! \App\Helpers\SeoHelper::faqSchema([
+    [
+        'question' => "Which boards are covered in the 11th and 12th Science coaching classes in Mulund?",
+        'answer' => "Our XI & XII Science coaching program is fully aligned with the Maharashtra State Board (HSC) curriculum."
+    ],
+    [
+        'question' => "What subjects are taught in the Science classes?",
+        'answer' => "We offer comprehensive tutoring in Physics, Chemistry, Mathematics, and Biology (PCMB)."
+    ],
+    [
+        'question' => "Is there assistance for college board practical exams and project works?",
+        'answer' => "Yes, our expert faculty mentors guide students through HSC practical examinations and board project guidelines."
+    ]
+]) !!}
+
+{!! \App\Helpers\SeoHelper::breadcrumbSchema([
+    'Courses' => 'courses',
+    'Science Classes' => 'science-classes-in-mulund'
+]) !!}
+@endsection
 
 @section('content')
 <section class="class12">
   <div class="container-v1">
      <!-- Banner -->
     <div class="class12-banner">
-      <img src="{{ Storage::url('assets/images/program.png') }}" alt="Science Coaching Program">
+      <img src="{{ Storage::url('assets/images/program.png') }}" alt="11th and 12th Science junior college coaching program at Newton's Academy, Mulund" title="Science Coaching Program Banner">
     </div>
 
   </div>
@@ -16,7 +47,7 @@
   <div class="container-v1">
 
    
-    <h2 class="class12-title">Science Coaching for Class XI & XII in Mulund, Mumbai</h2>
+    <h1 class="class12-title">Science Coaching for Class XI & XII in Mulund, Mumbai</h1>
 
     <!-- TOP ROW -->
     <div class="row g-4 align-items-stretch">

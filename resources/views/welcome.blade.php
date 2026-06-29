@@ -7,8 +7,8 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=1" type="image/x-icon">
+        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}?v=1">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

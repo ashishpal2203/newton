@@ -4,6 +4,7 @@ namespace App\Helpers;
 
 use App\Models\Review;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class SeoHelper
 {

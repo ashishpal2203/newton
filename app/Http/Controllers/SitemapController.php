@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\Gallery;
 use App\Models\StudyClass;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class SitemapController extends Controller
 {

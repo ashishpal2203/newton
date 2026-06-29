@@ -8,8 +8,8 @@
     <title>{{ config('app.name', 'Newton Academy CMS') }} - Admin</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=1" type="image/x-icon">
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}?v=1">
+    <link rel="shortcut icon" href="{{ Storage::url('favicon.ico') }}?v=1" type="image/x-icon">
+    <link class="favicon-png" rel="icon" type="image/png" href="{{ Storage::url('favicon.png') }}?v=1">
 
     <!-- Google Font: Inter -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">

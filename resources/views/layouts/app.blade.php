@@ -53,8 +53,8 @@
         @yield('json_ld_schema')
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=1" type="image/x-icon">
-        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}?v=1">
+        <link rel="shortcut icon" href="{{ Storage::url('favicon.ico') }}?v=1" type="image/x-icon">
+        <link rel="icon" type="image/png" href="{{ Storage::url('favicon.png') }}?v=1">
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
